@@ -1,0 +1,638 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		523032C218CAA54C00C6DCC5 /* BattleMechanics.m in Sources */ = {isa = PBXBuildFile; fileRef = 523032C118CAA54C00C6DCC5 /* BattleMechanics.m */; };
+		5236E01418C1DA8800AFE2AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01318C1DA8800AFE2AF /* Foundation.framework */; };
+		5236E01618C1DA8800AFE2AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01518C1DA8800AFE2AF /* CoreGraphics.framework */; };
+		5236E01818C1DA8800AFE2AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01718C1DA8800AFE2AF /* UIKit.framework */; };
+		5236E01A18C1DA8800AFE2AF /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01918C1DA8800AFE2AF /* SpriteKit.framework */; };
+		5236E02018C1DA8800AFE2AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5236E01E18C1DA8800AFE2AF /* InfoPlist.strings */; };
+		5236E02218C1DA8800AFE2AF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5236E02118C1DA8800AFE2AF /* main.m */; };
+		5236E02618C1DA8800AFE2AF /* GCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5236E02518C1DA8800AFE2AF /* GCAppDelegate.m */; };
+		5236E02918C1DA8800AFE2AF /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5236E02718C1DA8800AFE2AF /* Main_iPhone.storyboard */; };
+		5236E02C18C1DA8800AFE2AF /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5236E02A18C1DA8800AFE2AF /* Main_iPad.storyboard */; };
+		5236E02F18C1DA8800AFE2AF /* GCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5236E02E18C1DA8800AFE2AF /* GCViewController.m */; };
+		5236E03218C1DA8800AFE2AF /* GCMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5236E03118C1DA8800AFE2AF /* GCMyScene.m */; };
+		5236E03418C1DA8800AFE2AF /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 5236E03318C1DA8800AFE2AF /* Spaceship.png */; };
+		5236E03618C1DA8800AFE2AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5236E03518C1DA8800AFE2AF /* Images.xcassets */; };
+		5236E03D18C1DA8800AFE2AF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E03C18C1DA8800AFE2AF /* XCTest.framework */; };
+		5236E03E18C1DA8800AFE2AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01318C1DA8800AFE2AF /* Foundation.framework */; };
+		5236E03F18C1DA8800AFE2AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01718C1DA8800AFE2AF /* UIKit.framework */; };
+		5236E04718C1DA8800AFE2AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5236E04518C1DA8800AFE2AF /* InfoPlist.strings */; };
+		5236E04918C1DA8800AFE2AF /* GalacticConquestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5236E04818C1DA8800AFE2AF /* GalacticConquestTests.m */; };
+		5236E06B18C1ED6000AFE2AF /* Trifid_Nebula@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5236E06418C1ED6000AFE2AF /* Trifid_Nebula@2x.png */; };
+		5236E06D18C1ED6000AFE2AF /* DPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 5236E06818C1ED6000AFE2AF /* DPad.m */; };
+		5236E06E18C1ED6000AFE2AF /* FMMParallaxNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5236E06A18C1ED6000AFE2AF /* FMMParallaxNode.m */; };
+		5236E07518C1EE4200AFE2AF /* bg_front_spacedust.png in Resources */ = {isa = PBXBuildFile; fileRef = 5236E07018C1EE4200AFE2AF /* bg_front_spacedust.png */; };
+		5236E07618C1EE4200AFE2AF /* bg_galaxy.png in Resources */ = {isa = PBXBuildFile; fileRef = 5236E07118C1EE4200AFE2AF /* bg_galaxy.png */; };
+		5236E07718C1EE4200AFE2AF /* bg_planetsunrise.png in Resources */ = {isa = PBXBuildFile; fileRef = 5236E07218C1EE4200AFE2AF /* bg_planetsunrise.png */; };
+		5236E07818C1EE4200AFE2AF /* bg_spacialanomaly.png in Resources */ = {isa = PBXBuildFile; fileRef = 5236E07318C1EE4200AFE2AF /* bg_spacialanomaly.png */; };
+		5236E07918C1EE4200AFE2AF /* bg_spacialanomaly2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5236E07418C1EE4200AFE2AF /* bg_spacialanomaly2.png */; };
+		528B1BD818C9C6A500AEF8DD /* GCMyScene+MiniMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 528B1BD718C9C6A500AEF8DD /* GCMyScene+MiniMap.m */; };
+		528B1BDC18C9C6F700AEF8DD /* AstrialObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 528B1BDB18C9C6F700AEF8DD /* AstrialObjectManager.m */; };
+		52A1BC9218D0BD5E00A3B49C /* thruster1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 52A1BC9018D0BD5E00A3B49C /* thruster1.sks */; };
+		52A1BC9318D0BD5E00A3B49C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 52A1BC9118D0BD5E00A3B49C /* spark.png */; };
+		52C82FA418CFC12800764713 /* Spaceship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C82FA318CFC12800764713 /* Spaceship@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5236E04018C1DA8800AFE2AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5236E00818C1DA8800AFE2AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5236E00F18C1DA8800AFE2AF;
+			remoteInfo = GalacticConquest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		523032C018CAA54C00C6DCC5 /* BattleMechanics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleMechanics.h; sourceTree = "<group>"; };
+		523032C118CAA54C00C6DCC5 /* BattleMechanics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleMechanics.m; sourceTree = "<group>"; };
+		5236E01018C1DA8800AFE2AF /* GalacticConquest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalacticConquest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5236E01318C1DA8800AFE2AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5236E01518C1DA8800AFE2AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5236E01718C1DA8800AFE2AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5236E01918C1DA8800AFE2AF /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		5236E01D18C1DA8800AFE2AF /* GalacticConquest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GalacticConquest-Info.plist"; sourceTree = "<group>"; };
+		5236E01F18C1DA8800AFE2AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5236E02118C1DA8800AFE2AF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5236E02318C1DA8800AFE2AF /* GalacticConquest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GalacticConquest-Prefix.pch"; sourceTree = "<group>"; };
+		5236E02418C1DA8800AFE2AF /* GCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCAppDelegate.h; sourceTree = "<group>"; };
+		5236E02518C1DA8800AFE2AF /* GCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCAppDelegate.m; sourceTree = "<group>"; };
+		5236E02818C1DA8800AFE2AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		5236E02B18C1DA8800AFE2AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		5236E02D18C1DA8800AFE2AF /* GCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCViewController.h; sourceTree = "<group>"; };
+		5236E02E18C1DA8800AFE2AF /* GCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCViewController.m; sourceTree = "<group>"; };
+		5236E03018C1DA8800AFE2AF /* GCMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCMyScene.h; sourceTree = "<group>"; };
+		5236E03118C1DA8800AFE2AF /* GCMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCMyScene.m; sourceTree = "<group>"; };
+		5236E03318C1DA8800AFE2AF /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		5236E03518C1DA8800AFE2AF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5236E03B18C1DA8800AFE2AF /* GalacticConquestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GalacticConquestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5236E03C18C1DA8800AFE2AF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		5236E04418C1DA8800AFE2AF /* GalacticConquestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GalacticConquestTests-Info.plist"; sourceTree = "<group>"; };
+		5236E04618C1DA8800AFE2AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5236E04818C1DA8800AFE2AF /* GalacticConquestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalacticConquestTests.m; sourceTree = "<group>"; };
+		5236E06418C1ED6000AFE2AF /* Trifid_Nebula@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Trifid_Nebula@2x.png"; sourceTree = "<group>"; };
+		5236E06718C1ED6000AFE2AF /* DPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPad.h; sourceTree = "<group>"; };
+		5236E06818C1ED6000AFE2AF /* DPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPad.m; sourceTree = "<group>"; };
+		5236E06918C1ED6000AFE2AF /* FMMParallaxNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMMParallaxNode.h; sourceTree = "<group>"; };
+		5236E06A18C1ED6000AFE2AF /* FMMParallaxNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMMParallaxNode.m; sourceTree = "<group>"; };
+		5236E07018C1EE4200AFE2AF /* bg_front_spacedust.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_front_spacedust.png; sourceTree = "<group>"; };
+		5236E07118C1EE4200AFE2AF /* bg_galaxy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_galaxy.png; sourceTree = "<group>"; };
+		5236E07218C1EE4200AFE2AF /* bg_planetsunrise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_planetsunrise.png; sourceTree = "<group>"; };
+		5236E07318C1EE4200AFE2AF /* bg_spacialanomaly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_spacialanomaly.png; sourceTree = "<group>"; };
+		5236E07418C1EE4200AFE2AF /* bg_spacialanomaly2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_spacialanomaly2.png; sourceTree = "<group>"; };
+		528B1BD618C9C6A500AEF8DD /* GCMyScene+MiniMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GCMyScene+MiniMap.h"; path = "HUD/GCMyScene+MiniMap.h"; sourceTree = "<group>"; };
+		528B1BD718C9C6A500AEF8DD /* GCMyScene+MiniMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GCMyScene+MiniMap.m"; path = "HUD/GCMyScene+MiniMap.m"; sourceTree = "<group>"; };
+		528B1BDA18C9C6F700AEF8DD /* AstrialObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AstrialObjectManager.h; sourceTree = "<group>"; };
+		528B1BDB18C9C6F700AEF8DD /* AstrialObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AstrialObjectManager.m; sourceTree = "<group>"; };
+		52A1BC9018D0BD5E00A3B49C /* thruster1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = thruster1.sks; sourceTree = "<group>"; };
+		52A1BC9118D0BD5E00A3B49C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		52C82FA318CFC12800764713 /* Spaceship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spaceship@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5236E00D18C1DA8800AFE2AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5236E01618C1DA8800AFE2AF /* CoreGraphics.framework in Frameworks */,
+				5236E01818C1DA8800AFE2AF /* UIKit.framework in Frameworks */,
+				5236E01A18C1DA8800AFE2AF /* SpriteKit.framework in Frameworks */,
+				5236E01418C1DA8800AFE2AF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5236E03818C1DA8800AFE2AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5236E03D18C1DA8800AFE2AF /* XCTest.framework in Frameworks */,
+				5236E03F18C1DA8800AFE2AF /* UIKit.framework in Frameworks */,
+				5236E03E18C1DA8800AFE2AF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		523032BF18CAA53300C6DCC5 /* GameMechanics */ = {
+			isa = PBXGroup;
+			children = (
+				523032C018CAA54C00C6DCC5 /* BattleMechanics.h */,
+				523032C118CAA54C00C6DCC5 /* BattleMechanics.m */,
+			);
+			path = GameMechanics;
+			sourceTree = "<group>";
+		};
+		5236E00718C1DA8800AFE2AF = {
+			isa = PBXGroup;
+			children = (
+				5236E01B18C1DA8800AFE2AF /* GalacticConquest */,
+				5236E04218C1DA8800AFE2AF /* GalacticConquestTests */,
+				5236E01218C1DA8800AFE2AF /* Frameworks */,
+				5236E01118C1DA8800AFE2AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5236E01118C1DA8800AFE2AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5236E01018C1DA8800AFE2AF /* GalacticConquest.app */,
+				5236E03B18C1DA8800AFE2AF /* GalacticConquestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5236E01218C1DA8800AFE2AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5236E01318C1DA8800AFE2AF /* Foundation.framework */,
+				5236E01518C1DA8800AFE2AF /* CoreGraphics.framework */,
+				5236E01718C1DA8800AFE2AF /* UIKit.framework */,
+				5236E01918C1DA8800AFE2AF /* SpriteKit.framework */,
+				5236E03C18C1DA8800AFE2AF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5236E01B18C1DA8800AFE2AF /* GalacticConquest */ = {
+			isa = PBXGroup;
+			children = (
+				523032BF18CAA53300C6DCC5 /* GameMechanics */,
+				528B1BD918C9C6B600AEF8DD /* HUD */,
+				5236E06218C1ED6000AFE2AF /* Resources */,
+				528B1BDD18C9CC9C00AEF8DD /* Scenes */,
+				5236E02718C1DA8800AFE2AF /* Main_iPhone.storyboard */,
+				5236E02A18C1DA8800AFE2AF /* Main_iPad.storyboard */,
+				5236E02418C1DA8800AFE2AF /* GCAppDelegate.h */,
+				5236E02518C1DA8800AFE2AF /* GCAppDelegate.m */,
+				5236E02D18C1DA8800AFE2AF /* GCViewController.h */,
+				5236E02E18C1DA8800AFE2AF /* GCViewController.m */,
+				528B1BDA18C9C6F700AEF8DD /* AstrialObjectManager.h */,
+				528B1BDB18C9C6F700AEF8DD /* AstrialObjectManager.m */,
+				5236E03318C1DA8800AFE2AF /* Spaceship.png */,
+				52C82FA318CFC12800764713 /* Spaceship@2x.png */,
+				5236E03518C1DA8800AFE2AF /* Images.xcassets */,
+				5236E01C18C1DA8800AFE2AF /* Supporting Files */,
+			);
+			path = GalacticConquest;
+			sourceTree = "<group>";
+		};
+		5236E01C18C1DA8800AFE2AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5236E01D18C1DA8800AFE2AF /* GalacticConquest-Info.plist */,
+				5236E01E18C1DA8800AFE2AF /* InfoPlist.strings */,
+				5236E02118C1DA8800AFE2AF /* main.m */,
+				5236E02318C1DA8800AFE2AF /* GalacticConquest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5236E04218C1DA8800AFE2AF /* GalacticConquestTests */ = {
+			isa = PBXGroup;
+			children = (
+				5236E04818C1DA8800AFE2AF /* GalacticConquestTests.m */,
+				5236E04318C1DA8800AFE2AF /* Supporting Files */,
+			);
+			path = GalacticConquestTests;
+			sourceTree = "<group>";
+		};
+		5236E04318C1DA8800AFE2AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5236E04418C1DA8800AFE2AF /* GalacticConquestTests-Info.plist */,
+				5236E04518C1DA8800AFE2AF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5236E06218C1ED6000AFE2AF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				52A1BC8F18D0BD3A00A3B49C /* particles */,
+				5236E06F18C1EE4200AFE2AF /* test_backgrounds */,
+				5236E06318C1ED6000AFE2AF /* background */,
+				5236E06618C1ED6000AFE2AF /* Classes */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5236E06318C1ED6000AFE2AF /* background */ = {
+			isa = PBXGroup;
+			children = (
+				5236E06418C1ED6000AFE2AF /* Trifid_Nebula@2x.png */,
+			);
+			path = background;
+			sourceTree = "<group>";
+		};
+		5236E06618C1ED6000AFE2AF /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5236E06718C1ED6000AFE2AF /* DPad.h */,
+				5236E06818C1ED6000AFE2AF /* DPad.m */,
+				5236E06918C1ED6000AFE2AF /* FMMParallaxNode.h */,
+				5236E06A18C1ED6000AFE2AF /* FMMParallaxNode.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		5236E06F18C1EE4200AFE2AF /* test_backgrounds */ = {
+			isa = PBXGroup;
+			children = (
+				5236E07018C1EE4200AFE2AF /* bg_front_spacedust.png */,
+				5236E07118C1EE4200AFE2AF /* bg_galaxy.png */,
+				5236E07218C1EE4200AFE2AF /* bg_planetsunrise.png */,
+				5236E07318C1EE4200AFE2AF /* bg_spacialanomaly.png */,
+				5236E07418C1EE4200AFE2AF /* bg_spacialanomaly2.png */,
+			);
+			path = test_backgrounds;
+			sourceTree = "<group>";
+		};
+		528B1BD918C9C6B600AEF8DD /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				528B1BD618C9C6A500AEF8DD /* GCMyScene+MiniMap.h */,
+				528B1BD718C9C6A500AEF8DD /* GCMyScene+MiniMap.m */,
+			);
+			name = HUD;
+			sourceTree = "<group>";
+		};
+		528B1BDD18C9CC9C00AEF8DD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				5236E03018C1DA8800AFE2AF /* GCMyScene.h */,
+				5236E03118C1DA8800AFE2AF /* GCMyScene.m */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		52A1BC8F18D0BD3A00A3B49C /* particles */ = {
+			isa = PBXGroup;
+			children = (
+				52A1BC9018D0BD5E00A3B49C /* thruster1.sks */,
+				52A1BC9118D0BD5E00A3B49C /* spark.png */,
+			);
+			path = particles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5236E00F18C1DA8800AFE2AF /* GalacticConquest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5236E04C18C1DA8800AFE2AF /* Build configuration list for PBXNativeTarget "GalacticConquest" */;
+			buildPhases = (
+				5236E00C18C1DA8800AFE2AF /* Sources */,
+				5236E00D18C1DA8800AFE2AF /* Frameworks */,
+				5236E00E18C1DA8800AFE2AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GalacticConquest;
+			productName = GalacticConquest;
+			productReference = 5236E01018C1DA8800AFE2AF /* GalacticConquest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5236E03A18C1DA8800AFE2AF /* GalacticConquestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5236E04F18C1DA8800AFE2AF /* Build configuration list for PBXNativeTarget "GalacticConquestTests" */;
+			buildPhases = (
+				5236E03718C1DA8800AFE2AF /* Sources */,
+				5236E03818C1DA8800AFE2AF /* Frameworks */,
+				5236E03918C1DA8800AFE2AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5236E04118C1DA8800AFE2AF /* PBXTargetDependency */,
+			);
+			name = GalacticConquestTests;
+			productName = GalacticConquestTests;
+			productReference = 5236E03B18C1DA8800AFE2AF /* GalacticConquestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5236E00818C1DA8800AFE2AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GC;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = NadohsInc;
+				TargetAttributes = {
+					5236E03A18C1DA8800AFE2AF = {
+						TestTargetID = 5236E00F18C1DA8800AFE2AF;
+					};
+				};
+			};
+			buildConfigurationList = 5236E00B18C1DA8800AFE2AF /* Build configuration list for PBXProject "GalacticConquest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5236E00718C1DA8800AFE2AF;
+			productRefGroup = 5236E01118C1DA8800AFE2AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5236E00F18C1DA8800AFE2AF /* GalacticConquest */,
+				5236E03A18C1DA8800AFE2AF /* GalacticConquestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5236E00E18C1DA8800AFE2AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5236E07718C1EE4200AFE2AF /* bg_planetsunrise.png in Resources */,
+				5236E06B18C1ED6000AFE2AF /* Trifid_Nebula@2x.png in Resources */,
+				5236E03418C1DA8800AFE2AF /* Spaceship.png in Resources */,
+				52C82FA418CFC12800764713 /* Spaceship@2x.png in Resources */,
+				5236E03618C1DA8800AFE2AF /* Images.xcassets in Resources */,
+				5236E02C18C1DA8800AFE2AF /* Main_iPad.storyboard in Resources */,
+				52A1BC9218D0BD5E00A3B49C /* thruster1.sks in Resources */,
+				5236E07918C1EE4200AFE2AF /* bg_spacialanomaly2.png in Resources */,
+				5236E02918C1DA8800AFE2AF /* Main_iPhone.storyboard in Resources */,
+				5236E07818C1EE4200AFE2AF /* bg_spacialanomaly.png in Resources */,
+				52A1BC9318D0BD5E00A3B49C /* spark.png in Resources */,
+				5236E07518C1EE4200AFE2AF /* bg_front_spacedust.png in Resources */,
+				5236E07618C1EE4200AFE2AF /* bg_galaxy.png in Resources */,
+				5236E02018C1DA8800AFE2AF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5236E03918C1DA8800AFE2AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5236E04718C1DA8800AFE2AF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5236E00C18C1DA8800AFE2AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5236E06D18C1ED6000AFE2AF /* DPad.m in Sources */,
+				5236E06E18C1ED6000AFE2AF /* FMMParallaxNode.m in Sources */,
+				5236E03218C1DA8800AFE2AF /* GCMyScene.m in Sources */,
+				528B1BDC18C9C6F700AEF8DD /* AstrialObjectManager.m in Sources */,
+				5236E02618C1DA8800AFE2AF /* GCAppDelegate.m in Sources */,
+				523032C218CAA54C00C6DCC5 /* BattleMechanics.m in Sources */,
+				5236E02F18C1DA8800AFE2AF /* GCViewController.m in Sources */,
+				5236E02218C1DA8800AFE2AF /* main.m in Sources */,
+				528B1BD818C9C6A500AEF8DD /* GCMyScene+MiniMap.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5236E03718C1DA8800AFE2AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5236E04918C1DA8800AFE2AF /* GalacticConquestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5236E04118C1DA8800AFE2AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5236E00F18C1DA8800AFE2AF /* GalacticConquest */;
+			targetProxy = 5236E04018C1DA8800AFE2AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5236E01E18C1DA8800AFE2AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5236E01F18C1DA8800AFE2AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5236E02718C1DA8800AFE2AF /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5236E02818C1DA8800AFE2AF /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		5236E02A18C1DA8800AFE2AF /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5236E02B18C1DA8800AFE2AF /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		5236E04518C1DA8800AFE2AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5236E04618C1DA8800AFE2AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5236E04A18C1DA8800AFE2AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5236E04B18C1DA8800AFE2AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5236E04D18C1DA8800AFE2AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GalacticConquest/GalacticConquest-Prefix.pch";
+				INFOPLIST_FILE = "GalacticConquest/GalacticConquest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5236E04E18C1DA8800AFE2AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GalacticConquest/GalacticConquest-Prefix.pch";
+				INFOPLIST_FILE = "GalacticConquest/GalacticConquest-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		5236E05018C1DA8800AFE2AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GalacticConquest.app/GalacticConquest";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GalacticConquest/GalacticConquest-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "GalacticConquestTests/GalacticConquestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		5236E05118C1DA8800AFE2AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/GalacticConquest.app/GalacticConquest";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GalacticConquest/GalacticConquest-Prefix.pch";
+				INFOPLIST_FILE = "GalacticConquestTests/GalacticConquestTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5236E00B18C1DA8800AFE2AF /* Build configuration list for PBXProject "GalacticConquest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5236E04A18C1DA8800AFE2AF /* Debug */,
+				5236E04B18C1DA8800AFE2AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5236E04C18C1DA8800AFE2AF /* Build configuration list for PBXNativeTarget "GalacticConquest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5236E04D18C1DA8800AFE2AF /* Debug */,
+				5236E04E18C1DA8800AFE2AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5236E04F18C1DA8800AFE2AF /* Build configuration list for PBXNativeTarget "GalacticConquestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5236E05018C1DA8800AFE2AF /* Debug */,
+				5236E05118C1DA8800AFE2AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5236E00818C1DA8800AFE2AF /* Project object */;
+}

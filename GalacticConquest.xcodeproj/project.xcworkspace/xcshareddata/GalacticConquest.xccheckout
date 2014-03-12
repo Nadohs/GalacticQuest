@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2378B558-B0F1-4AE1-B552-6337EB657873</string>
+	<key>IDESourceControlProjectName</key>
+	<string>GalacticConquest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FA27A9DE-EFBD-40BE-B4EA-39CB75EE53EA</key>
+		<string>https://github.com/Nadohs/GalacticQuest.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>GalacticConquest.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FA27A9DE-EFBD-40BE-B4EA-39CB75EE53EA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Nadohs/GalacticQuest.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FA27A9DE-EFBD-40BE-B4EA-39CB75EE53EA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FA27A9DE-EFBD-40BE-B4EA-39CB75EE53EA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>GalacticConquest</string>
+		</dict>
+	</array>
+</dict>
+</plist>
