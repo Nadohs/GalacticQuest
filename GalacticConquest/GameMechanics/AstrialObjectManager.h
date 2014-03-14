@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "HitParticle.h"
 
 @interface AstrialObjectManager : NSObject
 
 @property (nonatomic) SKNode *background;
 @property (nonatomic) NSMutableArray *astrialObjects;
+@property (nonatomic) NSMutableArray *collidableAstrials;
 
 -(void)addCollidable:(AstrialObject*)astrialObj;
 -(void)addNonCollidable:(AstrialObject*)astrialObj;

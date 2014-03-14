@@ -10,4 +10,12 @@
 
 @implementation HitParticle
 
+-(id)init{
+    self = [super init];
+    if (self) {
+        _hitPoints = 10;
+    }
+    return self;
+}
+
 @end

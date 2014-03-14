@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
+#import "AstrialObject.h"
 
 @interface CollisionEvent : NSObject
+@property (nonatomic) float collisionTime;
+@property (nonatomic) AstrialObject *astrial1;
+@property (nonatomic) AstrialObject *astrial2;
+@property (nonatomic) CGPoint a1Velocity;
+@property (nonatomic) CGPoint a2Velocity;
 
 @end

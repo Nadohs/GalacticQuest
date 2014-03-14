@@ -9,5 +9,6 @@
 #import "AstrialObject.h"
 
 @interface HitParticle : AstrialObject
+@property (nonatomic)float hitPoints;
 
 @end

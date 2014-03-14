@@ -9,6 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "DPad.h"
 #import "FMMParallaxNode.h"
+#import "FiringModule.h"
 
 @interface GCMyScene : SKScene
 @property (nonatomic) SKNode *hud;
@@ -22,6 +23,7 @@
 @property (nonatomic) CGPoint mapCenter;
 @property (nonatomic) float quatrantSize;
 
+//HUD Objects
 @property (nonatomic) SKSpriteNode *stopPedal;
 
 @property (nonatomic) float mapBreakLeft;
@@ -29,12 +31,18 @@
 @property (nonatomic) float mapBreakUp;
 @property (nonatomic) float mapBreakDown;
 
+//Background
 @property (nonatomic) FMMParallaxNode *parallaxNodeBackgrounds;
 
 @property (nonatomic) float currentAngle;
 
+
+//Projectile Manager
+@property (nonatomic) FiringModule *bulletBox;
+
 @property (nonatomic) SKEmitterNode *burstNode;
 
 -(NSArray*)astrialObjects;
+-(CGPoint)shipPosition;
 
 @end

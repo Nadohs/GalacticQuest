@@ -10,5 +10,8 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface GCViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *inventoryButton;
+- (IBAction)inventoryButtonPressed:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UITableView *inventoryListTableView;
 @end

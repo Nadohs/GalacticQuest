@@ -10,4 +10,12 @@
 
 @interface AstrialObject : SKSpriteNode
 
+@property (nonatomic) CGPoint velocity;
+@property (nonatomic) mmIconShape mmShape;
+@property (nonatomic) float angle;
+@property (nonatomic) SKEmitterNode *burstNode;
+-(void)takeHit:(float)hitPoints location:(CGPoint)hitLocation;
+//-(void)takeHit:(float)hitPoints;
+@property (nonatomic) NSTimer *endPlode;
+
 @end

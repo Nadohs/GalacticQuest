@@ -17,9 +17,15 @@
     return (NSArray*)[[AstrialObjectManager sharedManager] astrialObjects];
 }
 
+-(CGPoint)shipPosition{
+   return  [self convertPoint:[self childNodeWithName:@"playerShip"].position
+                toNode:self.parallaxNodeBackgrounds];
+}
+
+#pragma mark - Game Backgrounds
 
 -(void)setupBackground{
-#pragma mark - Game Backgrounds
+
     //1
     //NSArray *parallaxBackgroundNames = @[@"Trifid_Nebula@2x.png"];
     CGSize planetSizes = CGSizeMake(2000.0, 1333.0);
@@ -31,6 +37,8 @@
     [self addChild:_parallaxNodeBackgrounds];
 }
 
+
+#pragma mark - Setup Methods
 
 -(void)setupDpad{
     
@@ -62,7 +70,7 @@
 -(void)setupFireButton{
     SKSpriteNode *fireButton = [SKSpriteNode spriteNodeWithImageNamed:@"fire_button"];
     fireButton.position = CGPointMake(_stopPedal.position.x, _stopPedal.position.y+fireButton.size.height);
-    [_stopPedal setName:@"fireButton"];
+    [fireButton setName:@"fireButton"];
     [self.hud addChild:fireButton];
 }
 
@@ -75,27 +83,27 @@
 }
 
 
--(void)addTitleLabel{
-    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    myLabel.text = @"Hello, World!";
-    myLabel.fontSize = 30;
-    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                   CGRectGetMidY(self.frame));
-    [self addChild:myLabel];
-}
+//-(void)addTitleLabel{
+//    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+//    myLabel.text = @"Hello, World!";
+//    myLabel.fontSize = 30;
+//    myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
+//                                   CGRectGetMidY(self.frame));
+//    [self addChild:myLabel];
+//}
 
 
--(void)setupItem{
-     SKSpriteNode  *sun = [SKSpriteNode spriteNodeWithImageNamed:@"round_fog"];
-     sun.color = [SKColor redColor];
-     sun.colorBlendFactor = 0.5;
-    
-    [sun setSize:CGSizeMake(900, 900)];
-     sun.position = CGPointMake(self.size.width/2+300, self.size.height/2);
-    [sun setName:@"theSun"];
-    
-    [self.parallaxNodeBackgrounds addChild:sun];
-}
+//-(void)setupItem{
+//     SKSpriteNode  *sun = [SKSpriteNode spriteNodeWithImageNamed:@"round_fog"];
+//     sun.color = [SKColor redColor];
+//     sun.colorBlendFactor = 0.5;
+//    
+//    [sun setSize:CGSizeMake(900, 900)];
+//     sun.position = CGPointMake(self.size.width/2+300, self.size.height/2);
+//    [sun setName:@"theSun"];
+//    
+//    [self.parallaxNodeBackgrounds addChild:sun];
+//}
 
 
 -(void)setupShipToLocation:(CGPoint)location{
@@ -109,6 +117,8 @@
     
 }
 
+#pragma mark - init method
+
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
@@ -118,16 +128,23 @@
         [self setQuatrantSize:30000];
         [self setupBackground];
         [self setupDpad];
-        [self setupShipToLocation:CGPointMake(self.size.width/2,
-                                              self.size.height/2)];
-       [self addThruster];
-        [self setupItem];
+        [self setupShipToLocation:CGPointMake(self.size.width  / 2,
+                                              self.size.height / 2)];
+        [self addThruster];
         [self setupHUD];
 
         [self buildMiniMap];
         [self buildSpaceStuff];
+        _bulletBox = [[FiringModule alloc]init];
     }
     return self;
+}
+
+
+#pragma mark - Touch Events
+
+-(void)fireButtonPressed{
+    [self.bulletBox addBasicProjectileAngle:self.currentAngle startPoint:self.shipPosition];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -146,9 +163,12 @@
         [self.dPad forceStop];
     }
     if ([node.name isEqualToString:@"fireButton"]) {
-        [self.dPad forceStop];
+        [self fireButtonPressed];
     }
 }
+
+
+#pragma mark - random generated stuff
 
 -(UIColor*)randomColor{
     int q= arc4random()%15;
@@ -224,7 +244,6 @@
 -(void)buildSpaceStuff{
     [[AstrialObjectManager sharedManager] setBackground:self.parallaxNodeBackgrounds];
     
-    
     //Build SUNS
     float q = arc4random() % 100;
     
@@ -248,7 +267,7 @@
     
         [sun setSize:CGSizeMake(sunSize,sunSize)];
         
-        [[AstrialObjectManager sharedManager] addCollidable:sun];
+        [[AstrialObjectManager sharedManager] addNonCollidable:sun];
     }
     
     //BUILD ASTROIDS
@@ -279,6 +298,11 @@
     
     [self startTrackingAstrials];
 }
+
+
+
+#pragma mark - Particle Stuff
+
 -(void)addThruster{
 
     NSString *burstPath =
@@ -299,14 +323,23 @@
 
 }
 
+
+#pragma mark - update method
+
 -(void)update:(CFTimeInterval)currentTime {
-   // NSLog(@"PLR POS IS %@",NSStringFromCGPoint([self convertPoint:[self childNodeWithName:@"playerShip"].position
+    
+    [self.bulletBox update:currentTime];
+    
+    // NSLog(@"PLR POS IS %@",NSStringFromCGPoint([self convertPoint:[self childNodeWithName:@"playerShip"].position
     //                                                              toNode:_parallaxNodeBackgrounds]));
-   // NSLog(@"SUN2 POS IS %@",NSStringFromCGPoint([_parallaxNodeBackgrounds childNodeWithName:@"theSun"].position));
+    // NSLog(@"SUN2 POS IS %@",NSStringFromCGPoint([_parallaxNodeBackgrounds childNodeWithName:@"theSun"].position));
+    
     CGPoint newVelocity = self.dPad.velocity;
     
     float newAngle = self.dPad.degrees;
+    
     newAngle -=90;
+    
     NSLog(@"angle %f",newAngle);
     NSLog(@"rotation angle dif == %f",(self.currentAngle - newAngle));
     

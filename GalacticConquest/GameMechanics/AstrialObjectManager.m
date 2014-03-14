@@ -8,6 +8,7 @@
 
 #import "AstrialObjectManager.h"
 
+
 @implementation AstrialObjectManager
 
 //-(id)init{
@@ -21,19 +22,27 @@
 
 -(void)addCollidable:(AstrialObject*)astrialObj{
     [self.background addChild:astrialObj];
+    [self.collidableAstrials addObject:astrialObj];
     [self.astrialObjects addObject:astrialObj];
 }
 
+
 -(void)addNonCollidable:(AstrialObject*)astrialObj {
     [self.background addChild:astrialObj];
-    [self.astrialObjects addObject:astrialObj];
+    if (![astrialObj isKindOfClass:HitParticle.class]){
+        [self.astrialObjects addObject:astrialObj];
+    }else{
+        NSLog(@"added hitParticle to astrials GOOD");
+    }
 }
+
 
 #pragma mark - Inititialize Stuff -
 
 -(void)singletonInit
 {
-    self.astrialObjects = [[NSMutableArray alloc]init];
+    self.astrialObjects     = [[NSMutableArray alloc]init];
+    self.collidableAstrials = [[NSMutableArray alloc]init];
 }
 
 
@@ -47,6 +56,7 @@
     });
     return sharedInstance;
 }
+
 
 + (id) allocWithZone:(NSZone *)zone {
     return [AstrialObjectManager sharedManager];

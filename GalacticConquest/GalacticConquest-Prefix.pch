@@ -13,4 +13,18 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+    //miniMap iconType
+    typedef NSInteger mmIconShape;
+    enum {
+        mmSmallSquare,
+        mmBigSquare,
+        mmSmallTriange,
+        mmBigTriange,
+        mmSmallCircle,
+        mmBigCircle
+    };
+    #import "AstrialObject.h"
+
+
+
 #endif

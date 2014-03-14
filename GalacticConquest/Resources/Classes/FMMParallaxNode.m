@@ -129,8 +129,8 @@
 
     self.position = CGPointMake(self.position.x+amtToMove.x, self.position.y+amtToMove.y);
     SKNode *backgroundScreen = self.parent;
-    NSLog(@"SUN POS IS %@",NSStringFromCGPoint([self convertPoint:[self childNodeWithName:@"theSun"].position
-                                                           toNode:backgroundScreen]));
+  //  NSLog(@"SUN POS IS %@",NSStringFromCGPoint([self convertPoint:[self childNodeWithName:@"theSun"].position
+//                                                           toNode:backgroundScreen]));
 
     
     
