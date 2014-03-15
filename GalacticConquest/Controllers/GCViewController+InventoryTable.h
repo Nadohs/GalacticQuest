@@ -8,6 +8,6 @@
 
 #import "GCViewController.h"
 
-@interface GCViewController (InventoryTable)
-
+@interface UIViewController (InventoryTable)
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 @end

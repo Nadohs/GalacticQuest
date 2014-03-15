@@ -7,6 +7,8 @@
 //
 
 #import "AstrialObject.h"
+#import "InventoryManager.h"
+#import "AstrialObjectManager.h"
 
 @implementation AstrialObject
 
@@ -16,34 +18,43 @@
 //
 //}
 
--(void)takeHit:(float)hitPoints location:(CGPoint)hitLocation{
-    if ([self.children containsObject:self.burstNode]) {
-        [self.endPlode invalidate];
-         self.endPlode = nil;
-        [self removeExplosion];
-        for (SKEmitterNode*part in [self children]){
-            [part removeFromParent];
-        }
+-(void)reduceSize{
+    if (self.size.height-20<=0 ) {
+    //    [[AstrialObjectManager sharedManager] killAstrial:self];
+        return;
     }
-    
-    NSString *burstPath =
-    [[NSBundle mainBundle]
-     pathForResource:@"explosion" ofType:@"sks"];
-    
-    self.burstNode =
-    [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
-    [self.burstNode setNumParticlesToEmit:1000];
-    [self.parent addChild:self.burstNode];
-    
-    [self.burstNode setPosition:hitLocation];
+    CGSize newSize = self.size;
+    newSize.width -=20;
+    newSize.height -=20;
+    [self setSize:newSize];
+}
 
-    self.endPlode = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(removeExplosion) userInfo:nil repeats:NO];
+-(void)getMinned{
+    [[InventoryManager sharedManager] mineRandomOre];
+}
+
+-(void)takeHit:(float)hitPoints location:(CGPoint)hitLocation{
+//    [self removeExplosion];
+    NSString *burstPath =  [[NSBundle mainBundle] pathForResource:@"explosion" ofType:@"sks"];
+    
+     self.burstNode = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
+    [self.burstNode setNumParticlesToEmit:250];
+    [self.burstNode setPosition:hitLocation];
+    
+    if (![self.children containsObject:self.burstNode]) {
+        [self.parent addChild:self.burstNode];
+    }
+    else{
+        [self.burstNode resetSimulation];
+    }
+    [self reduceSize];
+    [self getMinned];
 }
 
 
 -(void)removeExplosion{
     [self.burstNode removeFromParent];
-    self.burstNode = nil;
+     self.burstNode = nil;
 }
 
 @end

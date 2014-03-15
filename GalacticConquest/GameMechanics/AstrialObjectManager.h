@@ -18,6 +18,7 @@
 
 -(void)addCollidable:(AstrialObject*)astrialObj;
 -(void)addNonCollidable:(AstrialObject*)astrialObj;
+-(void)killAstrial:(AstrialObject*)astrialObj;
 
 + (AstrialObjectManager *) sharedManager;
 @end

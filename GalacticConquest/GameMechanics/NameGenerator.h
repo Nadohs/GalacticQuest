@@ -10,4 +10,6 @@
 
 @interface NameGenerator : NSObject
 
++(NSArray*)getRandomNameListQuantity:(int)num;
+
 @end

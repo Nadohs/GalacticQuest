@@ -9,9 +9,13 @@
 #import "GCViewController.h"
 #import "GCMyScene.h"
 
+
 @implementation GCViewController
 
-
+-(void)reloadTableStuff{
+//        [self.inventoryListTableView reloadInputViews];
+    [self.inventoryListTableView reloadData];
+}
 
 
 
@@ -36,6 +40,14 @@
     CGRect frame = self.inventoryListTableView.frame;
     frame.size.height = 0;
     [self.inventoryListTableView setFrame:frame];
+    
+     NSNotification* notificationDel = [NSNotification notificationWithName:@"reloadInventory" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:notificationDel];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTableStuff)
+                                                 name:@"reloadInventory"
+                                               object:nil];
+
 }
 
 

@@ -36,6 +36,13 @@
     }
 }
 
+-(void)killAstrial:(AstrialObject*)astrialObj{
+    [astrialObj removeFromParent];
+    [self.collidableAstrials removeObject:astrialObj];
+    [self.astrialObjects removeObject:astrialObj];
+    
+}
+
 
 #pragma mark - Inititialize Stuff -
 

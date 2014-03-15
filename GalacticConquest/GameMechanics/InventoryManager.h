@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NameGenerator.h"
 
 @interface InventoryManager : NSObject
+//objects are dictionaries
+@property (nonatomic) NSMutableArray *oreList;
+@property (nonatomic) NSArray *inventory;
+
++(InventoryManager *) sharedManager;
+-(void)mineRandomOre;
 
 @end

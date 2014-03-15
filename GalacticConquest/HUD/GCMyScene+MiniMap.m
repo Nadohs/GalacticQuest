@@ -85,6 +85,13 @@
     float mapBreakLeft = self.mapCenter.x - self.quatrantSize/2;
     float mapBreakUp = self.mapCenter.y + self.quatrantSize/2;
     
+    for (SKSpriteNode*dot in [self.miniMap children]){
+        if (dot != (SKSpriteNode*)[self.miniMap childNodeWithName:@"mmItem0"]) {
+            [dot removeFromParent];
+        }
+    }
+    
+    
     for (AstrialObject*astrialObj in self.astrialObjects) {
         SKSpriteNode *newNode =[self astrialIconFromAstrial:astrialObj];
         
