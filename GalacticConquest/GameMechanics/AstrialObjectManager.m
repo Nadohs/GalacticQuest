@@ -11,19 +11,33 @@
 
 @implementation AstrialObjectManager
 
-//-(id)init{
-//    self = [super init];
-//    if (self) {
-//        self.astrialObjects = [[NSMutableArray alloc]init];
-//    }
-//    return self;
-//}
+#pragma mark -
 
+-(void)recalculateLocalCollidablesFrom:(CGPoint)local{
+    float collideRange = 2000;
+    NSMutableArray *tempLocalCollidables = [[NSMutableArray alloc]init];
+    CGRect localFrame = CGRectMake(local.x-collideRange/2,
+                                   local.y-collideRange/2,
+                                   collideRange,
+                                   collideRange);
+    
+    
+    for (AstrialObject *astrial in self.collidableAstrials) {
+        if (CGRectContainsPoint(localFrame, astrial.position)) {
+            [tempLocalCollidables addObject:astrial];
+        }
+    }
+    
+    _localCollidables = tempLocalCollidables;
+}
+
+
+#pragma mark - add/remove Astrials
 
 -(void)addCollidable:(AstrialObject*)astrialObj{
     [self.background addChild:astrialObj];
-    [self.collidableAstrials addObject:astrialObj];
-    [self.astrialObjects addObject:astrialObj];
+    [_collidableAstrials addObject:astrialObj];
+    [_astrialObjects addObject:astrialObj];
 }
 
 
@@ -38,18 +52,29 @@
 
 -(void)killAstrial:(AstrialObject*)astrialObj{
     [astrialObj removeFromParent];
-    [self.collidableAstrials removeObject:astrialObj];
-    [self.astrialObjects removeObject:astrialObj];
+    [_collidableAstrials removeObject:astrialObj];
+    [_astrialObjects removeObject:astrialObj];
     
 }
 
+#pragma mark - getters/setters
 
-#pragma mark - Inititialize Stuff -
+-(NSArray*)collidableAstrials{
+    return [NSArray arrayWithArray:_collidableAstrials];
+}
+
+-(NSArray*)localCollidables{
+    return [NSArray arrayWithArray:_localCollidables];
+}
+
+
+#pragma mark - Inititialize Stuff
 
 -(void)singletonInit
 {
-    self.astrialObjects     = [[NSMutableArray alloc]init];
-    self.collidableAstrials = [[NSMutableArray alloc]init];
+    _astrialObjects     = [[NSMutableArray alloc]init];
+    _collidableAstrials = [[NSMutableArray alloc]init];
+    _localCollidables   = [[NSMutableArray alloc]init];
 }
 
 

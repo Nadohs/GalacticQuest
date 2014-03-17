@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5219F62918D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */; };
 		523032C218CAA54C00C6DCC5 /* BattleMechanics.m in Sources */ = {isa = PBXBuildFile; fileRef = 523032C118CAA54C00C6DCC5 /* BattleMechanics.m */; };
 		5236E01418C1DA8800AFE2AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01318C1DA8800AFE2AF /* Foundation.framework */; };
 		5236E01618C1DA8800AFE2AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01518C1DA8800AFE2AF /* CoreGraphics.framework */; };
@@ -63,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5219F62718D7AD2800F26EF7 /* GCMyScene+RandomGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCMyScene+RandomGeneration.h"; sourceTree = "<group>"; };
+		5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCMyScene+RandomGeneration.m"; sourceTree = "<group>"; };
 		523032C018CAA54C00C6DCC5 /* BattleMechanics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleMechanics.h; sourceTree = "<group>"; };
 		523032C118CAA54C00C6DCC5 /* BattleMechanics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleMechanics.m; sourceTree = "<group>"; };
 		5236E01018C1DA8800AFE2AF /* GalacticConquest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalacticConquest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,6 +310,8 @@
 			children = (
 				52973B0818D24BC500E5D7CE /* GCMyScene.h */,
 				52973B0918D24BC500E5D7CE /* GCMyScene.m */,
+				5219F62718D7AD2800F26EF7 /* GCMyScene+RandomGeneration.h */,
+				5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 				52973B1118D25B9100E5D7CE /* FiringModule.m in Sources */,
 				52A1BCA318D114CB00A3B49C /* CollisionEvent.m in Sources */,
 				5263D8E018D3C4A300591974 /* InventoryManager.m in Sources */,
+				5219F62918D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m in Sources */,
 				52A1BCA018D113EA00A3B49C /* EnemyShip.m in Sources */,
 				52973B0A18D24BC500E5D7CE /* GCMyScene.m in Sources */,
 				5236E02618C1DA8800AFE2AF /* GCAppDelegate.m in Sources */,

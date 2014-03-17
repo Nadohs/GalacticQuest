@@ -11,12 +11,14 @@
 #import "FMMParallaxNode.h"
 #import "FiringModule.h"
 
+
 @interface GCMyScene : SKScene
 @property (nonatomic) SKNode *hud;
 @property (nonatomic) DPad *dPad;
 
 //MainShip Properties
 @property (nonatomic) AstrialObject *ship;
+@property (nonatomic) CGPoint shipStartPos;
 
 //MiniMap Properties
 @property (nonatomic) SKSpriteNode *miniMap;
