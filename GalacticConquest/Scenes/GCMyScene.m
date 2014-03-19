@@ -8,10 +8,13 @@
 
 #import "GCMyScene.h"
 #import "GCMyScene+MiniMap.h"
-#import "GCMyScene+RandomizedObjects.h"
+#import "GCMyScene+RandomGeneration.h"
 #import "AstrialObjectManager.h"
 
+
 @implementation GCMyScene
+
+#pragma mark - getters
 
 
 -(NSArray*)astrialObjects{
@@ -23,6 +26,7 @@
                 toNode:self.parallaxNodeBackgrounds];
 }
 
+
 #pragma mark - Game Backgrounds
 
 -(void)setupBackground{
@@ -33,8 +37,12 @@
     _parallaxNodeBackgrounds = [[FMMParallaxNode alloc] initWithBackground:@"Trifid_Nebula@2x.png"
                                                                        size:planetSizes
                                                        pointsPerSecondSpeed:125.0];
-     _parallaxNodeBackgrounds.position = CGPointMake((self.size.width/2.0)-planetSizes.width/2, (self.size.height/2.0)-planetSizes.height/2);
+    
+     _parallaxNodeBackgrounds.position = CGPointMake((self.size.width/2.0)-planetSizes.width/2,
+                                                     (self.size.height/2.0)-planetSizes.height/2);
+    
     [_parallaxNodeBackgrounds randomizeNodesPositions];
+    
     [self addChild:_parallaxNodeBackgrounds];
 }
 
@@ -93,6 +101,7 @@
      self.ship.position = location;
     [self addChild:self.ship];
     [self.ship setName:@"playerShip"];
+    [self setShipStartPos:self.shipPosition];
     
 }
 
@@ -115,6 +124,7 @@
         [self buildMiniMap];
         [self buildSpaceStuff];
         _bulletBox = [[FiringModule alloc]init];
+        [[AstrialObjectManager sharedManager] recalculateLocalCollidablesFrom:self.shipPosition];
     }
     return self;
 }
@@ -172,10 +182,24 @@
 
 #pragma mark - update method
 
+-(void)checkShipDrift:(float)drift{
+    CGPoint curPos = self.shipPosition;
+    if (drift > fabs(curPos.x - self.shipStartPos.x)) {
+        return;
+    }
+    if (drift > fabs(curPos.y - self.shipStartPos.y)) {
+        return;
+    }
+    self.shipStartPos = curPos;
+    [[AstrialObjectManager sharedManager] recalculateLocalCollidablesFrom:self.shipPosition];
+}
+
 -(void)update:(CFTimeInterval)currentTime {
-    
+
     [self.bulletBox update:currentTime];
     
+    [self checkShipDrift:500];
+
     CGPoint newVelocity = self.dPad.velocity;
     
     float newAngle = self.dPad.degrees;

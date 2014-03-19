@@ -14,11 +14,14 @@
 
 @property (nonatomic) SKNode *background;
 @property (nonatomic) NSMutableArray *astrialObjects;
+@property (nonatomic) NSMutableArray *localCollidables;
 @property (nonatomic) NSMutableArray *collidableAstrials;
 
 -(void)addCollidable:(AstrialObject*)astrialObj;
 -(void)addNonCollidable:(AstrialObject*)astrialObj;
 -(void)killAstrial:(AstrialObject*)astrialObj;
+
+-(void)recalculateLocalCollidablesFrom:(CGPoint)local;
 
 + (AstrialObjectManager *) sharedManager;
 @end
