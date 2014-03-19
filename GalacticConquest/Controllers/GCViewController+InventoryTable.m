@@ -11,8 +11,7 @@
 
 @implementation GCViewController (InventoryTable)
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
@@ -24,8 +23,7 @@
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *MyIdentifier = @"inventoryItem";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
@@ -40,8 +38,10 @@
     [(UILabel*)[cell viewWithTag:111] setText:[oreSet objectForKey:@"name"]];
     [(UILabel*)[cell viewWithTag:112] setText:@"an ore"];
     [(UILabel*)[cell viewWithTag:211] setText:[[oreSet objectForKey:@"value"] stringValue]];
-    NSLog(@"%@ ore quantity",[[oreSet objectForKey:@"quantity"] stringValue]);
     [(UILabel*)[cell viewWithTag:311] setText:[[oreSet objectForKey:@"quantity"] stringValue]];
+    
+    NSLog(@"%@ ore quantity",[[oreSet objectForKey:@"quantity"] stringValue]);
+    
     return cell;
 }
 
