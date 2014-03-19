@@ -50,6 +50,7 @@
 		52A1BCA018D113EA00A3B49C /* EnemyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1BC9F18D113EA00A3B49C /* EnemyShip.m */; };
 		52A1BCA318D114CB00A3B49C /* CollisionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1BCA218D114CB00A3B49C /* CollisionEvent.m */; };
 		52C82FA418CFC12800764713 /* Spaceship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C82FA318CFC12800764713 /* Spaceship@2x.png */; };
+		52DB3E7618DA514C007169C5 /* GCMyScene+RandomizedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DB3E7518DA514C007169C5 /* GCMyScene+RandomizedObjects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,8 @@
 		52A1BCA118D114CB00A3B49C /* CollisionEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionEvent.h; sourceTree = "<group>"; };
 		52A1BCA218D114CB00A3B49C /* CollisionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionEvent.m; sourceTree = "<group>"; };
 		52C82FA318CFC12800764713 /* Spaceship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spaceship@2x.png"; sourceTree = "<group>"; };
+		52DB3E7418DA514C007169C5 /* GCMyScene+RandomizedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCMyScene+RandomizedObjects.h"; sourceTree = "<group>"; };
+		52DB3E7518DA514C007169C5 /* GCMyScene+RandomizedObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCMyScene+RandomizedObjects.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +310,8 @@
 			children = (
 				52973B0818D24BC500E5D7CE /* GCMyScene.h */,
 				52973B0918D24BC500E5D7CE /* GCMyScene.m */,
+				52DB3E7418DA514C007169C5 /* GCMyScene+RandomizedObjects.h */,
+				52DB3E7518DA514C007169C5 /* GCMyScene+RandomizedObjects.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 				5236E02218C1DA8800AFE2AF /* main.m in Sources */,
 				528B1BD818C9C6A500AEF8DD /* GCMyScene+MiniMap.m in Sources */,
 				5263D8E318D3C61B00591974 /* NameGenerator.m in Sources */,
+				52DB3E7618DA514C007169C5 /* GCMyScene+RandomizedObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

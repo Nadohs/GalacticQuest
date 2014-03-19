@@ -13,13 +13,17 @@
 @implementation GCViewController
 
 -(void)reloadTableStuff{
-//        [self.inventoryListTableView reloadInputViews];
     [self.inventoryListTableView reloadData];
 }
 
 
 
 #pragma mark - Basic Setup Stuff
+
+-(void)manualUnload{
+    [self removeObserver:self forKeyPath:@"reloadInventory"];
+}
+
 
 - (void)viewDidLoad
 {
@@ -41,8 +45,8 @@
     frame.size.height = 0;
     [self.inventoryListTableView setFrame:frame];
     
-     NSNotification* notificationDel = [NSNotification notificationWithName:@"reloadInventory" object:self];
-    [[NSNotificationCenter defaultCenter] postNotification:notificationDel];
+     NSNotification* inventoryChangeNotification = [NSNotification notificationWithName:@"reloadInventory" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:inventoryChangeNotification];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadTableStuff)
                                                  name:@"reloadInventory"
@@ -55,6 +59,7 @@
 {
     return YES;
 }
+
 
 - (NSUInteger)supportedInterfaceOrientations
 {
@@ -70,6 +75,9 @@
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
 }
+
+#pragma mark - button action pressed
+
 
 - (IBAction)inventoryButtonPressed:(id)sender {
     CGRect frame = self.inventoryListTableView.frame;

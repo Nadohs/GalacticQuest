@@ -13,11 +13,6 @@
 @implementation AstrialObject
 
 
-
-//-(void)takeHit:(float)hitPoints{
-//
-//}
-
 -(void)reduceSize{
     if (self.size.height-20<=0 ) {
     //    [[AstrialObjectManager sharedManager] killAstrial:self];

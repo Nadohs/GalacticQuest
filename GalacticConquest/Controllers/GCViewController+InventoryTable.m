@@ -13,12 +13,12 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;    //count of section
+    return 1;
 }
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[[InventoryManager sharedManager] inventory] count];    //count number of row from counting array hear cataGorry is An Array
+    return [[[InventoryManager sharedManager] inventory] count];
 }
 
 

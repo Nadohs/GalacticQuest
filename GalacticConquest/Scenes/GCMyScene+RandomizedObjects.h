@@ -9,5 +9,7 @@
 #import "GCMyScene.h"
 
 @interface GCMyScene (RandomizedObjects)
-
+-(void)buildSpaceStuff;
+-(CGPoint)randomAstrialPosition;
+-(UIColor*)randomColor;
 @end
