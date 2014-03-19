@@ -142,15 +142,13 @@
         
         [[AstrialObjectManager sharedManager] addCollidable:astroid];
     }
-    
-    [self startTrackingAstrials];
+
     
     //BUILD SPACE STATIONS
-    //BUILD ASTROIDS
     q = arc4random() % 3;
     
     for (int i = 0; i<q; i++) {
-        AstrialObject  *spaceStation = [AstrialObject spriteNodeWithImageNamed:@"astroid"];
+        SpaceStation  *spaceStation = [SpaceStation spriteNodeWithImageNamed:@"space_station"];
         spaceStation.color = self.randomColor;
         spaceStation.colorBlendFactor = 0.5;
         [spaceStation setPosition:self.randomAstrialPosition];
@@ -166,11 +164,14 @@
         else{
             [spaceStation setMmShape:mmCustomImage];
         }
+        [spaceStation setMmImageName:@"stationIcon"];
         
         [spaceStation setSize:CGSizeMake(sunSize,sunSize)];
         
         [[AstrialObjectManager sharedManager] addCollidable:spaceStation];
     }
+    
+    [self startTrackingAstrials];
 }
 
 

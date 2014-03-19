@@ -28,11 +28,13 @@
     [[self.miniMap childNodeWithName:@"mmItem0" ] runAction:action1 completion:^{
         [[self.miniMap childNodeWithName:@"mmItem0" ] runAction:action2];
     }];
+    
     [[self.miniMap childNodeWithName:@"mmItem0" ] setZPosition:2.0];
     [[self.miniMap childNodeWithName:@"mmItem0" ] setZRotation:self.ship.zRotation];
 }
 
 -(void)startTrackingShip{
+    
     SKSpriteNode * newNode = [AstrialObject spriteNodeWithImageNamed:@"mmShip"];
     [newNode setSize:CGSizeMake(8, 8)];
     [newNode setColor:[UIColor orangeColor]];
@@ -41,9 +43,13 @@
 
     [self.miniMap addChild:newNode];
      self.mapCenter = [self convertPoint:[self childNodeWithName:@"playerShip"].position
-                    toNode:self.parallaxNodeBackgrounds];
-    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(pulseShipIcon) userInfo:nil repeats:YES];
-
+                                  toNode:self.parallaxNodeBackgrounds];
+    
+    [NSTimer scheduledTimerWithTimeInterval:0.5
+                                     target:self
+                                   selector:@selector(pulseShipIcon)
+                                   userInfo:nil
+                                    repeats:YES];
 }
 
 -(SKSpriteNode*)astrialIconFromAstrial:(AstrialObject*)astrialObj{
@@ -72,6 +78,12 @@
     else if (astrialObj.mmShape == mmSmallTriange) {
         retNode = [AstrialObject spriteNodeWithImageNamed:@"mmTriange"];
         [retNode setSize:CGSizeMake(4, 4)];
+        [retNode setColor:astrialObj.color];
+    }
+    else if (astrialObj.mmShape == mmCustomImage) {
+        NSString *imgName = astrialObj.mmImageName;
+        retNode = [AstrialObject spriteNodeWithImageNamed:imgName];
+        [retNode setSize:CGSizeMake(12, 12)];
         [retNode setColor:astrialObj.color];
     }
     retNode.colorBlendFactor = 1.0;

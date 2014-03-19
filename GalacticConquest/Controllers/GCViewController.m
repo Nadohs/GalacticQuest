@@ -55,6 +55,7 @@
 }
 
 
+
 - (BOOL)shouldAutorotate
 {
     return YES;
@@ -64,9 +65,9 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
+        return UIInterfaceOrientationMaskPortraitUpsideDown;
     } else {
-        return UIInterfaceOrientationMaskAll;
+        return UIInterfaceOrientationMaskPortrait;
     }
 }
 
