@@ -16,18 +16,19 @@
 
 -(void)reduceSize{
     if (self.size.height-20<=0 ) {
-    //    [[AstrialObjectManager sharedManager] killAstrial:self];
         return; 
     }
     CGSize newSize = self.size;
     newSize.width -=20;
     newSize.height -=20;
     [self setSize:newSize];
+    [self getMinned];
 }
 
 -(void)getMinned{
     [[InventoryManager sharedManager] mineRandomOre];
 }
+
 
 -(void)takeHit:(float)hitPoints location:(CGPoint)hitLocation{
     
@@ -44,7 +45,7 @@
         [self.burstNode resetSimulation];
     }
     [self reduceSize];
-    [self getMinned];
+
 }
 
 

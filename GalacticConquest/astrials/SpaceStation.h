@@ -10,4 +10,7 @@
 
 @interface SpaceStation : AstrialObject
 
+
+-(void)reduceSize;
+
 @end

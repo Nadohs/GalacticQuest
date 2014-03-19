@@ -8,6 +8,7 @@
 
 #import "GCMyScene+RandomGeneration.h"
 #import "GCMyScene+MiniMap.h"
+#import "SpaceStation.h"
 
 @implementation GCMyScene (RandomGeneration)
 
@@ -104,7 +105,7 @@
         int   minSize   = 400;
         float sunSize   = minSize + arc4random() % randRange;
         
-        if (sunSize>400+(randRange/2)) {
+        if (sunSize>minSize+(randRange/2)) {
             [sun setMmShape:mmBigSquare];
         }
         else{
@@ -130,7 +131,7 @@
         int   minSize   = 100;
         float sunSize   = minSize + arc4random() % randRange;
         
-        if (sunSize>400+(randRange/2)) {
+        if (sunSize>minSize+(randRange/2)) {
             [astroid setMmShape:mmBigTriange];
         }
         else{
@@ -143,6 +144,33 @@
     }
     
     [self startTrackingAstrials];
+    
+    //BUILD SPACE STATIONS
+    //BUILD ASTROIDS
+    q = arc4random() % 3;
+    
+    for (int i = 0; i<q; i++) {
+        AstrialObject  *spaceStation = [AstrialObject spriteNodeWithImageNamed:@"astroid"];
+        spaceStation.color = self.randomColor;
+        spaceStation.colorBlendFactor = 0.5;
+        [spaceStation setPosition:self.randomAstrialPosition];
+        NSLog(@"sun is %@",NSStringFromCGPoint(spaceStation.position));
+        
+        int   randRange = (100*3);
+        int   minSize   = 500;
+        float sunSize   = minSize + arc4random() % randRange;
+        
+        if (sunSize>minSize+(randRange/2)) {
+            [spaceStation setMmShape:mmCustomImage];
+        }
+        else{
+            [spaceStation setMmShape:mmCustomImage];
+        }
+        
+        [spaceStation setSize:CGSizeMake(sunSize,sunSize)];
+        
+        [[AstrialObjectManager sharedManager] addCollidable:spaceStation];
+    }
 }
 
 

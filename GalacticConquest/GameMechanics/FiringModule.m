@@ -64,10 +64,9 @@
     //Check collision of single projectile
     
     void (^checkCollision)(HitParticle *particle) = ^void(HitParticle *particle){
+
         for (AstrialObject* astrial in astrials) {
-            if (!particle) {
-                continue;
-            }
+
             
             CGRect frame1 = [astrial  calculateAccumulatedFrame];
             CGRect frame2 = [particle calculateAccumulatedFrame];
@@ -82,6 +81,10 @@
     //Check all projectiles for collisions
     
     for (HitParticle *particle in particles) {
+        if (!particle) {
+            continue;
+        }
+        //do something to keep particle allocated while being checked here?
         checkCollision(particle);
     }
     

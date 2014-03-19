@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5219F62918D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */; };
+		5219F62D18D7C68700F26EF7 /* SpaceStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5219F62C18D7C68700F26EF7 /* SpaceStation.m */; };
 		523032C218CAA54C00C6DCC5 /* BattleMechanics.m in Sources */ = {isa = PBXBuildFile; fileRef = 523032C118CAA54C00C6DCC5 /* BattleMechanics.m */; };
 		5236E01418C1DA8800AFE2AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01318C1DA8800AFE2AF /* Foundation.framework */; };
 		5236E01618C1DA8800AFE2AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01518C1DA8800AFE2AF /* CoreGraphics.framework */; };
@@ -66,6 +67,8 @@
 /* Begin PBXFileReference section */
 		5219F62718D7AD2800F26EF7 /* GCMyScene+RandomGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCMyScene+RandomGeneration.h"; sourceTree = "<group>"; };
 		5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCMyScene+RandomGeneration.m"; sourceTree = "<group>"; };
+		5219F62B18D7C68700F26EF7 /* SpaceStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceStation.h; sourceTree = "<group>"; };
+		5219F62C18D7C68700F26EF7 /* SpaceStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceStation.m; sourceTree = "<group>"; };
 		523032C018CAA54C00C6DCC5 /* BattleMechanics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleMechanics.h; sourceTree = "<group>"; };
 		523032C118CAA54C00C6DCC5 /* BattleMechanics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleMechanics.m; sourceTree = "<group>"; };
 		5236E01018C1DA8800AFE2AF /* GalacticConquest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalacticConquest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -351,6 +354,8 @@
 				52A1BC9618D112E700A3B49C /* AstrialObject.m */,
 				52A1BCA118D114CB00A3B49C /* CollisionEvent.h */,
 				52A1BCA218D114CB00A3B49C /* CollisionEvent.m */,
+				5219F62B18D7C68700F26EF7 /* SpaceStation.h */,
+				5219F62C18D7C68700F26EF7 /* SpaceStation.m */,
 			);
 			path = astrials;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				5219F62918D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m in Sources */,
 				52A1BCA018D113EA00A3B49C /* EnemyShip.m in Sources */,
 				52973B0A18D24BC500E5D7CE /* GCMyScene.m in Sources */,
+				5219F62D18D7C68700F26EF7 /* SpaceStation.m in Sources */,
 				5236E02618C1DA8800AFE2AF /* GCAppDelegate.m in Sources */,
 				52973B0E18D24BD400E5D7CE /* GCViewController.m in Sources */,
 				523032C218CAA54C00C6DCC5 /* BattleMechanics.m in Sources */,

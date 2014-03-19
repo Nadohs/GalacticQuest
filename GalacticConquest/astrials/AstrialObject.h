@@ -17,7 +17,7 @@
 @property (nonatomic) NSString *mmImageName;
 
 -(void)takeHit:(float)hitPoints location:(CGPoint)hitLocation;
-
+-(void)reduceSize;
 @property (nonatomic) NSTimer *endPlode;
 
 

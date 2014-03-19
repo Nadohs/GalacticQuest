@@ -14,7 +14,7 @@
 #pragma mark -
 
 -(void)recalculateLocalCollidablesFrom:(CGPoint)local{
-    float collideRange = 2000;
+    float collideRange = 3000;
     NSMutableArray *tempLocalCollidables = [[NSMutableArray alloc]init];
     CGRect localFrame = CGRectMake(local.x-collideRange/2,
                                    local.y-collideRange/2,
