@@ -11,13 +11,6 @@
 
 @implementation AstrialObjectManager
 
-//-(id)init{
-//    self = [super init];
-//    if (self) {
-//        self.astrialObjects = [[NSMutableArray alloc]init];
-//    }
-//    return self;
-//}
 
 
 -(void)addCollidable:(AstrialObject*)astrialObj{

@@ -75,6 +75,9 @@
     //Check all projectiles for collisions
     
     for (HitParticle *particle in particles) {
+        if (!particle) {
+            continue;
+        }
         checkCollision(particle);
     }
     
