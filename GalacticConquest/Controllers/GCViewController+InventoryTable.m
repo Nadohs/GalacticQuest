@@ -21,19 +21,16 @@
     return [[[InventoryManager sharedManager] inventory] count];    
 }
 
-
-
--(UITableViewCell *)tableView:(UITableView *)tableView
+- (UITableViewCell *) tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *MyIdentifier = @"inventoryItem";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                       reuseIdentifier:MyIdentifier] ;
+                                      reuseIdentifier:MyIdentifier];
     }
     NSDictionary *oreSet =[[InventoryManager sharedManager] inventory][indexPath.row];
 

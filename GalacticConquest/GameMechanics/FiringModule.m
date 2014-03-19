@@ -30,8 +30,12 @@
     [newParticle setPosition:startPoint];
     [newParticle setAngle:angle+(M_PI*90/180)];
     [newParticle setZPosition:3.0];
+    
+    //Particle attached to node here
     [[AstrialObjectManager sharedManager]addNonCollidable:newParticle];
+    
     [self.fireProjectiles addObject:newParticle];
+    
     double delayInSeconds = 1.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
@@ -45,7 +49,7 @@
 -(void)update:(CFTimeInterval)currentTime {
 
     NSArray *particles = [NSArray arrayWithArray:self.fireProjectiles];
-    NSArray *astrials  = (NSArray*)[[AstrialObjectManager sharedManager] collidableAstrials];
+    NSArray *astrials  = [[AstrialObjectManager sharedManager] localCollidables];
 
     //Progress Projectile Movement
     
@@ -61,6 +65,9 @@
     
     void (^checkCollision)(HitParticle *particle) = ^void(HitParticle *particle){
         for (AstrialObject* astrial in astrials) {
+            if (!particle) {
+                continue;
+            }
             
             CGRect frame1 = [astrial  calculateAccumulatedFrame];
             CGRect frame2 = [particle calculateAccumulatedFrame];

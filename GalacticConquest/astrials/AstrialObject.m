@@ -14,14 +14,10 @@
 
 
 
-//-(void)takeHit:(float)hitPoints{
-//
-//}
-
 -(void)reduceSize{
     if (self.size.height-20<=0 ) {
     //    [[AstrialObjectManager sharedManager] killAstrial:self];
-        return;
+        return; 
     }
     CGSize newSize = self.size;
     newSize.width -=20;
@@ -34,8 +30,8 @@
 }
 
 -(void)takeHit:(float)hitPoints location:(CGPoint)hitLocation{
-//    [self removeExplosion];
-    NSString *burstPath =  [[NSBundle mainBundle] pathForResource:@"explosion" ofType:@"sks"];
+    
+     NSString *burstPath =  [[NSBundle mainBundle] pathForResource:@"explosion" ofType:@"sks"];
     
      self.burstNode = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
     [self.burstNode setNumParticlesToEmit:250];

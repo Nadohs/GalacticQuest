@@ -21,7 +21,8 @@
         mmSmallTriange,
         mmBigTriange,
         mmSmallCircle,
-        mmBigCircle
+        mmBigCircle,
+        mmCustomImage
     };
     #import "AstrialObject.h"
 

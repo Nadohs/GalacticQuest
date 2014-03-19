@@ -14,8 +14,11 @@
 @property (nonatomic) mmIconShape mmShape;
 @property (nonatomic) float angle;
 @property (nonatomic) SKEmitterNode *burstNode;
+@property (nonatomic) NSString *mmImageName;
+
 -(void)takeHit:(float)hitPoints location:(CGPoint)hitLocation;
-//-(void)takeHit:(float)hitPoints;
+
 @property (nonatomic) NSTimer *endPlode;
+
 
 @end

@@ -76,8 +76,7 @@
 - (void)randomizeNodesPositions
 {
     [_backgrounds enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        
-        SKSpriteNode *node = (SKSpriteNode *)obj;
+    SKSpriteNode *node = (SKSpriteNode *)obj;
 //        [self randomizeNodePosition:node];
         
     }];
