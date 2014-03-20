@@ -23,6 +23,10 @@
 -(void)manualUnload{
     [self removeObserver:self forKeyPath:@"reloadInventory"];
 }
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 
 
 - (void)viewDidLoad
@@ -51,6 +55,8 @@
                                              selector:@selector(reloadTableStuff)
                                                  name:@"reloadInventory"
                                                object:nil];
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 
 }
 

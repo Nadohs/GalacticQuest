@@ -14,13 +14,13 @@
 #pragma mark -
 
 -(void)recalculateLocalCollidablesFrom:(CGPoint)local{
+    
     float collideRange = 3000;
     NSMutableArray *tempLocalCollidables = [[NSMutableArray alloc]init];
     CGRect localFrame = CGRectMake(local.x-collideRange/2,
                                    local.y-collideRange/2,
                                    collideRange,
                                    collideRange);
-    
     
     for (AstrialObject *astrial in self.collidableAstrials) {
         if (CGRectContainsPoint(localFrame, astrial.position)) {
@@ -35,9 +35,9 @@
 #pragma mark - add/remove Astrials
 
 -(void)addCollidable:(AstrialObject*)astrialObj{
-    [self.background addChild:astrialObj];
-    [_collidableAstrials addObject:astrialObj];
-    [_astrialObjects addObject:astrialObj];
+    [self.background     addChild:  astrialObj];
+    [_collidableAstrials addObject: astrialObj];
+    [_astrialObjects     addObject: astrialObj];
 }
 
 

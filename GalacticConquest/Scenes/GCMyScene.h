@@ -44,6 +44,8 @@
 
 @property (nonatomic) SKEmitterNode *burstNode;
 
+@property (nonatomic) int frameCount;
+
 -(NSArray*)astrialObjects;
 -(CGPoint)shipPosition;
 

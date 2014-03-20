@@ -15,8 +15,6 @@
 -(void)collideParticle:(HitParticle*)particle withAstrial:(AstrialObject*)astrial{
     [self.fireProjectiles removeObject:particle];
     CGPoint convertedLocation = particle.position;
-//    convertedLocation = [particle convertPoint:particle.position
-//                                            toNode:particle.parent];
     [astrial takeHit:particle.hitPoints location:convertedLocation];
     [particle removeFromParent];
      particle = nil;

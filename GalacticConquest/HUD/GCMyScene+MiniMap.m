@@ -60,12 +60,12 @@
     else if (astrialObj.mmShape == mmSmallSquare) {
         retNode = [AstrialObject spriteNodeWithColor:astrialObj.color size:CGSizeMake(4, 4)];
     }
-    else if (astrialObj.mmShape == mmBigSquare) {
+    else if (astrialObj.mmShape == mmBigCircle) {
         retNode = [AstrialObject spriteNodeWithImageNamed:@"mmCircle"];
         [retNode setSize:CGSizeMake(8, 8)];
         [retNode setColor:astrialObj.color];
     }
-    else if (astrialObj.mmShape == mmSmallSquare) {
+    else if (astrialObj.mmShape == mmSmallCircle) {
         retNode = [AstrialObject spriteNodeWithImageNamed:@"mmCircle"];
         [retNode setSize:CGSizeMake(4, 4)];
         [retNode setColor:astrialObj.color];

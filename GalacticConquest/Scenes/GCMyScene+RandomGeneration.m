@@ -18,7 +18,7 @@
 #pragma mark - random generated stuff
 
 -(UIColor*)randomColor{
-    int q= arc4random()%15;
+    int q= arc4random()%16;
     switch (q) {
         case 1:
             return [UIColor blackColor];
@@ -106,10 +106,10 @@
         float sunSize   = minSize + arc4random() % randRange;
         
         if (sunSize>minSize+(randRange/2)) {
-            [sun setMmShape:mmBigSquare];
+            [sun setMmShape:mmBigCircle];
         }
         else{
-            [sun setMmShape:mmSmallSquare];
+            [sun setMmShape:mmSmallCircle];
         }
         
         [sun setSize:CGSizeMake(sunSize,sunSize)];

@@ -16,6 +16,7 @@
 
 @property (nonatomic) NSMutableArray *fireProjectiles;
 
+
 -(void)update:(CFTimeInterval)currentTime;
 -(void)addBasicProjectileAngle:(float)angle startPoint:(CGPoint)startPoint;
 @end

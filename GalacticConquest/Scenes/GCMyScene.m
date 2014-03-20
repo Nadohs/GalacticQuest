@@ -110,7 +110,7 @@
 -(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
-        
+        _frameCount =0;
         self.backgroundColor = [SKColor blackColor];
         
         [self setQuatrantSize:30000];
@@ -198,7 +198,16 @@
 
     [self.bulletBox update:currentTime];
     
-    [self checkShipDrift:500];
+    
+    //Check local collidables every 60 frames
+    self.frameCount++;
+    if (self.frameCount > 60) {
+        self.frameCount = 0;
+    }
+    if (self.frameCount ==1) {
+        [[AstrialObjectManager sharedManager] recalculateLocalCollidablesFrom:self.shipPosition];
+    }
+    
 
     CGPoint newVelocity = self.dPad.velocity;
     
