@@ -10,6 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "HitParticle.h"
 #import "AstrialObjectManager.h"
+#import "CollisionManager.h"
 
 
 @interface FiringModule : NSObject

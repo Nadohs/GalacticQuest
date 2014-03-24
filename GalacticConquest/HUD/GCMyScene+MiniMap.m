@@ -18,8 +18,8 @@
      self.miniMap.zPosition = 1.0;
     [self addChild:self.miniMap];
     [self startTrackingShip];
-     
 }
+
 
 -(void)pulseShipIcon{
     SKAction *action1 = [SKAction resizeToWidth:12 height:12 duration:0.1];
@@ -32,6 +32,7 @@
     [[self.miniMap childNodeWithName:@"mmItem0" ] setZPosition:2.0];
     [[self.miniMap childNodeWithName:@"mmItem0" ] setZRotation:self.ship.zRotation];
 }
+
 
 -(void)startTrackingShip{
     
@@ -54,6 +55,9 @@
 
 -(SKSpriteNode*)astrialIconFromAstrial:(AstrialObject*)astrialObj{
     SKSpriteNode *retNode;
+    
+    //Change to switch
+    
     if (astrialObj.mmShape == mmBigSquare) {
         retNode = [AstrialObject spriteNodeWithColor:astrialObj.color size:CGSizeMake(8, 8)];
     }
@@ -65,7 +69,7 @@
         [retNode setSize:CGSizeMake(8, 8)];
         [retNode setColor:astrialObj.color];
     }
-    else if (astrialObj.mmShape == mmSmallCircle) {
+    else if (astrialObj.mmShape == mmSmallCircle	) {
         retNode = [AstrialObject spriteNodeWithImageNamed:@"mmCircle"];
         [retNode setSize:CGSizeMake(4, 4)];
         [retNode setColor:astrialObj.color];

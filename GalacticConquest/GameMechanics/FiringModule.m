@@ -47,7 +47,7 @@
 -(void)update:(CFTimeInterval)currentTime {
 
     NSArray *particles = [NSArray arrayWithArray:self.fireProjectiles];
-    NSArray *astrials  = [[AstrialObjectManager sharedManager] localCollidables];
+   // NSArray *astrials  = [[AstrialObjectManager sharedManager] localCollidables];
 
     //Progress Projectile Movement
     
@@ -59,32 +59,11 @@
         [particle runAction:moveProjectile];
     }
 
-    //Check collision of single projectile
-    
-    void (^checkCollision)(HitParticle *particle) = ^void(HitParticle *particle){
-
-        for (AstrialObject* astrial in astrials) {
-
-            
-            CGRect frame1 = [astrial  calculateAccumulatedFrame];
-            CGRect frame2 = [particle calculateAccumulatedFrame];
-            
-            if (CGRectContainsRect(frame1, frame2)) {
-                [self collideParticle:particle withAstrial:astrial];
-                return;
-            }
-        }
-    };
-    
-    //Check all projectiles for collisions
-    
-    for (HitParticle *particle in particles) {
-        if (!particle) {
-            continue;
-        }
-        checkCollision(particle);
+    //Check particle collisions
+    NSArray*willCollide = [[CollisionManager sharedManager] checkParticleCollisions:particles];
+    if (willCollide) {
+        [self collideParticle:willCollide[0] withAstrial:willCollide[1]];
     }
-    
 }
 
 

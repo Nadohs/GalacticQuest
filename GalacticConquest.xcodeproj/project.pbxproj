@@ -38,6 +38,7 @@
 		5263D8E318D3C61B00591974 /* NameGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263D8E218D3C61B00591974 /* NameGenerator.m */; };
 		5263D8E618D4436900591974 /* GCViewController+InventoryTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263D8E518D4436900591974 /* GCViewController+InventoryTable.m */; };
 		528B1BD818C9C6A500AEF8DD /* GCMyScene+MiniMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 528B1BD718C9C6A500AEF8DD /* GCMyScene+MiniMap.m */; };
+		5296595918E0821B009A77A9 /* CollisionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296595818E0821B009A77A9 /* CollisionManager.m */; };
 		52973B0618D24B7E00E5D7CE /* AstrialObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52973B0518D24B7E00E5D7CE /* AstrialObjectManager.m */; };
 		52973B0A18D24BC500E5D7CE /* GCMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52973B0918D24BC500E5D7CE /* GCMyScene.m */; };
 		52973B0E18D24BD400E5D7CE /* GCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52973B0D18D24BD400E5D7CE /* GCViewController.m */; };
@@ -109,6 +110,8 @@
 		5263D8E518D4436900591974 /* GCViewController+InventoryTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCViewController+InventoryTable.m"; sourceTree = "<group>"; };
 		528B1BD618C9C6A500AEF8DD /* GCMyScene+MiniMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GCMyScene+MiniMap.h"; path = "HUD/GCMyScene+MiniMap.h"; sourceTree = "<group>"; };
 		528B1BD718C9C6A500AEF8DD /* GCMyScene+MiniMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GCMyScene+MiniMap.m"; path = "HUD/GCMyScene+MiniMap.m"; sourceTree = "<group>"; };
+		5296595718E0821B009A77A9 /* CollisionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionManager.h; sourceTree = "<group>"; };
+		5296595818E0821B009A77A9 /* CollisionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionManager.m; sourceTree = "<group>"; };
 		52973B0418D24B7E00E5D7CE /* AstrialObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AstrialObjectManager.h; sourceTree = "<group>"; };
 		52973B0518D24B7E00E5D7CE /* AstrialObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AstrialObjectManager.m; sourceTree = "<group>"; };
 		52973B0818D24BC500E5D7CE /* GCMyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyScene.h; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 			children = (
 				52973B0F18D25B9100E5D7CE /* FiringModule.h */,
 				52973B1018D25B9100E5D7CE /* FiringModule.m */,
+				5296595718E0821B009A77A9 /* CollisionManager.h */,
+				5296595818E0821B009A77A9 /* CollisionManager.m */,
 				52973B0418D24B7E00E5D7CE /* AstrialObjectManager.h */,
 				52973B0518D24B7E00E5D7CE /* AstrialObjectManager.m */,
 				523032C018CAA54C00C6DCC5 /* BattleMechanics.h */,
@@ -480,6 +485,7 @@
 				52A1BCA318D114CB00A3B49C /* CollisionEvent.m in Sources */,
 				5263D8E018D3C4A300591974 /* InventoryManager.m in Sources */,
 				5219F62918D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m in Sources */,
+				5296595918E0821B009A77A9 /* CollisionManager.m in Sources */,
 				52A1BCA018D113EA00A3B49C /* EnemyShip.m in Sources */,
 				52973B0A18D24BC500E5D7CE /* GCMyScene.m in Sources */,
 				5219F62D18D7C68700F26EF7 /* SpaceStation.m in Sources */,

@@ -10,12 +10,68 @@
 
 @implementation InventoryManager
 
+#pragma mark - manage inventory
 
-#pragma mark - Inititialize Stuff -
+-(void)updateInventory{
+    NSMutableArray *invList = [[NSMutableArray alloc]init];
+    for (NSDictionary *oreSet in self.oreList) {
+        if ([[oreSet objectForKey:@"quantity"] intValue]>0) {
+            [invList addObject:oreSet];
+            //                        forKey:[oreSet objectForKey:@"name"]];
+        }
+    }
+    self.inventory = [NSArray arrayWithArray:invList];
+    [self sendNotifcationToReloadInventory];
+}
+
+
+
+
+-(void)mineRandomOre{
+    
+    int roll = 1 + arc4random() % 100;
+    int oreInRange = arc4random() % 5;
+    if (roll >95 && roll <=100) {
+        oreInRange+=15;
+        //5%
+    }
+    if (roll >75 && roll <=95) {
+        oreInRange+=10;
+        //20%
+    }
+    if (roll >50 && roll <=75) {
+        oreInRange+=5;
+        //25%
+    }
+    if (roll >0 && roll <=50) {
+        oreInRange+=0;
+        //50%
+    }
+    
+    NSDictionary *oreSet = [self.oreList objectAtIndex:oreInRange];
+    int newQuant = [[oreSet objectForKey:@"quantity"]intValue]+1;
+    NSDictionary *newOreSet = @{@"name":[oreSet objectForKey:@"name"],
+                                @"value":[oreSet objectForKey:@"value"],
+                                @"quantity":[NSNumber numberWithInt:newQuant] };
+    
+    [_oreList replaceObjectAtIndex:oreInRange withObject:newOreSet];
+    [self updateInventory];
+}
+
+
+
+#pragma mark - getter
 
 -(NSArray*)oreList{
     return [NSArray arrayWithArray:_oreList];
 }
+
+-(void)sendNotifcationToReloadInventory{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadInventory" object:self];
+}
+
+
+#pragma mark - setup ores
 
 -(void)buildOreList{
     _oreList = [[NSMutableArray alloc] initWithCapacity:20];
@@ -49,61 +105,14 @@
     }
 }
 
+
+
+
+#pragma mark - singleton methods
+
 -(void)singletonInit
 {
     [self buildOreList];
-}
-
-
--(void)sendNotifcationToReloadInventory{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadInventory" object:self];
-}
-
-
--(void)updateInventory{
-    NSMutableArray *invList = [[NSMutableArray alloc]init];
-    for (NSDictionary *oreSet in self.oreList) {
-        if ([[oreSet objectForKey:@"quantity"] intValue]>0) {
-            [invList addObject:oreSet];
-//                        forKey:[oreSet objectForKey:@"name"]];
-        }
-    }
-    self.inventory = [NSArray arrayWithArray:invList];
-    [self sendNotifcationToReloadInventory];
-}
-
-
-
-
--(void)mineRandomOre{
-
-    int roll = 1 + arc4random() % 100;
-    int oreInRange = arc4random() % 5;
-    if (roll >95 && roll <=100) {
-        oreInRange+=15;
-        //5%
-    }
-    if (roll >75 && roll <=95) {
-        oreInRange+=10;
-        //20%
-    }
-    if (roll >50 && roll <=75) {
-        oreInRange+=5;
-        //25%
-    }
-    if (roll >0 && roll <=50) {
-        oreInRange+=0;
-        //50%
-    }
-    
-    NSDictionary *oreSet = [self.oreList objectAtIndex:oreInRange];
-    int newQuant = [[oreSet objectForKey:@"quantity"]intValue]+1;
-    NSDictionary *newOreSet = @{@"name":[oreSet objectForKey:@"name"],
-                                @"value":[oreSet objectForKey:@"value"],
-                                @"quantity":[NSNumber numberWithInt:newQuant] };
-    
-    [_oreList replaceObjectAtIndex:oreInRange withObject:newOreSet];
-    [self updateInventory];
 }
 
 
