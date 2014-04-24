@@ -12,8 +12,21 @@
 
 @implementation GCViewController
 
+#pragma mark - Store Connections Method
+
+
+
+#pragma mark - Nofitication Called Methods
+
 -(void)reloadTableStuff{
     [self.inventoryListTableView reloadData];
+}
+
+
+-(void)openStoreView{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
+    UIViewController *storeView  =  [storyboard instantiateViewControllerWithIdentifier:@"storeController"];
+    [self.navigationController pushViewController:storeView animated:YES];
 }
 
 
@@ -28,6 +41,22 @@
     return YES;
 }
 
+
+-(void)setupNotifications{
+    NSNotification* inventoryChangeNotification = [NSNotification notificationWithName:@"reloadInventory" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:inventoryChangeNotification];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTableStuff)
+                                                 name:@"reloadInventory"
+                                               object:nil];
+    
+    NSNotification* storeCallNotification = [NSNotification notificationWithName:@"openStore" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:storeCallNotification];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(openStoreView)
+                                                 name:@"openStore"
+                                               object:nil];
+}
 
 - (void)viewDidLoad
 {
@@ -49,12 +78,7 @@
     frame.size.height = 0;
     [self.inventoryListTableView setFrame:frame];
     
-     NSNotification* inventoryChangeNotification = [NSNotification notificationWithName:@"reloadInventory" object:self];
-    [[NSNotificationCenter defaultCenter] postNotification:inventoryChangeNotification];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadTableStuff)
-                                                 name:@"reloadInventory"
-                                               object:nil];
+    [self setupNotifications];
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 
@@ -66,6 +90,8 @@
 {
     return YES;
 }
+
+
 
 
 - (NSUInteger)supportedInterfaceOrientations

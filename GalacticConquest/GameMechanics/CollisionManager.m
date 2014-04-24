@@ -8,13 +8,28 @@
 
 #import "CollisionManager.h"
 #import "AstrialObjectManager.h"
-
+#import "SpaceStation.h"
 
 @implementation CollisionManager
 
+//-(BOOL)checkSpaceStationCollision{
+//    NSArray *astrials  = [[AstrialObjectManager sharedManager] localCollidables];
+//    for (SpaceStation*station in astrials) {
+//        if (![station isKindOfClass:SpaceStation.class]) {
+//            [NSException raise:@"not a space station" format:@""];
+//        }
+//        
+//        
+//    }
+//    
+//    return NO;
+//}
+
+
+
 -(NSArray*)checkParticleCollisions:(NSArray*)particles{
     
-    NSArray *astrials  = [[AstrialObjectManager sharedManager] localCollidables];
+    NSArray *astrials  = [[AstrialObjectManager sharedManager] collidableAstrials];
     
 
     //Check collision of single projectile
@@ -28,14 +43,27 @@
             CGRect frame2 = [particle calculateAccumulatedFrame];
             
             if (CGRectContainsRect(frame1, frame2)) {
-                return @[particle,astrial];
+                return @[particle ,astrial];
             }
         }
         return nil;
     };
     
+    //Check touch space station
+//    for (SpaceStation *station in particles) {
+//        if (![station isKindOfClass:SpaceStation.class]){
+//            continue;
+//        }
+//        
+//        CGRect frame1 = [station  calculateAccumulatedFrame];
+//        CGRect frame2 = [self.ship calculateAccumulatedFrame];
+//        if (CGRectContainsRect(frame1, frame2)) {
+//            [station takeHit:0 location:CGPointMake(0,0)];
+//            break;
+//        }
+//        
+//    }
     //Check all projectiles for collisions
-    
     for (HitParticle *particle in particles) {
         if (!particle) {
             continue;

@@ -29,6 +29,8 @@
     }
     
     _localCollidables = tempLocalCollidables;
+    if (_localCollidables.count>1){
+        NSLog(@"%@",_localCollidables);}
 }
 
 

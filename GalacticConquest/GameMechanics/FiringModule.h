@@ -17,7 +17,7 @@
 
 @property (nonatomic) NSMutableArray *fireProjectiles;
 
-
+-(id)initWithShip:(AstrialObject*)ship;
 -(void)update:(CFTimeInterval)currentTime;
 -(void)addBasicProjectileAngle:(float)angle startPoint:(CGPoint)startPoint;
 @end

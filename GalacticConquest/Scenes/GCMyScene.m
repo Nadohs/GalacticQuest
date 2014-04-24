@@ -123,7 +123,8 @@
 
         [self buildMiniMap];
         [self buildSpaceStuff];
-        _bulletBox = [[FiringModule alloc]init];
+        [[CollisionManager sharedManager] setShip:_ship];
+        _bulletBox = [[FiringModule alloc]initWithShip:_ship];
         [[AstrialObjectManager sharedManager] recalculateLocalCollidablesFrom:self.shipPosition];
     }
     return self;

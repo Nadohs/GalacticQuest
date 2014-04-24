@@ -13,4 +13,9 @@
 -(void)reduceSize{
 }
 
+
+-(void)takeHit:(float)hitPoints location:(CGPoint)hitLocation{
+    //open store controller
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"openStore" object:self];
+}
 @end
