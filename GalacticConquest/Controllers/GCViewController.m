@@ -23,6 +23,10 @@
 }
 
 
+-(void)closeStoreView{
+    
+}
+
 -(void)openStoreView{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
     UIViewController *storeView  =  [storyboard instantiateViewControllerWithIdentifier:@"storeController"];
@@ -56,6 +60,12 @@
                                              selector:@selector(openStoreView)
                                                  name:@"openStore"
                                                object:nil];
+    NSNotification* closeStoreCallNotification = [NSNotification notificationWithName:@"closeStore" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:closeStoreCallNotification];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(closeStoreView)
+                                                 name:@"closeStore"
+                                               object:nil];
 }
 
 - (void)viewDidLoad
@@ -68,11 +78,11 @@
     skView.showsNodeCount = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [GCMyScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    _scene = [GCMyScene sceneWithSize:skView.bounds.size];
+    _scene.scaleMode = SKSceneScaleModeAspectFill;
     
     // Present the scene.
-    [skView presentScene:scene];
+    [skView presentScene:_scene];
     
     CGRect frame = self.inventoryListTableView.frame;
     frame.size.height = 0;
@@ -81,6 +91,12 @@
     [self setupNotifications];
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [self.inventoryListTableView setHidden:YES];
+    
+    [self.navigationController setNavigationBarHidden:YES];
+    
+    [self setEdgesForExtendedLayout:UIRectEdgeNone];
+
 
 }
 
@@ -92,6 +108,14 @@
 }
 
 
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [self.scene setPaused:YES];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self.scene setPaused:NO];
+}
 
 
 - (NSUInteger)supportedInterfaceOrientations
@@ -113,6 +137,12 @@
 
 
 - (IBAction)inventoryButtonPressed:(id)sender {
+    BOOL isHidden =self.inventoryListTableView.hidden;
+    [self.inventoryListTableView setHidden:!isHidden];
+    return;
+//    if (self.inventoryListTableView.hidden) {
+//        [self.inventoryListTableView setHidden:NO];
+//    }
     CGRect frame = self.inventoryListTableView.frame;
     if (frame.size.height == 460) {
         frame.size.height = 0;

@@ -83,12 +83,20 @@
     [self.hud addChild:fireButton];
 }
 
+-(void)setupStationButton{
+    SKSpriteNode *stationBut = [SKSpriteNode spriteNodeWithImageNamed:@"stationButton"];
+    stationBut.position = CGPointMake(_stopPedal.position.x - (stationBut.size.width*2), _stopPedal.position.y);
+    [stationBut setName:@"stationButton"];
+    [self.hud addChild:stationBut];
+}
+
 
 
 -(void)setupHUD
 {
     [self setupStopPedal];
     [self setupFireButton];
+    [self setupStationButton];
 }
 
 
@@ -155,6 +163,13 @@
     if ([node.name isEqualToString:@"fireButton"]) {
         [self fireButtonPressed];
     }
+    if ([node.name isEqualToString:@"stationButton"]) {
+                [self.dPad forceStop];
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"openStore"
+         object:nil];
+    }
+    
 }
 
 

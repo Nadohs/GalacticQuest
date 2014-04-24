@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *inventoryButton;
 @property (weak, nonatomic) IBOutlet UITableView *inventoryListTableView;
 
+@property (nonatomic)     SKScene * scene;
+
 -(IBAction)inventoryButtonPressed:(id)sender;
 -(void)openSuperMarket;
 
