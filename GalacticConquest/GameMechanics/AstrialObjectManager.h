@@ -16,6 +16,7 @@
 @property (nonatomic) NSMutableArray *astrialObjects;
 @property (nonatomic) NSMutableArray *localCollidables;
 @property (nonatomic) NSMutableArray *collidableAstrials;
+@property (nonatomic) BOOL canDock;
 
 -(void)addCollidable:(AstrialObject*)astrialObj;
 -(void)addNonCollidable:(AstrialObject*)astrialObj;
@@ -23,5 +24,9 @@
 
 -(void)recalculateLocalCollidablesFrom:(CGPoint)local;
 
+
 + (AstrialObjectManager *) sharedManager;
+
+
+
 @end

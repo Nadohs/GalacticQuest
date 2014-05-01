@@ -10,4 +10,10 @@
 
 @interface UIViewController (InventoryTable)
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 @end

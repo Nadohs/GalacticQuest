@@ -53,16 +53,17 @@
     
     //HUD overlay
     self.hud = [SKNode node];
+    [self addChild: self.hud];
     
     // Create the DPads
     self.dPad = [[DPad alloc] initWithRect:CGRectMake(0, 0, 64.0f, 64.0f)];
-    self.dPad.position = CGPointMake(64.0f / 4, 64.0f / 4);
+    self.dPad.position = CGPointMake(64.0f / 4, 4.0f / 4);
     self.dPad.numberOfDirections = 24;
     self.dPad.deadRadius = 8.0f;
     
     [self.hud addChild:self.dPad];
     
-    [self addChild:self.hud];
+//    [self addChild:self.hud];
 }
 
 //fire button
@@ -84,12 +85,18 @@
 }
 
 -(void)setupStationButton{
-    SKSpriteNode *stationBut = [SKSpriteNode spriteNodeWithImageNamed:@"stationButton"];
-    stationBut.position = CGPointMake(_stopPedal.position.x - (stationBut.size.width*2), _stopPedal.position.y);
-    [stationBut setName:@"stationButton"];
-    [self.hud addChild:stationBut];
+     _stationBut = [SKSpriteNode spriteNodeWithImageNamed:@"stationButton"];
+     _stationBut.position = CGPointMake(_stopPedal.position.x - (_stationBut.size.width*2), _stopPedal.position.y);
+    [_stationBut setName:@"stationButton"];
+    [self.hud addChild:_stationBut];
 }
 
+-(void)setupEquipButton{
+     _equipBut = [SKSpriteNode spriteNodeWithImageNamed:@"equipButton"];
+     _equipBut.position = CGPointMake(_stopPedal.position.x - (_equipBut.size.width), _stopPedal.position.y);
+    [_equipBut setName:@"equipButton"];
+    [self.hud addChild:_equipBut];
+}
 
 
 -(void)setupHUD
@@ -97,6 +104,8 @@
     [self setupStopPedal];
     [self setupFireButton];
     [self setupStationButton];
+    [self setupEquipButton];
+    [self.hud setPosition:CGPointMake(0, 250)];
 }
 
 
@@ -169,6 +178,12 @@
          postNotificationName:@"openStore"
          object:nil];
     }
+    if ([node.name isEqualToString:@"equipButton"]) {
+        [self.dPad forceStop];
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"equipView"
+         object:nil];
+    }
     
 }
 
@@ -212,6 +227,8 @@
 
 -(void)update:(CFTimeInterval)currentTime {
 
+    [_stationBut setHidden:![[AstrialObjectManager sharedManager]canDock]];
+    
     [self.bulletBox update:currentTime];
     
     

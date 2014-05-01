@@ -38,8 +38,15 @@
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                    ^(void){
-                       [newParticle removeFromParent];
+                       dispatch_sync(dispatch_get_main_queue(),^{
                        [self.fireProjectiles removeObject:newParticle];
+                           [HitParticle killParticle:newParticle];
+
+//                           newParticle = nil;
+//                       [newParticle removeFromParent];
+                       });
+
+
                    });
 }
 
@@ -53,6 +60,7 @@
     //Progress Projectile Movement
     
     for (HitParticle *particle in particles) {
+        NSLog(@"move particle");
         float particleSpeed = 100;
         float new_x = particle.position.x + cos(particle.angle) * particleSpeed;
         float new_y = particle.position.y + sin(particle.angle) * particleSpeed;
@@ -75,6 +83,9 @@
 //    if (willCollide) {
 //        [self collideParticle:willCollide[0] withAstrial:willCollide[1]];
 //    }
+    
+//    //random error :malloc: *** error for object 0x1c3f0e00: pointer being freed was not allocated
+//    *** set a breakpoint in malloc_error_break to debug
     
 }
 

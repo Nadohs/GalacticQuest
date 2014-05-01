@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
-#import "GCViewController+InventoryTable.h"
+#import "UIViewController+InventoryTable.h"
 
 @interface GCViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 

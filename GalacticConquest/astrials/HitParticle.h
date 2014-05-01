@@ -10,5 +10,5 @@
 
 @interface HitParticle : AstrialObject
 @property (nonatomic)float hitPoints;
-
++(void)killParticle:(HitParticle*)particle;
 @end

@@ -8,11 +8,17 @@
 
 #import "GCEquipViewController.h"
 
+
 @interface GCEquipViewController ()
 
 @end
 
 @implementation GCEquipViewController
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [[[InventoryManager sharedManager] inventory] count];
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +41,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [self.inventoryTable reloadData];
+}
 /*
 #pragma mark - Navigation
 
@@ -46,4 +55,10 @@
 }
 */
 
+- (IBAction)equipmentButton:(id)sender {
+}
+
+- (IBAction)exitButtonPressed:(id)sender {
+        [self.navigationController popViewControllerAnimated:YES];
+}
 @end

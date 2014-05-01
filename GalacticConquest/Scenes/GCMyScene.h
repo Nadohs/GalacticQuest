@@ -27,7 +27,8 @@
 
 //HUD Objects
 @property (nonatomic) SKSpriteNode *stopPedal;
-
+@property (nonatomic) SKSpriteNode *stationBut;
+@property (nonatomic) SKSpriteNode *equipBut;
 @property (nonatomic) float mapBreakLeft;
 @property (nonatomic) float mapBreakRight;
 @property (nonatomic) float mapBreakUp;

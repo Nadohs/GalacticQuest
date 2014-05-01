@@ -7,6 +7,8 @@
 //
 
 #import "AstrialObjectManager.h"
+#import "SpaceStation.h"
+
 
 
 @implementation AstrialObjectManager
@@ -14,7 +16,7 @@
 #pragma mark -
 
 -(void)recalculateLocalCollidablesFrom:(CGPoint)local{
-    
+    BOOL station = NO;
     float collideRange = 3000;
     NSMutableArray *tempLocalCollidables = [[NSMutableArray alloc]init];
     CGRect localFrame = CGRectMake(local.x-collideRange/2,
@@ -25,9 +27,12 @@
     for (AstrialObject *astrial in self.collidableAstrials) {
         if (CGRectContainsPoint(localFrame, astrial.position)) {
             [tempLocalCollidables addObject:astrial];
+            if ([astrial isKindOfClass:SpaceStation.class]) {
+                station= YES;
+            }
         }
     }
-    
+    _canDock = station;
     _localCollidables = tempLocalCollidables;
     if (_localCollidables.count>1){
         NSLog(@"%@",_localCollidables);}

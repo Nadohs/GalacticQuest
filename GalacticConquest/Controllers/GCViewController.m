@@ -27,6 +27,14 @@
     
 }
 
+
+-(void)equipView{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
+    UIViewController *storeView  =  [storyboard instantiateViewControllerWithIdentifier:@"equipController"];
+    [self.navigationController pushViewController:storeView animated:YES];
+}
+
+
 -(void)openStoreView{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
     UIViewController *storeView  =  [storyboard instantiateViewControllerWithIdentifier:@"storeController"];
@@ -60,11 +68,11 @@
                                              selector:@selector(openStoreView)
                                                  name:@"openStore"
                                                object:nil];
-    NSNotification* closeStoreCallNotification = [NSNotification notificationWithName:@"closeStore" object:self];
-    [[NSNotificationCenter defaultCenter] postNotification:closeStoreCallNotification];
+    NSNotification* equipNotifcation = [NSNotification notificationWithName:@"equipView" object:self];
+    [[NSNotificationCenter defaultCenter] postNotification:equipNotifcation];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(closeStoreView)
-                                                 name:@"closeStore"
+                                             selector:@selector(equipView)
+                                                 name:@"equipView"
                                                object:nil];
 }
 
@@ -104,7 +112,7 @@
 
 - (BOOL)shouldAutorotate
 {
-    return YES;
+    return NO;
 }
 
 

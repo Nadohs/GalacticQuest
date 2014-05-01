@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InventoryManager.h"
+#import "UIViewController+InventoryTable.h"
 
-@interface GCEquipViewController : UIViewController
 
+@interface GCEquipViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *inventoryTable;
+- (IBAction)equipmentButton:(id)sender;
+
+- (IBAction)exitButtonPressed:(id)sender;
 @end

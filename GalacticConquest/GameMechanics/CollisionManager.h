@@ -14,4 +14,5 @@
 -(BOOL)checkSpaceStationCollision;
 +(CollisionManager *) sharedManager;
 @property (nonatomic) AstrialObject *ship;
+
 @end

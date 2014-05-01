@@ -11,10 +11,12 @@
 
 @interface InventoryManager : NSObject
 //objects are dictionaries
+@property (nonatomic) int gold;
 @property (nonatomic) NSMutableArray *oreList;
 @property (nonatomic) NSArray *inventory;
 
 +(InventoryManager *) sharedManager;
 -(void)mineRandomOre;
+-(void)removeItem:(NSString*)item forCash:(BOOL)cashIn;
 
 @end

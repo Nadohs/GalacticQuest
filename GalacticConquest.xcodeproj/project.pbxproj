@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5219F62918D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */; };
 		5219F62D18D7C68700F26EF7 /* SpaceStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5219F62C18D7C68700F26EF7 /* SpaceStation.m */; };
+		522AB8D3190CE66B0006F8E3 /* GCEquipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522AB8D2190CE66B0006F8E3 /* GCEquipViewController.m */; };
+		522AB8D6190E11160006F8E3 /* UIViewController+InventoryTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 522AB8D5190E11160006F8E3 /* UIViewController+InventoryTable.m */; };
 		523032C218CAA54C00C6DCC5 /* BattleMechanics.m in Sources */ = {isa = PBXBuildFile; fileRef = 523032C118CAA54C00C6DCC5 /* BattleMechanics.m */; };
 		5236E01418C1DA8800AFE2AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01318C1DA8800AFE2AF /* Foundation.framework */; };
 		5236E01618C1DA8800AFE2AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01518C1DA8800AFE2AF /* CoreGraphics.framework */; };
@@ -36,7 +38,6 @@
 		5236E07918C1EE4200AFE2AF /* bg_spacialanomaly2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5236E07418C1EE4200AFE2AF /* bg_spacialanomaly2.png */; };
 		5263D8E018D3C4A300591974 /* InventoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263D8DF18D3C4A300591974 /* InventoryManager.m */; };
 		5263D8E318D3C61B00591974 /* NameGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263D8E218D3C61B00591974 /* NameGenerator.m */; };
-		5263D8E618D4436900591974 /* GCViewController+InventoryTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263D8E518D4436900591974 /* GCViewController+InventoryTable.m */; };
 		528B1BD818C9C6A500AEF8DD /* GCMyScene+MiniMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 528B1BD718C9C6A500AEF8DD /* GCMyScene+MiniMap.m */; };
 		5291D31E1909D9B000274C87 /* GCStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5291D31D1909D9B000274C87 /* GCStoreViewController.m */; };
 		5296595918E0821B009A77A9 /* CollisionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296595818E0821B009A77A9 /* CollisionManager.m */; };
@@ -71,6 +72,10 @@
 		5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCMyScene+RandomGeneration.m"; sourceTree = "<group>"; };
 		5219F62B18D7C68700F26EF7 /* SpaceStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceStation.h; sourceTree = "<group>"; };
 		5219F62C18D7C68700F26EF7 /* SpaceStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceStation.m; sourceTree = "<group>"; };
+		522AB8D1190CE66B0006F8E3 /* GCEquipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCEquipViewController.h; path = ../Scenes/GCEquipViewController.h; sourceTree = "<group>"; };
+		522AB8D2190CE66B0006F8E3 /* GCEquipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCEquipViewController.m; path = ../Scenes/GCEquipViewController.m; sourceTree = "<group>"; };
+		522AB8D4190E11160006F8E3 /* UIViewController+InventoryTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InventoryTable.h"; sourceTree = "<group>"; };
+		522AB8D5190E11160006F8E3 /* UIViewController+InventoryTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+InventoryTable.m"; sourceTree = "<group>"; };
 		523032C018CAA54C00C6DCC5 /* BattleMechanics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleMechanics.h; sourceTree = "<group>"; };
 		523032C118CAA54C00C6DCC5 /* BattleMechanics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleMechanics.m; sourceTree = "<group>"; };
 		5236E01018C1DA8800AFE2AF /* GalacticConquest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalacticConquest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,8 +112,6 @@
 		5263D8DF18D3C4A300591974 /* InventoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryManager.m; sourceTree = "<group>"; };
 		5263D8E118D3C61B00591974 /* NameGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameGenerator.h; sourceTree = "<group>"; };
 		5263D8E218D3C61B00591974 /* NameGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameGenerator.m; sourceTree = "<group>"; };
-		5263D8E418D4436900591974 /* GCViewController+InventoryTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCViewController+InventoryTable.h"; sourceTree = "<group>"; };
-		5263D8E518D4436900591974 /* GCViewController+InventoryTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCViewController+InventoryTable.m"; sourceTree = "<group>"; };
 		528B1BD618C9C6A500AEF8DD /* GCMyScene+MiniMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GCMyScene+MiniMap.h"; path = "HUD/GCMyScene+MiniMap.h"; sourceTree = "<group>"; };
 		528B1BD718C9C6A500AEF8DD /* GCMyScene+MiniMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GCMyScene+MiniMap.m"; path = "HUD/GCMyScene+MiniMap.m"; sourceTree = "<group>"; };
 		5291D31C1909D9B000274C87 /* GCStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCStoreViewController.h; sourceTree = "<group>"; };
@@ -330,12 +333,14 @@
 		52973B0B18D24BD400E5D7CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				522AB8D4190E11160006F8E3 /* UIViewController+InventoryTable.h */,
+				522AB8D5190E11160006F8E3 /* UIViewController+InventoryTable.m */,
 				52973B0C18D24BD400E5D7CE /* GCViewController.h */,
 				52973B0D18D24BD400E5D7CE /* GCViewController.m */,
+				522AB8D1190CE66B0006F8E3 /* GCEquipViewController.h */,
+				522AB8D2190CE66B0006F8E3 /* GCEquipViewController.m */,
 				5291D31C1909D9B000274C87 /* GCStoreViewController.h */,
 				5291D31D1909D9B000274C87 /* GCStoreViewController.m */,
-				5263D8E418D4436900591974 /* GCViewController+InventoryTable.h */,
-				5263D8E518D4436900591974 /* GCViewController+InventoryTable.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -483,7 +488,6 @@
 			files = (
 				5236E06D18C1ED6000AFE2AF /* DPad.m in Sources */,
 				5236E06E18C1ED6000AFE2AF /* FMMParallaxNode.m in Sources */,
-				5263D8E618D4436900591974 /* GCViewController+InventoryTable.m in Sources */,
 				52A1BC9718D112E700A3B49C /* AstrialObject.m in Sources */,
 				52A1BC9A18D113B300A3B49C /* PlayerShip.m in Sources */,
 				52973B1118D25B9100E5D7CE /* FiringModule.m in Sources */,
@@ -494,7 +498,9 @@
 				52A1BCA018D113EA00A3B49C /* EnemyShip.m in Sources */,
 				52973B0A18D24BC500E5D7CE /* GCMyScene.m in Sources */,
 				5219F62D18D7C68700F26EF7 /* SpaceStation.m in Sources */,
+				522AB8D3190CE66B0006F8E3 /* GCEquipViewController.m in Sources */,
 				5236E02618C1DA8800AFE2AF /* GCAppDelegate.m in Sources */,
+				522AB8D6190E11160006F8E3 /* UIViewController+InventoryTable.m in Sources */,
 				5291D31E1909D9B000274C87 /* GCStoreViewController.m in Sources */,
 				52973B0E18D24BD400E5D7CE /* GCViewController.m in Sources */,
 				523032C218CAA54C00C6DCC5 /* BattleMechanics.m in Sources */,

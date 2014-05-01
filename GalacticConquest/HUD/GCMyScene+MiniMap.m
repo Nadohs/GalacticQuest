@@ -12,7 +12,7 @@
 @implementation GCMyScene (MiniMap)
 -(void)buildMiniMap{
      self.miniMap = [SKSpriteNode spriteNodeWithImageNamed:@"minimap"];
-     self.miniMap.position = CGPointMake(self.size.width-self.miniMap.size.width/2,self.size.height-self.miniMap.size.height/2);
+     self.miniMap.position = CGPointMake(self.miniMap.size.width/2,(self.size.width - self.miniMap.size.height/4));
     [self.miniMap setScale:1];
      self.miniMap.name = @"miniMap";
      self.miniMap.zPosition = 1.0;
