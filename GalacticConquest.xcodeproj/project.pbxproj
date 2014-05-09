@@ -11,6 +11,7 @@
 		5219F62D18D7C68700F26EF7 /* SpaceStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5219F62C18D7C68700F26EF7 /* SpaceStation.m */; };
 		522AB8D3190CE66B0006F8E3 /* GCEquipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522AB8D2190CE66B0006F8E3 /* GCEquipViewController.m */; };
 		522AB8D6190E11160006F8E3 /* UIViewController+InventoryTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 522AB8D5190E11160006F8E3 /* UIViewController+InventoryTable.m */; };
+		522AB8D91917A62D0006F8E3 /* MapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 522AB8D81917A62D0006F8E3 /* MapNode.m */; };
 		523032C218CAA54C00C6DCC5 /* BattleMechanics.m in Sources */ = {isa = PBXBuildFile; fileRef = 523032C118CAA54C00C6DCC5 /* BattleMechanics.m */; };
 		5236E01418C1DA8800AFE2AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01318C1DA8800AFE2AF /* Foundation.framework */; };
 		5236E01618C1DA8800AFE2AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01518C1DA8800AFE2AF /* CoreGraphics.framework */; };
@@ -76,6 +77,8 @@
 		522AB8D2190CE66B0006F8E3 /* GCEquipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCEquipViewController.m; path = ../Scenes/GCEquipViewController.m; sourceTree = "<group>"; };
 		522AB8D4190E11160006F8E3 /* UIViewController+InventoryTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InventoryTable.h"; sourceTree = "<group>"; };
 		522AB8D5190E11160006F8E3 /* UIViewController+InventoryTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+InventoryTable.m"; sourceTree = "<group>"; };
+		522AB8D71917A62D0006F8E3 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapNode.h; path = HUD/MapNode.h; sourceTree = "<group>"; };
+		522AB8D81917A62D0006F8E3 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapNode.m; path = HUD/MapNode.m; sourceTree = "<group>"; };
 		523032C018CAA54C00C6DCC5 /* BattleMechanics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleMechanics.h; sourceTree = "<group>"; };
 		523032C118CAA54C00C6DCC5 /* BattleMechanics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleMechanics.m; sourceTree = "<group>"; };
 		5236E01018C1DA8800AFE2AF /* GalacticConquest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalacticConquest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,11 +224,11 @@
 		5236E01B18C1DA8800AFE2AF /* GalacticConquest */ = {
 			isa = PBXGroup;
 			children = (
+				528B1BD918C9C6B600AEF8DD /* HUD */,
 				52973B0B18D24BD400E5D7CE /* Controllers */,
 				52973B0718D24BC500E5D7CE /* Scenes */,
 				52A1BC9418D112AD00A3B49C /* astrials */,
 				523032BF18CAA53300C6DCC5 /* GameMechanics */,
-				528B1BD918C9C6B600AEF8DD /* HUD */,
 				5236E06218C1ED6000AFE2AF /* Resources */,
 				5236E02718C1DA8800AFE2AF /* Main_iPhone.storyboard */,
 				5236E02A18C1DA8800AFE2AF /* Main_iPad.storyboard */,
@@ -314,6 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				528B1BD618C9C6A500AEF8DD /* GCMyScene+MiniMap.h */,
+				522AB8D71917A62D0006F8E3 /* MapNode.h */,
+				522AB8D81917A62D0006F8E3 /* MapNode.m */,
 				528B1BD718C9C6A500AEF8DD /* GCMyScene+MiniMap.m */,
 			);
 			name = HUD;
@@ -502,6 +507,7 @@
 				5236E02618C1DA8800AFE2AF /* GCAppDelegate.m in Sources */,
 				522AB8D6190E11160006F8E3 /* UIViewController+InventoryTable.m in Sources */,
 				5291D31E1909D9B000274C87 /* GCStoreViewController.m in Sources */,
+				522AB8D91917A62D0006F8E3 /* MapNode.m in Sources */,
 				52973B0E18D24BD400E5D7CE /* GCViewController.m in Sources */,
 				523032C218CAA54C00C6DCC5 /* BattleMechanics.m in Sources */,
 				52A1BC9D18D113DC00A3B49C /* HitParticle.m in Sources */,

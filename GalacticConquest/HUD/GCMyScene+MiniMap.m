@@ -7,6 +7,7 @@
 //
 
 #import "GCMyScene+MiniMap.h"
+#import "MapNode.h"
 
 
 @implementation GCMyScene (MiniMap)
@@ -36,7 +37,8 @@
 
 -(void)startTrackingShip{
     
-    SKSpriteNode * newNode = [AstrialObject spriteNodeWithImageNamed:@"mmShip"];
+    MapNode* newNode = [MapNode spriteNodeWithImageNamed:@"mmShip"];
+    [newNode setAstrial:[self childNodeWithName:@"playerShip"]];
     [newNode setSize:CGSizeMake(8, 8)];
     [newNode setColor:[UIColor orangeColor]];
      newNode.colorBlendFactor = 1.0;
@@ -53,40 +55,41 @@
                                     repeats:YES];
 }
 
--(SKSpriteNode*)astrialIconFromAstrial:(AstrialObject*)astrialObj{
-    SKSpriteNode *retNode;
+-(MapNode*)astrialIconFromAstrial:(AstrialObject*)astrialObj{
+    MapNode *retNode;
     
     //Change to switch
     
+    
     if (astrialObj.mmShape == mmBigSquare) {
-        retNode = [AstrialObject spriteNodeWithColor:astrialObj.color size:CGSizeMake(8, 8)];
+        retNode = [MapNode spriteNodeWithColor:astrialObj.color size:CGSizeMake(8, 8)];
     }
     else if (astrialObj.mmShape == mmSmallSquare) {
-        retNode = [AstrialObject spriteNodeWithColor:astrialObj.color size:CGSizeMake(4, 4)];
+        retNode = [MapNode spriteNodeWithColor:astrialObj.color size:CGSizeMake(4, 4)];
     }
     else if (astrialObj.mmShape == mmBigCircle) {
-        retNode = [AstrialObject spriteNodeWithImageNamed:@"mmCircle"];
+        retNode = [MapNode spriteNodeWithImageNamed:@"mmCircle"];
         [retNode setSize:CGSizeMake(8, 8)];
         [retNode setColor:astrialObj.color];
     }
     else if (astrialObj.mmShape == mmSmallCircle	) {
-        retNode = [AstrialObject spriteNodeWithImageNamed:@"mmCircle"];
+        retNode = [MapNode spriteNodeWithImageNamed:@"mmCircle"];
         [retNode setSize:CGSizeMake(4, 4)];
         [retNode setColor:astrialObj.color];
     }
     else if (astrialObj.mmShape == mmBigTriange) {
-        retNode = [AstrialObject spriteNodeWithImageNamed:@"mmTriange"];
+        retNode = [MapNode spriteNodeWithImageNamed:@"mmTriange"];
         [retNode setSize:CGSizeMake(8, 8)];
         [retNode setColor:astrialObj.color];
     }
     else if (astrialObj.mmShape == mmSmallTriange) {
-        retNode = [AstrialObject spriteNodeWithImageNamed:@"mmTriange"];
+        retNode = [MapNode spriteNodeWithImageNamed:@"mmTriange"];
         [retNode setSize:CGSizeMake(4, 4)];
         [retNode setColor:astrialObj.color];
     }
     else if (astrialObj.mmShape == mmCustomImage) {
         NSString *imgName = astrialObj.mmImageName;
-        retNode = [AstrialObject spriteNodeWithImageNamed:imgName];
+        retNode = [MapNode spriteNodeWithImageNamed:imgName];
         [retNode setSize:CGSizeMake(12, 12)];
         [retNode setColor:astrialObj.color];
     }
@@ -109,14 +112,17 @@
     
     
     for (AstrialObject*astrialObj in self.astrialObjects) {
-        SKSpriteNode *newNode =[self astrialIconFromAstrial:astrialObj];
+        MapNode *newNode =[self astrialIconFromAstrial:astrialObj];
+        [newNode setAstrial:astrialObj];
         
         [newNode setName:[NSString stringWithFormat:@"mmItem%i",itemCount]];
         [self.miniMap addChild:newNode];
+
         
         
         CGPoint newPos = [self convertPoint:astrialObj.position
                                      toNode:self.parallaxNodeBackgrounds];
+        
         float newX = (newPos.x - mapBreakLeft)/self.quatrantSize;
         float newY = (newPos.y - mapBreakUp)/self.quatrantSize;
         
@@ -137,14 +143,50 @@
     float mapBreakUp = self.mapCenter.y + self.quatrantSize/2;
     
     SKSpriteNode *shipDot = (SKSpriteNode*)[self.miniMap childNodeWithName:@"mmItem0"];
+    
     CGPoint newPos = [self convertPoint:[self childNodeWithName:@"playerShip"].position
                                   toNode:self.parallaxNodeBackgrounds];
     float newX = (newPos.x - mapBreakLeft)/self.quatrantSize;
     float newY = (newPos.y - mapBreakUp)/self.quatrantSize;
     
-    [shipDot setPosition:CGPointMake(newX*self.miniMap.size.width-self.miniMap.size.width/2,
-                                     newY*self.miniMap.size.height+self.miniMap.size.height/2)];
-    
+    CGPoint oldPoint =shipDot.position;
+    CGPoint newPoint =CGPointMake(newX * self.miniMap.size.width  - self.miniMap.size.width/2,
+                                  newY * self.miniMap.size.height + self.miniMap.size.height/2);
+//    [shipDot setPosition:newPoint];
+//    
+    newPoint.x = oldPoint.x - newPoint.x;
+    newPoint.y = oldPoint.y - newPoint.y;
+
+    for (MapNode *node in [self.miniMap children]){
+        
+        if ([node.name isEqualToString:@"mmItem0"]) {
+            continue;
+        }
+        if (node.astrial.size.width < 30){
+            [node.astrial removeFromParent];
+            [[AstrialObjectManager sharedManager] killAstrial:node.astrial];
+            [node removeFromParent];
+            [node setHidden:YES];
+        }
+        
+        SKNode *astrialObj = node.astrial;
+        
+        
+        
+        CGPoint newPos = [self convertPoint:astrialObj.position
+                                     toNode:self.parallaxNodeBackgrounds];
+        
+        float newX = (newPos.x - mapBreakLeft)/self.quatrantSize;
+        float newY = (newPos.y - mapBreakUp)/self.quatrantSize;
+        
+        CGPoint noOffset = CGPointMake(newX*self.miniMap.size.width  - self.miniMap.size.width/2,
+                                       newY*self.miniMap.size.height + self.miniMap.size.height/2);
+        
+        newPos.x = noOffset.x + 2*(newPoint.x);
+        newPos.y = noOffset.y + 2*(newPoint.y);
+        
+        [node setPosition:newPos];
+    }
 }
 
 
