@@ -7,6 +7,7 @@
 //
 
 #import "InventoryManager.h"
+#import "NameGenerator.h"
 
 @implementation InventoryManager
 

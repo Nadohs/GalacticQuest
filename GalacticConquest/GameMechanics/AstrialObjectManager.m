@@ -7,6 +7,8 @@
 //
 
 #import "AstrialObjectManager.h"
+#import <SpriteKit/SpriteKit.h>
+#import "HitParticle.h"
 #import "SpaceStation.h"
 
 

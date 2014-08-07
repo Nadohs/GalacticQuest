@@ -6,10 +6,12 @@
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
 
+#import <SpriteKit/SpriteKit.h>
 #import "FiringModule.h"
 #import "HitParticle.h"
 #import "AstrialObjectManager.h"
 #import "CollisionManager.h"
+
 
 
 

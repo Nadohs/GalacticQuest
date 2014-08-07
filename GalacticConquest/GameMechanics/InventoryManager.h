@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "NameGenerator.h"
+//#import <Foundation/Foundation.h>
+
 
 @interface InventoryManager : NSObject
 //objects are dictionaries

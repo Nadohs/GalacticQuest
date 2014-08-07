@@ -6,9 +6,12 @@
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
-#import "HitParticle.h"
+//#import <Foundation/Foundation.h>
+
+//@class HitParticle;
+//@class AstrialObject;
+@import  SpriteKit;
+
 
 @interface AstrialObjectManager : NSObject
 

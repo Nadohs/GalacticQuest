@@ -9,6 +9,7 @@
 #import "CollisionManager.h"
 #import "AstrialObjectManager.h"
 #import "SpaceStation.h"
+#import "HitParticle.h"
 
 @implementation CollisionManager
 
@@ -61,6 +62,8 @@
 //        }
 //        
 //    }
+    
+    
     //Check all projectiles for collisions
     
     NSArray *astrialList  = [[AstrialObjectManager sharedManager] collidableAstrials];
