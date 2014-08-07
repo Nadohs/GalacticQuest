@@ -105,7 +105,8 @@
     }
 }
 
--(void)removeItem:(NSString*)item forCash:(BOOL)cashIn{
+-(void)removeItem:(NSString*)item
+          forCash:(BOOL)cashIn{
     
     NSMutableArray *invList = [[NSMutableArray alloc]init];
     int q = 0;

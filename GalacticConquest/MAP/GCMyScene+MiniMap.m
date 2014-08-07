@@ -8,6 +8,7 @@
 
 #import "GCMyScene+MiniMap.h"
 #import "MapNode.h"
+#import "AstrialObjectManager.h"
 
 
 @implementation GCMyScene (MiniMap)
@@ -152,8 +153,7 @@
     CGPoint oldPoint =shipDot.position;
     CGPoint newPoint =CGPointMake(newX * self.miniMap.size.width  - self.miniMap.size.width/2,
                                   newY * self.miniMap.size.height + self.miniMap.size.height/2);
-//    [shipDot setPosition:newPoint];
-//    
+
     newPoint.x = oldPoint.x - newPoint.x;
     newPoint.y = oldPoint.y - newPoint.y;
 

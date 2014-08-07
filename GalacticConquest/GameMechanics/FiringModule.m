@@ -7,6 +7,9 @@
 //
 
 #import "FiringModule.h"
+#import "HitParticle.h"
+#import "AstrialObjectManager.h"
+#import "CollisionManager.h"
 
 
 

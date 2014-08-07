@@ -11,6 +11,10 @@
 #import "FMMParallaxNode.h"
 #import "FiringModule.h"
 
+@class DPad;
+@class FMMParallaxNode;
+@class FiringModule;
+
 
 @interface GCMyScene : SKScene
 @property (nonatomic) SKNode *hud;
@@ -24,6 +28,19 @@
 @property (nonatomic) SKSpriteNode *miniMap;
 @property (nonatomic) CGPoint mapCenter;
 @property (nonatomic) float quatrantSize;
+
+//directions
+@property (strong, nonatomic) NSMutableArray *UL;
+@property (strong, nonatomic) NSMutableArray *UM;
+@property (strong, nonatomic) NSMutableArray *UR;
+
+@property (strong, nonatomic) NSMutableArray *ML;
+@property (strong, nonatomic) NSMutableArray *MM;
+@property (strong, nonatomic) NSMutableArray *MR;
+
+@property (strong, nonatomic) NSMutableArray *DL;
+@property (strong, nonatomic) NSMutableArray *DM;
+@property (strong, nonatomic) NSMutableArray *DR;
 
 //HUD Objects
 @property (nonatomic) SKSpriteNode *stopPedal;

@@ -27,10 +27,10 @@
 
 +(NSString*)getRandomOre{
     
-    //CVCVV
-    //VCVCV
-    //CVCVVCV
-    //CVCVCV
+    // C V C V V
+    // V C V C V
+    // C V C V V C V
+    // C V C V C V
 
     NSArray*v = [self vowelArray];
     NSArray *c = [self consonentArray];

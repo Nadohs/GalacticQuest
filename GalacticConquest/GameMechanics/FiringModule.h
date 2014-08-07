@@ -8,10 +8,8 @@
 
 //#import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
-#import "HitParticle.h"
-#import "AstrialObjectManager.h"
-#import "CollisionManager.h"
 
+@class CollisionManager;
 
 @interface FiringModule : NSObject
 

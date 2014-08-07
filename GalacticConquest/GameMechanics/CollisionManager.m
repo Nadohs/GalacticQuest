@@ -28,13 +28,11 @@
 
 
 -(NSArray*)checkParticleCollisions:(NSArray*)particles{
-    
-    NSArray *astrials  = [[AstrialObjectManager sharedManager] collidableAstrials];
-    
-
     //Check collision of single projectile
     
-    NSArray* (^checkCollision)(HitParticle *particle) = ^NSArray*(HitParticle *particle){
+    NSArray *(^checkCollision)(HitParticle *particle, NSArray *astrials) =
+    
+      ^NSArray *(HitParticle *particle, NSArray *astrials){
         
         for (AstrialObject* astrial in astrials) {
             
@@ -64,11 +62,14 @@
 //        
 //    }
     //Check all projectiles for collisions
+    
+    NSArray *astrialList  = [[AstrialObjectManager sharedManager] collidableAstrials];
+    
     for (HitParticle *particle in particles) {
         if (!particle) {
             continue;
         }
-       return checkCollision(particle);
+       return checkCollision(particle, astrialList);
     }
     return nil;
 }

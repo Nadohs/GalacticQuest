@@ -10,7 +10,10 @@
 #import "GCMyScene+MiniMap.h"
 #import "GCMyScene+RandomGeneration.h"
 #import "AstrialObjectManager.h"
-
+#import "DPad.h"
+#import "FMMParallaxNode.h"
+#import "FiringModule.h"
+#import "CollisionManager.h"
 
 @implementation GCMyScene
 
@@ -18,6 +21,8 @@
 
 
 -(NSArray*)astrialObjects{
+//    CFStringRef sadString = NULL;
+//    NSString *happyString = (NSString *)CFBridgingRelease(sadString);
     return (NSArray*)[[AstrialObjectManager sharedManager] astrialObjects];
 }
 
@@ -256,30 +261,25 @@
     if  ((self.currentAngle !=newAngle)&&
         !(newVelocity.x==0&&newVelocity.y==0)){
 
-
         NSLog(@"has action? %i",[self hasActions]);
         
         NSLog(@"degree to rotate %f",self.dPad.degrees);
 
         NSLog(@"adjAng to rotate %f",newAngle);
         
-
-        
         newAngle = M_PI*newAngle/180;
         NSLog(@"angle %f",newAngle);
         
         
-        if (fabs(newAngle-self.currentAngle)>1) {
+        if (fabs(newAngle-self.currentAngle) > 1) {
             rotateTime = 0;
         }
         
-        SKAction *action2 = [SKAction rotateToAngle:newAngle duration:rotateTime
-                             ];
+        SKAction *action2 = [SKAction rotateToAngle:newAngle duration:rotateTime];
 
         [self.ship runAction:action2];
         
         self.currentAngle = newAngle;
-
     }
 
 

@@ -11,7 +11,7 @@
 @interface CollisionManager : NSObject
 
 -(NSArray*)checkParticleCollisions:(NSArray*)particles;
--(BOOL)checkSpaceStationCollision;
+//-(BOOL)checkSpaceStationCollision;
 +(CollisionManager *) sharedManager;
 @property (nonatomic) AstrialObject *ship;
 

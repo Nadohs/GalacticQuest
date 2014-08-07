@@ -25,4 +25,8 @@
 //                                     newY*self.miniMap.size.height+self.miniMap.size.height/2)];
 }
 
+-(void)firedEnemy:(SKNode*)enemyNode FireFromAngle:(int)degree{
+    
+}
+
 @end
