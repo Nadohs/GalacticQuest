@@ -7,17 +7,17 @@
 //
 
 //#import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
-#import "HitParticle.h"
-#import "AstrialObjectManager.h"
-#import "CollisionManager.h"
 
+
+@class CollisionManager;
+@class AstrialObject;
 
 @interface FiringModule : NSObject
 
-@property (nonatomic) NSMutableArray *fireProjectiles;
+@property (strong, nonatomic) NSMutableArray *fireProjectiles;
 
 -(id)initWithShip:(AstrialObject*)ship;
 -(void)update:(CFTimeInterval)currentTime;
--(void)addBasicProjectileAngle:(float)angle startPoint:(CGPoint)startPoint;
+-(void)addBasicProjectileAngle:(float)angle
+                    startPoint:(CGPoint)startPoint;
 @end

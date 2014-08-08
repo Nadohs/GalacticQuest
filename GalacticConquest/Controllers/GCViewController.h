@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
-#import "GCViewController+InventoryTable.h"
+#import "UIViewController+InventoryTable.h"
 
-@interface GCViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface GCViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIButton *inventoryButton;
+@property (weak, nonatomic) IBOutlet UIButton    *inventoryButton;
 @property (weak, nonatomic) IBOutlet UITableView *inventoryListTableView;
+
+@property (strong, nonatomic) SKScene *scene;
 
 -(IBAction)inventoryButtonPressed:(id)sender;
 -(void)openSuperMarket;

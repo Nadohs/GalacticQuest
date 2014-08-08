@@ -9,6 +9,9 @@
 #import "GCMyScene+RandomGeneration.h"
 #import "GCMyScene+MiniMap.h"
 #import "SpaceStation.h"
+#import "AstrialObjectManager.h"
+
+
 
 @implementation GCMyScene (RandomGeneration)
 
@@ -18,7 +21,10 @@
 #pragma mark - random generated stuff
 
 -(UIColor*)randomColor{
-    int q= arc4random()%16;
+// I WANT NICE SOLD COLORS,
+// SO I DECIDED NOT TO SIMPLY RANDOMIZE RGB VALUES
+    
+    int q= random()%16;
     switch (q) {
         case 1:
             return [UIColor blackColor];
@@ -81,18 +87,31 @@
    // float mapBreakUp   = self.mapCenter.y + self.quatrantSize/2;
     float mapBreakDown = self.mapCenter.y - self.quatrantSize/2;
     
-    float newX = mapBreakLeft + arc4random() % (int)(self.quatrantSize);
-    float newY = mapBreakDown + arc4random() % (int)(self.quatrantSize);
+    float newX = mapBreakLeft + random() % (int)(self.quatrantSize);
+    float newY = mapBreakDown + random() % (int)(self.quatrantSize);
     
     return CGPointMake(newX, newY);
 }
 
 
 -(void)buildSpaceStuff{
+    
+    //PROCEDURAL GENERATION BOUNDARY CALCULATIONS
+    //max   ==  4294967295
+    //min   == -2147483648
+    //range ==  6442450944  (2147483648 * 3)
+    //midPoint ==  1073741824 (3221225472 + -2147483648)
+    //lowMid   == -2147483648 to 1073741823
+    //midHigh  ==  1073741824 to 4294967295
+    
+    
+    //SEED PROCEDURALLY GENERATED MAP WITH srandom();
+    srandom(1);
+    
     [[AstrialObjectManager sharedManager] setBackground:self.parallaxNodeBackgrounds];
     
     //Build SUNS
-    float q = arc4random() % 100;
+    float q = random() % 100;
     
     for (int i = 0; i<q; i++) {
         AstrialObject  *sun = [AstrialObject spriteNodeWithImageNamed:@"round_fog"];
@@ -103,7 +122,7 @@
         
         int   randRange = (900*3);
         int   minSize   = 400;
-        float sunSize   = minSize + arc4random() % randRange;
+        float sunSize   = minSize + random() % randRange;
         
         if (sunSize>minSize+(randRange/2)) {
             [sun setMmShape:mmBigCircle];
@@ -118,7 +137,7 @@
     }
     
     //BUILD ASTROIDS
-    q = arc4random() % 100;
+    q = random() % 100;
     
     for (int i = 0; i<q; i++) {
         AstrialObject  *astroid = [AstrialObject spriteNodeWithImageNamed:@"astroid"];
@@ -129,7 +148,7 @@
         
         int   randRange = (100*3);
         int   minSize   = 100;
-        float sunSize   = minSize + arc4random() % randRange;
+        float sunSize   = minSize + random() % randRange;
         
         if (sunSize>minSize+(randRange/2)) {
             [astroid setMmShape:mmBigTriange];
@@ -145,7 +164,7 @@
 
     
     //BUILD SPACE STATIONS
-    q = arc4random() % 3;
+    q = random() % 3;
     
     for (int i = 0; i<q; i++) {
         SpaceStation  *spaceStation = [SpaceStation spriteNodeWithImageNamed:@"space_station"];
@@ -155,10 +174,10 @@
         NSLog(@"sun is %@",NSStringFromCGPoint(spaceStation.position));
         
         int   randRange = (100*3);
-        int   minSize   = 500;
-        float sunSize   = minSize + arc4random() % randRange;
+        int   minSize   =  500;
+        float sunSize   =  minSize + random() % randRange;
         
-        if (sunSize>minSize+(randRange/2)) {
+        if (sunSize > minSize + (randRange/2)) {
             [spaceStation setMmShape:mmCustomImage];
         }
         else{

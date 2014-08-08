@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5219F62918D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */; };
 		5219F62D18D7C68700F26EF7 /* SpaceStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5219F62C18D7C68700F26EF7 /* SpaceStation.m */; };
+		522AB8D3190CE66B0006F8E3 /* GCEquipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522AB8D2190CE66B0006F8E3 /* GCEquipViewController.m */; };
+		522AB8D6190E11160006F8E3 /* UIViewController+InventoryTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 522AB8D5190E11160006F8E3 /* UIViewController+InventoryTable.m */; };
 		523032C218CAA54C00C6DCC5 /* BattleMechanics.m in Sources */ = {isa = PBXBuildFile; fileRef = 523032C118CAA54C00C6DCC5 /* BattleMechanics.m */; };
 		5236E01418C1DA8800AFE2AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01318C1DA8800AFE2AF /* Foundation.framework */; };
 		5236E01618C1DA8800AFE2AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5236E01518C1DA8800AFE2AF /* CoreGraphics.framework */; };
@@ -36,8 +38,7 @@
 		5236E07918C1EE4200AFE2AF /* bg_spacialanomaly2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5236E07418C1EE4200AFE2AF /* bg_spacialanomaly2.png */; };
 		5263D8E018D3C4A300591974 /* InventoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263D8DF18D3C4A300591974 /* InventoryManager.m */; };
 		5263D8E318D3C61B00591974 /* NameGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263D8E218D3C61B00591974 /* NameGenerator.m */; };
-		5263D8E618D4436900591974 /* GCViewController+InventoryTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5263D8E518D4436900591974 /* GCViewController+InventoryTable.m */; };
-		528B1BD818C9C6A500AEF8DD /* GCMyScene+MiniMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 528B1BD718C9C6A500AEF8DD /* GCMyScene+MiniMap.m */; };
+		5291D31E1909D9B000274C87 /* GCStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5291D31D1909D9B000274C87 /* GCStoreViewController.m */; };
 		5296595918E0821B009A77A9 /* CollisionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5296595818E0821B009A77A9 /* CollisionManager.m */; };
 		52973B0618D24B7E00E5D7CE /* AstrialObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52973B0518D24B7E00E5D7CE /* AstrialObjectManager.m */; };
 		52973B0A18D24BC500E5D7CE /* GCMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52973B0918D24BC500E5D7CE /* GCMyScene.m */; };
@@ -45,6 +46,10 @@
 		52973B1118D25B9100E5D7CE /* FiringModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 52973B1018D25B9100E5D7CE /* FiringModule.m */; };
 		52973B1318D3781000E5D7CE /* explode.png in Resources */ = {isa = PBXBuildFile; fileRef = 52973B1218D3781000E5D7CE /* explode.png */; };
 		52973B1518D37A8800E5D7CE /* explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 52973B1418D37A8800E5D7CE /* explosion.sks */; };
+		529E9A681920575100782226 /* GCMyScene+MiniMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 529E9A631920575100782226 /* GCMyScene+MiniMap.m */; };
+		529E9A691920575100782226 /* MapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 529E9A651920575100782226 /* MapNode.m */; };
+		529E9A6A1920575100782226 /* Quandrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 529E9A671920575100782226 /* Quandrant.m */; };
+		529E9A6D1920586400782226 /* QuadSeeder.m in Sources */ = {isa = PBXBuildFile; fileRef = 529E9A6C1920586400782226 /* QuadSeeder.m */; };
 		52A1BC9218D0BD5E00A3B49C /* thruster1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 52A1BC9018D0BD5E00A3B49C /* thruster1.sks */; };
 		52A1BC9318D0BD5E00A3B49C /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 52A1BC9118D0BD5E00A3B49C /* spark.png */; };
 		52A1BC9718D112E700A3B49C /* AstrialObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1BC9618D112E700A3B49C /* AstrialObject.m */; };
@@ -70,6 +75,10 @@
 		5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCMyScene+RandomGeneration.m"; sourceTree = "<group>"; };
 		5219F62B18D7C68700F26EF7 /* SpaceStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceStation.h; sourceTree = "<group>"; };
 		5219F62C18D7C68700F26EF7 /* SpaceStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceStation.m; sourceTree = "<group>"; };
+		522AB8D1190CE66B0006F8E3 /* GCEquipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCEquipViewController.h; path = ../Scenes/GCEquipViewController.h; sourceTree = "<group>"; };
+		522AB8D2190CE66B0006F8E3 /* GCEquipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCEquipViewController.m; path = ../Scenes/GCEquipViewController.m; sourceTree = "<group>"; };
+		522AB8D4190E11160006F8E3 /* UIViewController+InventoryTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+InventoryTable.h"; sourceTree = "<group>"; };
+		522AB8D5190E11160006F8E3 /* UIViewController+InventoryTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+InventoryTable.m"; sourceTree = "<group>"; };
 		523032C018CAA54C00C6DCC5 /* BattleMechanics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleMechanics.h; sourceTree = "<group>"; };
 		523032C118CAA54C00C6DCC5 /* BattleMechanics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleMechanics.m; sourceTree = "<group>"; };
 		5236E01018C1DA8800AFE2AF /* GalacticConquest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GalacticConquest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,10 +115,9 @@
 		5263D8DF18D3C4A300591974 /* InventoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryManager.m; sourceTree = "<group>"; };
 		5263D8E118D3C61B00591974 /* NameGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameGenerator.h; sourceTree = "<group>"; };
 		5263D8E218D3C61B00591974 /* NameGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameGenerator.m; sourceTree = "<group>"; };
-		5263D8E418D4436900591974 /* GCViewController+InventoryTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCViewController+InventoryTable.h"; sourceTree = "<group>"; };
-		5263D8E518D4436900591974 /* GCViewController+InventoryTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCViewController+InventoryTable.m"; sourceTree = "<group>"; };
-		528B1BD618C9C6A500AEF8DD /* GCMyScene+MiniMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GCMyScene+MiniMap.h"; path = "HUD/GCMyScene+MiniMap.h"; sourceTree = "<group>"; };
-		528B1BD718C9C6A500AEF8DD /* GCMyScene+MiniMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GCMyScene+MiniMap.m"; path = "HUD/GCMyScene+MiniMap.m"; sourceTree = "<group>"; };
+		527F7EEF199449460091E4C5 /* GLCIconInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLCIconInfo.h; path = GalacticConquest/HUD/GLCIconInfo.h; sourceTree = SOURCE_ROOT; };
+		5291D31C1909D9B000274C87 /* GCStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCStoreViewController.h; sourceTree = "<group>"; };
+		5291D31D1909D9B000274C87 /* GCStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCStoreViewController.m; sourceTree = "<group>"; };
 		5296595718E0821B009A77A9 /* CollisionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionManager.h; sourceTree = "<group>"; };
 		5296595818E0821B009A77A9 /* CollisionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionManager.m; sourceTree = "<group>"; };
 		52973B0418D24B7E00E5D7CE /* AstrialObjectManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AstrialObjectManager.h; sourceTree = "<group>"; };
@@ -122,6 +130,14 @@
 		52973B1018D25B9100E5D7CE /* FiringModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiringModule.m; sourceTree = "<group>"; };
 		52973B1218D3781000E5D7CE /* explode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explode.png; sourceTree = "<group>"; };
 		52973B1418D37A8800E5D7CE /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
+		529E9A621920575100782226 /* GCMyScene+MiniMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCMyScene+MiniMap.h"; sourceTree = "<group>"; };
+		529E9A631920575100782226 /* GCMyScene+MiniMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCMyScene+MiniMap.m"; sourceTree = "<group>"; };
+		529E9A641920575100782226 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
+		529E9A651920575100782226 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
+		529E9A661920575100782226 /* Quandrant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quandrant.h; sourceTree = "<group>"; };
+		529E9A671920575100782226 /* Quandrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quandrant.m; sourceTree = "<group>"; };
+		529E9A6B1920586400782226 /* QuadSeeder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuadSeeder.h; sourceTree = "<group>"; };
+		529E9A6C1920586400782226 /* QuadSeeder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuadSeeder.m; sourceTree = "<group>"; };
 		52A1BC9018D0BD5E00A3B49C /* thruster1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = thruster1.sks; sourceTree = "<group>"; };
 		52A1BC9118D0BD5E00A3B49C /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		52A1BC9518D112E700A3B49C /* AstrialObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AstrialObject.h; sourceTree = "<group>"; };
@@ -215,11 +231,12 @@
 		5236E01B18C1DA8800AFE2AF /* GalacticConquest */ = {
 			isa = PBXGroup;
 			children = (
+				529E9A611920575100782226 /* MAP */,
+				528B1BD918C9C6B600AEF8DD /* HUD */,
 				52973B0B18D24BD400E5D7CE /* Controllers */,
 				52973B0718D24BC500E5D7CE /* Scenes */,
 				52A1BC9418D112AD00A3B49C /* astrials */,
 				523032BF18CAA53300C6DCC5 /* GameMechanics */,
-				528B1BD918C9C6B600AEF8DD /* HUD */,
 				5236E06218C1ED6000AFE2AF /* Resources */,
 				5236E02718C1DA8800AFE2AF /* Main_iPhone.storyboard */,
 				5236E02A18C1DA8800AFE2AF /* Main_iPad.storyboard */,
@@ -307,8 +324,7 @@
 		528B1BD918C9C6B600AEF8DD /* HUD */ = {
 			isa = PBXGroup;
 			children = (
-				528B1BD618C9C6A500AEF8DD /* GCMyScene+MiniMap.h */,
-				528B1BD718C9C6A500AEF8DD /* GCMyScene+MiniMap.m */,
+				527F7EEF199449460091E4C5 /* GLCIconInfo.h */,
 			);
 			name = HUD;
 			sourceTree = "<group>";
@@ -327,12 +343,31 @@
 		52973B0B18D24BD400E5D7CE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				522AB8D4190E11160006F8E3 /* UIViewController+InventoryTable.h */,
+				522AB8D5190E11160006F8E3 /* UIViewController+InventoryTable.m */,
 				52973B0C18D24BD400E5D7CE /* GCViewController.h */,
 				52973B0D18D24BD400E5D7CE /* GCViewController.m */,
-				5263D8E418D4436900591974 /* GCViewController+InventoryTable.h */,
-				5263D8E518D4436900591974 /* GCViewController+InventoryTable.m */,
+				522AB8D1190CE66B0006F8E3 /* GCEquipViewController.h */,
+				522AB8D2190CE66B0006F8E3 /* GCEquipViewController.m */,
+				5291D31C1909D9B000274C87 /* GCStoreViewController.h */,
+				5291D31D1909D9B000274C87 /* GCStoreViewController.m */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		529E9A611920575100782226 /* MAP */ = {
+			isa = PBXGroup;
+			children = (
+				529E9A621920575100782226 /* GCMyScene+MiniMap.h */,
+				529E9A631920575100782226 /* GCMyScene+MiniMap.m */,
+				529E9A641920575100782226 /* MapNode.h */,
+				529E9A651920575100782226 /* MapNode.m */,
+				529E9A6B1920586400782226 /* QuadSeeder.h */,
+				529E9A6C1920586400782226 /* QuadSeeder.m */,
+				529E9A661920575100782226 /* Quandrant.h */,
+				529E9A671920575100782226 /* Quandrant.m */,
+			);
+			path = MAP;
 			sourceTree = "<group>";
 		};
 		52A1BC8F18D0BD3A00A3B49C /* particles */ = {
@@ -478,7 +513,6 @@
 			files = (
 				5236E06D18C1ED6000AFE2AF /* DPad.m in Sources */,
 				5236E06E18C1ED6000AFE2AF /* FMMParallaxNode.m in Sources */,
-				5263D8E618D4436900591974 /* GCViewController+InventoryTable.m in Sources */,
 				52A1BC9718D112E700A3B49C /* AstrialObject.m in Sources */,
 				52A1BC9A18D113B300A3B49C /* PlayerShip.m in Sources */,
 				52973B1118D25B9100E5D7CE /* FiringModule.m in Sources */,
@@ -488,14 +522,20 @@
 				5296595918E0821B009A77A9 /* CollisionManager.m in Sources */,
 				52A1BCA018D113EA00A3B49C /* EnemyShip.m in Sources */,
 				52973B0A18D24BC500E5D7CE /* GCMyScene.m in Sources */,
+				529E9A681920575100782226 /* GCMyScene+MiniMap.m in Sources */,
 				5219F62D18D7C68700F26EF7 /* SpaceStation.m in Sources */,
+				522AB8D3190CE66B0006F8E3 /* GCEquipViewController.m in Sources */,
 				5236E02618C1DA8800AFE2AF /* GCAppDelegate.m in Sources */,
+				529E9A6A1920575100782226 /* Quandrant.m in Sources */,
+				522AB8D6190E11160006F8E3 /* UIViewController+InventoryTable.m in Sources */,
+				529E9A691920575100782226 /* MapNode.m in Sources */,
+				5291D31E1909D9B000274C87 /* GCStoreViewController.m in Sources */,
 				52973B0E18D24BD400E5D7CE /* GCViewController.m in Sources */,
+				529E9A6D1920586400782226 /* QuadSeeder.m in Sources */,
 				523032C218CAA54C00C6DCC5 /* BattleMechanics.m in Sources */,
 				52A1BC9D18D113DC00A3B49C /* HitParticle.m in Sources */,
 				52973B0618D24B7E00E5D7CE /* AstrialObjectManager.m in Sources */,
 				5236E02218C1DA8800AFE2AF /* main.m in Sources */,
-				528B1BD818C9C6A500AEF8DD /* GCMyScene+MiniMap.m in Sources */,
 				5263D8E318D3C61B00591974 /* NameGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,16 @@
 #import "GCMyScene.h"
 #import "GCMyScene+MiniMap.h"
 #import "GCMyScene+RandomGeneration.h"
+
 #import "AstrialObjectManager.h"
+#import "AstrialObject.h"
+
+#import "DPad.h"
+#import "FMMParallaxNode.h"
+
+#import "FiringModule.h"
+#import "CollisionManager.h"
+
 
 
 @implementation GCMyScene
@@ -53,16 +62,17 @@
     
     //HUD overlay
     self.hud = [SKNode node];
+    [self addChild: self.hud];
     
     // Create the DPads
     self.dPad = [[DPad alloc] initWithRect:CGRectMake(0, 0, 64.0f, 64.0f)];
-    self.dPad.position = CGPointMake(64.0f / 4, 64.0f / 4);
+    self.dPad.position = CGPointMake(64.0f / 4, 4.0f / 4);
     self.dPad.numberOfDirections = 24;
     self.dPad.deadRadius = 8.0f;
     
     [self.hud addChild:self.dPad];
     
-    [self addChild:self.hud];
+//    [self addChild:self.hud];
 }
 
 //fire button
@@ -83,19 +93,35 @@
     [self.hud addChild:fireButton];
 }
 
+-(void)setupStationButton{
+     _stationBut = [SKSpriteNode spriteNodeWithImageNamed:@"stationButton"];
+     _stationBut.position = CGPointMake(_stopPedal.position.x - (_stationBut.size.width*2), _stopPedal.position.y);
+    [_stationBut setName:@"stationButton"];
+    [self.hud addChild:_stationBut];
+}
+
+-(void)setupEquipButton{
+     _equipBut = [SKSpriteNode spriteNodeWithImageNamed:@"equipButton"];
+     _equipBut.position = CGPointMake(_stopPedal.position.x - (_equipBut.size.width), _stopPedal.position.y);
+    [_equipBut setName:@"equipButton"];
+    [self.hud addChild:_equipBut];
+}
 
 
 -(void)setupHUD
 {
     [self setupStopPedal];
     [self setupFireButton];
+    [self setupStationButton];
+    [self setupEquipButton];
+    [self.hud setPosition:CGPointMake(0, 250)];
 }
 
 
 
 -(void)setupShipToLocation:(CGPoint)location{
     NSLog(@"Center is %@",NSStringFromCGPoint(location));
-     self.ship = [AstrialObject spriteNodeWithImageNamed:@"Spaceship"];
+     _ship = [AstrialObject spriteNodeWithImageNamed:@"Spaceship"];
     [self.ship setSize:CGSizeMake(50, 50)];
     
      self.ship.position = location;
@@ -155,6 +181,19 @@
     if ([node.name isEqualToString:@"fireButton"]) {
         [self fireButtonPressed];
     }
+    if ([node.name isEqualToString:@"stationButton"]) {
+                [self.dPad forceStop];
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"openStore"
+         object:nil];
+    }
+    if ([node.name isEqualToString:@"equipButton"]) {
+        [self.dPad forceStop];
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"equipView"
+         object:nil];
+    }
+    
 }
 
 
@@ -197,6 +236,8 @@
 
 -(void)update:(CFTimeInterval)currentTime {
 
+    [_stationBut setHidden:![[AstrialObjectManager sharedManager]canDock]];
+    
     [self.bulletBox update:currentTime];
     
     
@@ -224,30 +265,25 @@
     if  ((self.currentAngle !=newAngle)&&
         !(newVelocity.x==0&&newVelocity.y==0)){
 
-
         NSLog(@"has action? %i",[self hasActions]);
         
         NSLog(@"degree to rotate %f",self.dPad.degrees);
 
         NSLog(@"adjAng to rotate %f",newAngle);
         
-
-        
         newAngle = M_PI*newAngle/180;
         NSLog(@"angle %f",newAngle);
         
         
-        if (fabs(newAngle-self.currentAngle)>1) {
+        if (fabs(newAngle-self.currentAngle) > 1) {
             rotateTime = 0;
         }
         
-        SKAction *action2 = [SKAction rotateToAngle:newAngle duration:rotateTime
-                             ];
+        SKAction *action2 = [SKAction rotateToAngle:newAngle duration:rotateTime];
 
         [self.ship runAction:action2];
         
         self.currentAngle = newAngle;
-
     }
 
 

@@ -8,13 +8,17 @@
 
 #import "AstrialObjectManager.h"
 
+#import "AstrialObject.h"
+#import "HitParticle.h"
+#import "SpaceStation.h"
+
 
 @implementation AstrialObjectManager
 
 #pragma mark -
 
 -(void)recalculateLocalCollidablesFrom:(CGPoint)local{
-    
+    BOOL station = NO;
     float collideRange = 3000;
     NSMutableArray *tempLocalCollidables = [[NSMutableArray alloc]init];
     CGRect localFrame = CGRectMake(local.x-collideRange/2,
@@ -25,9 +29,12 @@
     for (AstrialObject *astrial in self.collidableAstrials) {
         if (CGRectContainsPoint(localFrame, astrial.position)) {
             [tempLocalCollidables addObject:astrial];
+            if ([astrial isKindOfClass:SpaceStation.class]) {
+                station= YES;
+            }
         }
     }
-    
+    _canDock = station;
     _localCollidables = tempLocalCollidables;
     if (_localCollidables.count>1){
         NSLog(@"%@",_localCollidables);}
@@ -37,16 +44,16 @@
 #pragma mark - add/remove Astrials
 
 -(void)addCollidable:(AstrialObject*)astrialObj{
-    [self.background     addChild:  astrialObj];
+    [_background         addChild:  astrialObj];
     [_collidableAstrials addObject: astrialObj];
     [_astrialObjects     addObject: astrialObj];
 }
 
 
 -(void)addNonCollidable:(AstrialObject*)astrialObj {
-    [self.background addChild:astrialObj];
+    [_background addChild:astrialObj];
     if (![astrialObj isKindOfClass:HitParticle.class]){
-        [self.astrialObjects addObject:astrialObj];
+        [_astrialObjects addObject:astrialObj];
     }else{
         NSLog(@"added hitParticle to astrials GOOD");
     }

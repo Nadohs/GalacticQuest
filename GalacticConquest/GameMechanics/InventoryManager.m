@@ -7,6 +7,7 @@
 //
 
 #import "InventoryManager.h"
+#import "NameGenerator.h"
 
 @implementation InventoryManager
 
@@ -20,7 +21,7 @@
             //                        forKey:[oreSet objectForKey:@"name"]];
         }
     }
-    self.inventory = [NSArray arrayWithArray:invList];
+    _inventory = [NSArray arrayWithArray:invList];
     [self sendNotifcationToReloadInventory];
 }
 
@@ -105,7 +106,38 @@
     }
 }
 
-
+-(void)removeItem:(NSString*)item
+          forCash:(BOOL)cashIn{
+    
+    NSMutableArray *invList = [[NSMutableArray alloc]init];
+    int q = 0;
+    int money = 0;
+    for (NSDictionary *oreSet in self.oreList) {
+        if ([[oreSet objectForKey:@"name"] isEqualToString:item]) {
+            
+            NSDictionary *oreSet = [self.oreList objectAtIndex:q];
+            int newQuant = [[oreSet objectForKey:@"quantity"]intValue]-1;
+            if (newQuant <0) {
+                newQuant=0;
+            }
+            NSDictionary *newOreSet = @{@"name":[oreSet objectForKey:@"name"],
+                                        @"value":[oreSet objectForKey:@"value"],
+                                        @"quantity":[NSNumber numberWithInt:newQuant] };
+            money =[[oreSet objectForKey:@"value"] intValue];
+            [_oreList replaceObjectAtIndex:q withObject:newOreSet];
+            [self updateInventory];
+        }
+        q++;
+    }
+    
+    if (cashIn) {
+        self.gold += money;
+    }
+    
+    _inventory = [NSArray arrayWithArray:invList];
+    [self sendNotifcationToReloadInventory];
+    [self updateInventory];
+}
 
 
 #pragma mark - singleton methods
@@ -113,6 +145,7 @@
 -(void)singletonInit
 {
     [self buildOreList];
+    _gold = 0;
 }
 
 

@@ -1,16 +1,15 @@
 //
-//  GCViewController+InventoryTable.m
+//  UIViewController+InventoryTable.m
 //  GalacticConquest
 //
-//  Created by Rich on 3/15/14.
+//  Created by Rich on 4/27/14.
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
 
-#import "GCViewController+InventoryTable.h"
+#import "UIViewController+InventoryTable.h"
 #import "InventoryManager.h"
 
-@implementation GCViewController (InventoryTable)
-
+@implementation UIViewController (InventoryTable)
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
@@ -33,7 +32,7 @@
                                       reuseIdentifier:MyIdentifier];
     }
     NSDictionary *oreSet =[[InventoryManager sharedManager] inventory][indexPath.row];
-
+    
     [(UILabel*)[cell viewWithTag:111] setText:[oreSet objectForKey:@"name"]];
     [(UILabel*)[cell viewWithTag:112] setText:@"an ore"];
     [(UILabel*)[cell viewWithTag:211] setText:[[oreSet objectForKey:@"value"] stringValue]];

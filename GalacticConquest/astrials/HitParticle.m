@@ -18,4 +18,11 @@
     return self;
 }
 
++(void)killParticle:(HitParticle*)particle{
+    [particle removeFromParent];
+    particle = nil;
+
+
+}
+
 @end

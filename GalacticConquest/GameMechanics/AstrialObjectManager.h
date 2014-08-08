@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
-#import "HitParticle.h"
+@import  SpriteKit;
+@class AstrialObject;
 
 @interface AstrialObjectManager : NSObject
 
-@property (nonatomic) SKNode *background;
-@property (nonatomic) NSMutableArray *astrialObjects;
-@property (nonatomic) NSMutableArray *localCollidables;
-@property (nonatomic) NSMutableArray *collidableAstrials;
+@property (weak, nonatomic) SKNode *background;
+@property (strong, nonatomic) NSMutableArray *astrialObjects;
+@property (strong, nonatomic) NSMutableArray *localCollidables;
+@property (strong, nonatomic) NSMutableArray *collidableAstrials;
+@property (assign, nonatomic) BOOL canDock;
 
 -(void)addCollidable:(AstrialObject*)astrialObj;
 -(void)addNonCollidable:(AstrialObject*)astrialObj;
@@ -23,5 +23,9 @@
 
 -(void)recalculateLocalCollidablesFrom:(CGPoint)local;
 
+
 + (AstrialObjectManager *) sharedManager;
+
+
+
 @end
