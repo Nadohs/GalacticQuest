@@ -99,6 +99,8 @@
                     <connections>
                         <outlet property="inventoryButton" destination="5wp-ri-maR" id="QWi-01-0s5"/>
                         <outlet property="inventoryListTableView" destination="qKc-iC-w1V" id="faY-Pd-Lj6"/>
+                        <segue destination="gLM-LX-6gb" kind="push" identifier="storePushSegue" id="Acx-MQ-s79"/>
+                        <segue destination="iJZ-Of-yBC" kind="push" identifier="inventoryPushSegue" id="GrC-ji-ElW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -337,7 +339,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.0039215688589999999" green="0.70980393890000004" blue="0.9450981021" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inventoryItem" id="mWC-MX-Hoy">
-                                        <rect key="frame" x="0.0" y="22" width="267" height="44"/>
+                                        <rect key="frame" x="0.0" y="66" width="267" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mWC-MX-Hoy" id="XTd-o5-4Xp">
                                             <rect key="frame" x="0.0" y="0.0" width="267" height="43"/>
@@ -505,6 +507,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sPy-2N-dA9"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="inventoryTable" destination="r7i-oB-znS" id="rxk-Ke-pLx"/>

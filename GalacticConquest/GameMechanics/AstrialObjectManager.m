@@ -7,10 +7,10 @@
 //
 
 #import "AstrialObjectManager.h"
-#import <SpriteKit/SpriteKit.h>
+
+#import "AstrialObject.h"
 #import "HitParticle.h"
 #import "SpaceStation.h"
-
 
 
 @implementation AstrialObjectManager
@@ -44,16 +44,16 @@
 #pragma mark - add/remove Astrials
 
 -(void)addCollidable:(AstrialObject*)astrialObj{
-    [self.background     addChild:  astrialObj];
+    [_background         addChild:  astrialObj];
     [_collidableAstrials addObject: astrialObj];
     [_astrialObjects     addObject: astrialObj];
 }
 
 
 -(void)addNonCollidable:(AstrialObject*)astrialObj {
-    [self.background addChild:astrialObj];
+    [_background addChild:astrialObj];
     if (![astrialObj isKindOfClass:HitParticle.class]){
-        [self.astrialObjects addObject:astrialObj];
+        [_astrialObjects addObject:astrialObj];
     }else{
         NSLog(@"added hitParticle to astrials GOOD");
     }

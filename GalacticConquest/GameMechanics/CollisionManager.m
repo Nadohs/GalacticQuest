@@ -8,6 +8,7 @@
 
 #import "CollisionManager.h"
 #import "AstrialObjectManager.h"
+#import "AstrialObject.h"
 #import "SpaceStation.h"
 #import "HitParticle.h"
 

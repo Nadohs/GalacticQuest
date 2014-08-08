@@ -21,7 +21,9 @@
 #pragma mark - random generated stuff
 
 -(UIColor*)randomColor{
-
+// I WANT NICE SOLD COLORS,
+// SO I DECIDED NOT TO SIMPLY RANDOMIZE RGB VALUES
+    
     int q= random()%16;
     switch (q) {
         case 1:
@@ -94,20 +96,17 @@
 
 -(void)buildSpaceStuff{
     
-    //SEED PROCEDURALLY GENERATED MAP WITH srandom();
-
-    srandom(1);
-    
-    //max ==  4294967295
-    //min == -2147483648
-    
-    //range == 6442450944  (2147483648 * 3)
-    
+    //PROCEDURAL GENERATION BOUNDARY CALCULATIONS
+    //max   ==  4294967295
+    //min   == -2147483648
+    //range ==  6442450944  (2147483648 * 3)
     //midPoint ==  1073741824 (3221225472 + -2147483648)
     //lowMid   == -2147483648 to 1073741823
-    //
-    //
     //midHigh  ==  1073741824 to 4294967295
+    
+    
+    //SEED PROCEDURALLY GENERATED MAP WITH srandom();
+    srandom(1);
     
     [[AstrialObjectManager sharedManager] setBackground:self.parallaxNodeBackgrounds];
     

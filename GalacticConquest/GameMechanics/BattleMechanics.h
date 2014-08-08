@@ -10,7 +10,7 @@
 
 @interface BattleMechanics : SKNode
 
-@property (nonatomic) SKNode *playerShip;
+@property (weak, nonatomic) SKNode *playerShip;
 //@property (nonatomic) SKNode *main;
 
 -(void)firedPlayerFromAngle: (int)degree;

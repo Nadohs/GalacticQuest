@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *buyTable;
 - (IBAction)sellButtonPressed:(id)sender;
 - (IBAction)buyButtonPressed:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UILabel *cashLabel;
 
 @end

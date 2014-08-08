@@ -9,11 +9,17 @@
 #import "GCMyScene.h"
 #import "GCMyScene+MiniMap.h"
 #import "GCMyScene+RandomGeneration.h"
+
 #import "AstrialObjectManager.h"
+#import "AstrialObject.h"
+
 #import "DPad.h"
 #import "FMMParallaxNode.h"
+
 #import "FiringModule.h"
 #import "CollisionManager.h"
+
+
 
 @implementation GCMyScene
 
@@ -21,8 +27,6 @@
 
 
 -(NSArray*)astrialObjects{
-//    CFStringRef sadString = NULL;
-//    NSString *happyString = (NSString *)CFBridgingRelease(sadString);
     return (NSArray*)[[AstrialObjectManager sharedManager] astrialObjects];
 }
 
@@ -117,7 +121,7 @@
 
 -(void)setupShipToLocation:(CGPoint)location{
     NSLog(@"Center is %@",NSStringFromCGPoint(location));
-     self.ship = [AstrialObject spriteNodeWithImageNamed:@"Spaceship"];
+     _ship = [AstrialObject spriteNodeWithImageNamed:@"Spaceship"];
     [self.ship setSize:CGSizeMake(50, 50)];
     
      self.ship.position = location;

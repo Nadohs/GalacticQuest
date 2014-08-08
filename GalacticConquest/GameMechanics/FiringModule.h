@@ -10,10 +10,11 @@
 
 
 @class CollisionManager;
+@class AstrialObject;
 
 @interface FiringModule : NSObject
 
-@property (nonatomic) NSMutableArray *fireProjectiles;
+@property (strong, nonatomic) NSMutableArray *fireProjectiles;
 
 -(id)initWithShip:(AstrialObject*)ship;
 -(void)update:(CFTimeInterval)currentTime;

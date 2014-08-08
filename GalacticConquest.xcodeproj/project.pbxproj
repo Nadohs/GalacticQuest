@@ -115,6 +115,7 @@
 		5263D8DF18D3C4A300591974 /* InventoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InventoryManager.m; sourceTree = "<group>"; };
 		5263D8E118D3C61B00591974 /* NameGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameGenerator.h; sourceTree = "<group>"; };
 		5263D8E218D3C61B00591974 /* NameGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameGenerator.m; sourceTree = "<group>"; };
+		527F7EEF199449460091E4C5 /* GLCIconInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLCIconInfo.h; path = GalacticConquest/HUD/GLCIconInfo.h; sourceTree = SOURCE_ROOT; };
 		5291D31C1909D9B000274C87 /* GCStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCStoreViewController.h; sourceTree = "<group>"; };
 		5291D31D1909D9B000274C87 /* GCStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCStoreViewController.m; sourceTree = "<group>"; };
 		5296595718E0821B009A77A9 /* CollisionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionManager.h; sourceTree = "<group>"; };
@@ -323,6 +324,7 @@
 		528B1BD918C9C6B600AEF8DD /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				527F7EEF199449460091E4C5 /* GLCIconInfo.h */,
 			);
 			name = HUD;
 			sourceTree = "<group>";

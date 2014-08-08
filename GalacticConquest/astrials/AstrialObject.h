@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "GLCIconInfo.h"
 
 @interface AstrialObject : SKSpriteNode
 

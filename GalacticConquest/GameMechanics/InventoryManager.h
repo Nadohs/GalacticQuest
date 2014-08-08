@@ -11,9 +11,9 @@
 
 @interface InventoryManager : NSObject
 //objects are dictionaries
-@property (nonatomic) int gold;
-@property (nonatomic) NSMutableArray *oreList;
-@property (nonatomic) NSArray *inventory;
+@property (assign, nonatomic) int gold;
+@property (strong, nonatomic) NSMutableArray *oreList;
+@property (strong, nonatomic) NSArray *inventory;
 
 +(InventoryManager *) sharedManager;
 -(void)mineRandomOre;

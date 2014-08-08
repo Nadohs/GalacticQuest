@@ -10,6 +10,7 @@
 
 @implementation BattleMechanics
 
+
 -(void)firedPlayerFromAngle: (int)degree{
 //    S KSpriteNode *newNode =[SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(5, 5)];
 ////    [newNode setName:[NSString stringWithFormat:@"mmItem%i",itemCount]];

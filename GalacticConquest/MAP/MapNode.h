@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+@class AstrialObject;
 @interface MapNode : SKSpriteNode
 
 @property (weak, nonatomic) AstrialObject *astrial;

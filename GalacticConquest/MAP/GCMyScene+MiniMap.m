@@ -9,6 +9,7 @@
 #import "GCMyScene+MiniMap.h"
 #import "MapNode.h"
 #import "AstrialObjectManager.h"
+#import "AstrialObject.h"
 
 
 @implementation GCMyScene (MiniMap)

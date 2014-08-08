@@ -7,27 +7,25 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-#import "DPad.h"
-#import "FMMParallaxNode.h"
-#import "FiringModule.h"
 
 @class DPad;
 @class FMMParallaxNode;
 @class FiringModule;
+@class AstrialObject;
 
 
 @interface GCMyScene : SKScene
-@property (nonatomic) SKNode *hud;
-@property (nonatomic) DPad *dPad;
+@property (strong, nonatomic) SKNode *hud;
+@property (strong, nonatomic) DPad *dPad;
 
 //MainShip Properties
-@property (nonatomic) AstrialObject *ship;
-@property (nonatomic) CGPoint shipStartPos;
+@property (strong, nonatomic) AstrialObject *ship;
+@property (assign, nonatomic) CGPoint shipStartPos;
 
 //MiniMap Properties
-@property (nonatomic) SKSpriteNode *miniMap;
-@property (nonatomic) CGPoint mapCenter;
-@property (nonatomic) float quatrantSize;
+@property (strong, nonatomic) SKSpriteNode *miniMap;
+@property (assign, nonatomic) CGPoint mapCenter;
+@property (assign, nonatomic) float quatrantSize;
 
 //directions
 @property (strong, nonatomic) NSMutableArray *UL;
@@ -43,26 +41,26 @@
 @property (strong, nonatomic) NSMutableArray *DR;
 
 //HUD Objects
-@property (nonatomic) SKSpriteNode *stopPedal;
-@property (nonatomic) SKSpriteNode *stationBut;
-@property (nonatomic) SKSpriteNode *equipBut;
-@property (nonatomic) float mapBreakLeft;
-@property (nonatomic) float mapBreakRight;
-@property (nonatomic) float mapBreakUp;
-@property (nonatomic) float mapBreakDown;
+@property (strong, nonatomic) SKSpriteNode *stopPedal;
+@property (strong, nonatomic) SKSpriteNode *stationBut;
+@property (strong, nonatomic) SKSpriteNode *equipBut;
+@property (assign, nonatomic) float mapBreakLeft;
+@property (assign, nonatomic) float mapBreakRight;
+@property (assign, nonatomic) float mapBreakUp;
+@property (assign, nonatomic) float mapBreakDown;
 
 //Background
-@property (nonatomic) FMMParallaxNode *parallaxNodeBackgrounds;
+@property (strong, nonatomic) FMMParallaxNode *parallaxNodeBackgrounds;
 
-@property (nonatomic) float currentAngle;
+@property (assign, nonatomic) float currentAngle;
 
 
 //Projectile Manager
-@property (nonatomic) FiringModule *bulletBox;
+@property (strong, nonatomic) FiringModule *bulletBox;
 
-@property (nonatomic) SKEmitterNode *burstNode;
+@property (strong, nonatomic) SKEmitterNode *burstNode;
 
-@property (nonatomic) int frameCount;
+@property (assign, nonatomic) int frameCount;
 
 -(NSArray*)astrialObjects;
 -(CGPoint)shipPosition;

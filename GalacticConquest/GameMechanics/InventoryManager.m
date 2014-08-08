@@ -21,7 +21,7 @@
             //                        forKey:[oreSet objectForKey:@"name"]];
         }
     }
-    self.inventory = [NSArray arrayWithArray:invList];
+    _inventory = [NSArray arrayWithArray:invList];
     [self sendNotifcationToReloadInventory];
 }
 
@@ -134,7 +134,7 @@
         self.gold += money;
     }
     
-    self.inventory = [NSArray arrayWithArray:invList];
+    _inventory = [NSArray arrayWithArray:invList];
     [self sendNotifcationToReloadInventory];
     [self updateInventory];
 }

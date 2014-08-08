@@ -8,6 +8,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 #import "FiringModule.h"
+#import "AstrialObject.h"
 #import "HitParticle.h"
 #import "AstrialObjectManager.h"
 #import "CollisionManager.h"

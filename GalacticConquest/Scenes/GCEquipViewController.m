@@ -7,6 +7,7 @@
 //
 
 #import "GCEquipViewController.h"
+#import "InventoryManager.h"
 
 
 @interface GCEquipViewController ()
