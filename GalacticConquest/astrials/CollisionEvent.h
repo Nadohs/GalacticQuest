@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
+
+@import SpriteKit;
 #import "AstrialObject.h"
 
 @interface CollisionEvent : NSObject

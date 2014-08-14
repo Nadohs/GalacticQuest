@@ -73,27 +73,9 @@
 }
 
 
-- (void)randomizeNodesPositions
-{
-    [_backgrounds enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-    SKSpriteNode *node = (SKSpriteNode *)obj;
-//        [self randomizeNodePosition:node];
-        
-    }];
-    //flag it for random placement each main scroll through
-    _randomizeDuringRollover = YES;
-    
-}
-
 
 - (void)randomizeNodePosition:(SKSpriteNode *)node
 {
-//    CGFloat randomOffset = [self randomValueBetween:0 andValue:50];
-//    CGFloat randomSign = [self randomValueBetween:0.0 andValue:1000.0]>500.0 ? -1 : 1;
-//    randomOffset *= randomSign;
-//    NSLog(@"randomsign=%f",randomSign);
-//    node.position = CGPointMake(node.position.x,node.position.y+randomOffset);
-    
     //I liked this look better for randomizing the placement of the nodes!
     CGFloat randomYPosition = [self randomValueBetween:0
                                               andValue:0];

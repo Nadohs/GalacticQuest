@@ -40,7 +40,7 @@
 -(void)startTrackingShip{
     
     MapNode* newNode = [MapNode spriteNodeWithImageNamed:@"mmShip"];
-    [newNode setAstrial:[self childNodeWithName:@"playerShip"]];
+    [newNode setAstrial:(AstrialObject*)[self childNodeWithName:@"playerShip"]];
     [newNode setSize:CGSizeMake(8, 8)];
     [newNode setColor:[UIColor orangeColor]];
      newNode.colorBlendFactor = 1.0;
@@ -48,7 +48,7 @@
 
     [self.miniMap addChild:newNode];
      self.mapCenter = [self convertPoint:[self childNodeWithName:@"playerShip"].position
-                                  toNode:self.parallaxNodeBackgrounds];
+                                  toNode:(SKNode*)self.parallaxNodeBackgrounds];
     
     [NSTimer scheduledTimerWithTimeInterval:0.5
                                      target:self
@@ -123,7 +123,7 @@
         
         
         CGPoint newPos = [self convertPoint:astrialObj.position
-                                     toNode:self.parallaxNodeBackgrounds];
+                                     toNode:(SKNode*)self.parallaxNodeBackgrounds];
         
         float newX = (newPos.x - mapBreakLeft)/self.quatrantSize;
         float newY = (newPos.y - mapBreakUp)/self.quatrantSize;
@@ -147,7 +147,7 @@
     SKSpriteNode *shipDot = (SKSpriteNode*)[self.miniMap childNodeWithName:@"mmItem0"];
     
     CGPoint newPos = [self convertPoint:[self childNodeWithName:@"playerShip"].position
-                                  toNode:self.parallaxNodeBackgrounds];
+                                  toNode:(SKNode*)self.parallaxNodeBackgrounds];
     float newX = (newPos.x - mapBreakLeft)/self.quatrantSize;
     float newY = (newPos.y - mapBreakUp)/self.quatrantSize;
     
@@ -175,7 +175,7 @@
         
         
         CGPoint newPos = [self convertPoint:astrialObj.position
-                                     toNode:self.parallaxNodeBackgrounds];
+                                     toNode:(SKNode*)self.parallaxNodeBackgrounds];
         
         float newX = (newPos.x - mapBreakLeft)/self.quatrantSize;
         float newY = (newPos.y - mapBreakUp)/self.quatrantSize;
@@ -187,6 +187,19 @@
         newPos.y = noOffset.y + 2*(newPoint.y);
         
         [node setPosition:newPos];
+        
+        //Check if mapNode is off of grid
+        CGRect mapRect;
+        mapRect.size = self.miniMap.size;
+        mapRect.origin = CGPointMake(-self.miniMap.size.width/2,
+                                     -self.miniMap.size.height/2);
+
+        if (CGRectContainsPoint(mapRect, node.position)) {
+            [node setHidden:NO];
+        }else{
+            [node setHidden:YES];
+        }
+        
     }
 }
 

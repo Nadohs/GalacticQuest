@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+@import SpriteKit;
 
 @class DPad;
 @class FMMParallaxNode;

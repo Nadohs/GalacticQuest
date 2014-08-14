@@ -50,7 +50,6 @@
      _parallaxNodeBackgrounds.position = CGPointMake((self.size.width/2.0)-planetSizes.width/2,
                                                      (self.size.height/2.0)-planetSizes.height/2);
     
-    [_parallaxNodeBackgrounds randomizeNodesPositions];
     
     [self addChild:_parallaxNodeBackgrounds];
 }
@@ -165,10 +164,6 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
-    
-    for (UITouch *touch in touches) {
-    CGPoint location = [touch locationInNode:self];
-    }
     
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInNode:self];

@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
 
-#import <SpriteKit/SpriteKit.h>
+@import SpriteKit;
 #import "GLCIconInfo.h"
 
 @interface AstrialObject : SKSpriteNode
@@ -19,6 +19,7 @@
 
 -(void)takeHit:(float)hitPoints location:(CGPoint)hitLocation;
 -(void)reduceSize;
+
 @property (nonatomic) NSTimer *endPlode;
 
 

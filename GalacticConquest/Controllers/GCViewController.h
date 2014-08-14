@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import <SpriteKit/SpriteKit.h>
+@import UIKit;
+@import SpriteKit;
 #import "UIViewController+InventoryTable.h"
 
 @interface GCViewController : UIViewController
@@ -18,6 +18,6 @@
 @property (strong, nonatomic) SKScene *scene;
 
 -(IBAction)inventoryButtonPressed:(id)sender;
--(void)openSuperMarket;
+//-(void)openSuperMarket;
 
 @end

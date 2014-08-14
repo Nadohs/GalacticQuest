@@ -15,7 +15,7 @@
 @implementation GCStoreViewController
 
 
-#pragma mark -Table Stuff
+#pragma mark - table delegate methods
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -56,6 +56,8 @@
     return cell;
 }
 
+#pragma mark - setup
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -91,6 +93,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - button actions
+
 
 - (IBAction)sellButtonPressed:(UIButton*)sender {
     UILabel *nameLabel = (UILabel*)[sender.superview viewWithTag:111];
@@ -103,6 +107,7 @@
     
 }
 - (IBAction)undockPressed:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self.navigationController popViewControllerAnimated:YES];
 }
 @end
