@@ -12,7 +12,6 @@
 
 - (instancetype)initWithBackground:(NSString *)file size:(CGSize)size pointsPerSecondSpeed:(float)pointsPerSecondSpeed;
 - (instancetype)initWithBackgrounds:(NSArray *)files size:(CGSize)size pointsPerSecondSpeed:(float)pointsPerSecondSpeed;
-- (void)randomizeNodesPositions;
 - (void)update:(NSTimeInterval)currentTime;
 - (void)updateVelocity:(CGPoint)bgVelocity withTime:(NSTimeInterval)currentTime;
 

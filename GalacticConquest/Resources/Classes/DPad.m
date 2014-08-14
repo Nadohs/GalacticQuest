@@ -5,6 +5,7 @@
 //  Created by Kim Pedersen on 30/07/13.
 //  Copyright (c) 2013 Kim Pedersen. All rights reserved.
 //
+;
 
 #import "DPad.h"
 
@@ -222,7 +223,7 @@ static const CGFloat kDEG2RAD = M_PI / 180.0f;
                 // This touch is being tracked
                 CGPoint location = [touch locationInNode:self];
                 
-                location = location = CGPointMake(location.x - self.joystickRadius, location.y - self.joystickRadius);
+                location = CGPointMake(location.x - self.joystickRadius, location.y - self.joystickRadius);
                 
                 [self updateVelocity:location];
             }

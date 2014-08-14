@@ -11,6 +11,7 @@
 @implementation SpaceStation
 
 -(void)reduceSize{
+    
 }
 
 
@@ -18,4 +19,5 @@
     //open store controller
     [[NSNotificationCenter defaultCenter] postNotificationName:@"openStore" object:self];
 }
+
 @end

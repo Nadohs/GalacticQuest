@@ -108,7 +108,7 @@
     //SEED PROCEDURALLY GENERATED MAP WITH srandom();
     srandom(1);
     
-    [[AstrialObjectManager sharedManager] setBackground:self.parallaxNodeBackgrounds];
+    [[AstrialObjectManager sharedManager] setBackground:(SKNode*)self.parallaxNodeBackgrounds];
     
     //Build SUNS
     float q = random() % 100;

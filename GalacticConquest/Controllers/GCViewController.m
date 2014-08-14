@@ -29,16 +29,12 @@
 
 
 -(void)equipView{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
-    UIViewController *storeView  =  [storyboard instantiateViewControllerWithIdentifier:@"equipController"];
-    [self.navigationController pushViewController:storeView animated:YES];
+    [self performSegueWithIdentifier:@"inventorySegue" sender:self];
 }
 
 
--(void)openStoreView{
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPad" bundle:nil];
-    UIViewController *storeView  =  [storyboard instantiateViewControllerWithIdentifier:@"storeController"];
-    [self.navigationController pushViewController:storeView animated:YES];
+-(void)openStoreView{//inventorySegue
+    [self performSegueWithIdentifier:@"storeSegue" sender:self];
 }
 
 
@@ -99,7 +95,6 @@
     [self setupNotifications];
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    [self.inventoryListTableView setHidden:YES];
     
     [self.navigationController setNavigationBarHidden:YES];
     
@@ -126,14 +121,6 @@
 }
 
 
-- (NSUInteger)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskPortraitUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskPortrait;
-    }
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -145,20 +132,6 @@
 
 
 - (IBAction)inventoryButtonPressed:(id)sender {
-    BOOL isHidden =self.inventoryListTableView.hidden;
-    [self.inventoryListTableView setHidden:!isHidden];
-    return;
-//    if (self.inventoryListTableView.hidden) {
-//        [self.inventoryListTableView setHidden:NO];
-//    }
-    CGRect frame = self.inventoryListTableView.frame;
-    if (frame.size.height == 460) {
-        frame.size.height = 0;
-    }
-    else{
-        frame.size.height = 460;
-    }
 
-    [self.inventoryListTableView setFrame:frame];
 }
 @end

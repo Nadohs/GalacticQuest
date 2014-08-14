@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
 @interface QuadSeeder : NSObject
 
 @property(nonatomic)NSMutableDictionary *processedQuads;

@@ -67,6 +67,7 @@
     return [NSArray arrayWithArray:_oreList];
 }
 
+
 -(void)sendNotifcationToReloadInventory{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadInventory" object:self];
 }
@@ -147,8 +148,6 @@
     [self buildOreList];
     _gold = 0;
 }
-
-
 
 
 +(InventoryManager *) sharedManager

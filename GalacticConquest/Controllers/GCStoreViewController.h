@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface GCStoreViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
