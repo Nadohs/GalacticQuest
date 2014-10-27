@@ -75,7 +75,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
@@ -99,8 +99,8 @@
     [self.navigationController setNavigationBarHidden:YES];
     
     [self setEdgesForExtendedLayout:UIRectEdgeNone];
-
-
+    
+    
 }
 
 
@@ -132,6 +132,6 @@
 
 
 - (IBAction)inventoryButtonPressed:(id)sender {
-
+    
 }
 @end

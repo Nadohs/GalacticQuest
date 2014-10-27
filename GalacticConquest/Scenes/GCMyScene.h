@@ -15,7 +15,7 @@
 
 
 @interface GCMyScene : SKScene
-@property (strong, nonatomic) SKNode *hud;
+@property (strong, nonatomic) SKSpriteNode *hud;
 @property (strong, nonatomic) DPad *dPad;
 
 //MainShip Properties

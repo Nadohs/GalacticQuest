@@ -60,7 +60,9 @@
 -(void)setupDpad{
     
     //HUD overlay
-    self.hud = [SKNode node];
+    self.hud = [SKSpriteNode spriteNodeWithColor:[SKColor clearColor] size:CGSizeMake(screen_width, 250)];
+    self.hud.anchorPoint = CGPointMake(0, 0);
+    
     [self addChild: self.hud];
     
     // Create the DPads
@@ -77,31 +79,43 @@
 //fire button
 - (void)setupStopPedal
 {
+    NSLog(@"screen_width: %f",screen_width);
     _stopPedal = [SKSpriteNode spriteNodeWithImageNamed:@"stop_pedal"];
-    _stopPedal.position = CGPointMake(self.size.width-_stopPedal.size.width/2,self.dPad.position.y+20);
+    _stopPedal.anchorPoint = CGPointMake(0, 0);
+    _stopPedal.position = CGPointMake(screen_width-(_stopPedal.size.width/2)-20,self.dPad.position.y );
    [_stopPedal setScale:0.6];
     _stopPedal.name = @"stopPedal";//how the node is identified later
     _stopPedal.zPosition = 1.0;
     [self.hud addChild:_stopPedal];
-    
 }
+
+
 -(void)setupFireButton{
     SKSpriteNode *fireButton = [SKSpriteNode spriteNodeWithImageNamed:@"fire_button"];
-    fireButton.position = CGPointMake(_stopPedal.position.x, _stopPedal.position.y+fireButton.size.height);
+       fireButton .anchorPoint = CGPointMake(0, 0);
+ 
+    fireButton.position = CGPointMake(_stopPedal.position.x-5, _stopPedal.position.y+fireButton.size.height+10);
+    
     [fireButton setName:@"fireButton"];
     [self.hud addChild:fireButton];
 }
 
+
 -(void)setupStationButton{
      _stationBut = [SKSpriteNode spriteNodeWithImageNamed:@"stationButton"];
-     _stationBut.position = CGPointMake(_stopPedal.position.x - (_stationBut.size.width*2), _stopPedal.position.y);
+     _stationBut.anchorPoint = CGPointMake(0, 0);
+     _stationBut.position = CGPointMake(_stopPedal.position.x - (_stationBut.size.width*2), _stopPedal.position.y+5);
     [_stationBut setName:@"stationButton"];
     [self.hud addChild:_stationBut];
 }
 
+
 -(void)setupEquipButton{
      _equipBut = [SKSpriteNode spriteNodeWithImageNamed:@"equipButton"];
-     _equipBut.position = CGPointMake(_stopPedal.position.x - (_equipBut.size.width), _stopPedal.position.y);
+     _equipBut.anchorPoint = CGPointMake(0, 0);
+     _equipBut.position = CGPointMake(_stopPedal.position.x - (_equipBut.size.width), _stopPedal.position.y+5);
+    
+
     [_equipBut setName:@"equipButton"];
     [self.hud addChild:_equipBut];
 }
@@ -113,7 +127,16 @@
     [self setupFireButton];
     [self setupStationButton];
     [self setupEquipButton];
-    [self.hud setPosition:CGPointMake(0, 250)];
+    
+    NSLog(@"\nstopPedal:%@ \nfireBut:%@\nsEquipBut:%@",NSStringFromCGRect(_stopPedal.frame),@"?",NSStringFromCGRect(_equipBut.frame));
+//    [self.hud setPosition:CGPointMake(0, 0)];
+    
+    [self.hud frame];
+    [self.hud setPosition:CGPointMake(0,
+                                      0)];//CGPointMake(0, self.hud.frame.size.height*2)];
+
+    NSLog(@"hud frame : %@",NSStringFromCGRect(self.hud.frame));;
+
 }
 
 

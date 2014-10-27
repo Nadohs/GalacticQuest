@@ -130,8 +130,8 @@
 		52973B1018D25B9100E5D7CE /* FiringModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiringModule.m; sourceTree = "<group>"; };
 		52973B1218D3781000E5D7CE /* explode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explode.png; sourceTree = "<group>"; };
 		52973B1418D37A8800E5D7CE /* explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explosion.sks; sourceTree = "<group>"; };
-		529E9A621920575100782226 /* GCMyScene+MiniMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCMyScene+MiniMap.h"; sourceTree = "<group>"; };
-		529E9A631920575100782226 /* GCMyScene+MiniMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCMyScene+MiniMap.m"; sourceTree = "<group>"; };
+		529E9A621920575100782226 /* GCMyScene+MiniMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GCMyScene+MiniMap.h"; path = "../MAP/GCMyScene+MiniMap.h"; sourceTree = "<group>"; };
+		529E9A631920575100782226 /* GCMyScene+MiniMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GCMyScene+MiniMap.m"; path = "../MAP/GCMyScene+MiniMap.m"; sourceTree = "<group>"; };
 		529E9A641920575100782226 /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
 		529E9A651920575100782226 /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
 		529E9A661920575100782226 /* Quandrant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quandrant.h; sourceTree = "<group>"; };
@@ -334,6 +334,8 @@
 			children = (
 				52973B0818D24BC500E5D7CE /* GCMyScene.h */,
 				52973B0918D24BC500E5D7CE /* GCMyScene.m */,
+				529E9A621920575100782226 /* GCMyScene+MiniMap.h */,
+				529E9A631920575100782226 /* GCMyScene+MiniMap.m */,
 				5219F62718D7AD2800F26EF7 /* GCMyScene+RandomGeneration.h */,
 				5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */,
 			);
@@ -358,8 +360,6 @@
 		529E9A611920575100782226 /* MAP */ = {
 			isa = PBXGroup;
 			children = (
-				529E9A621920575100782226 /* GCMyScene+MiniMap.h */,
-				529E9A631920575100782226 /* GCMyScene+MiniMap.m */,
 				529E9A641920575100782226 /* MapNode.h */,
 				529E9A651920575100782226 /* MapNode.m */,
 				529E9A6B1920586400782226 /* QuadSeeder.h */,
