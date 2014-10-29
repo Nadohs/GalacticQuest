@@ -11,6 +11,8 @@
 #import "SpaceStation.h"
 #import "AstrialObjectManager.h"
 
+#import "Seedling.h"
+#import "Quandrant.h"
 
 
 @implementation GCMyScene (RandomGeneration)
@@ -94,29 +96,40 @@
 }
 
 
--(void)buildSpaceStuff{
+-(Quandrant*)buildSpaceStuff:(Seedling*)seed{
     
     //PROCEDURAL GENERATION BOUNDARY CALCULATIONS
-    //max   ==  4294967295
-    //min   == -2147483648
-    //range ==  6442450944  (2147483648 * 3)
+    //max      ==  4294967295
+    //min      == -2147483648
+    //range    ==  6442450944  (2147483648 * 3)
     //midPoint ==  1073741824 (3221225472 + -2147483648)
     //lowMid   == -2147483648 to 1073741823
     //midHigh  ==  1073741824 to 4294967295
     
     
     //SEED PROCEDURALLY GENERATED MAP WITH srandom();
-    srandom(1);
+    srandom(seed.seedMain);
+    
+    //DIRECTIONAL SEED
+    int throwAway = random() % seed.seedDirection;
+    NSLog(@"seed directional res = %i", throwAway);
     
     [[AstrialObjectManager sharedManager] setBackground:(SKNode*)self.parallaxNodeBackgrounds];
+    
+    Quandrant*quad = [[Quandrant alloc]init];
+    
+    quad.seed = seed;
     
     //Build SUNS
     float q = random() % 100;
     
     for (int i = 0; i<q; i++) {
         AstrialObject  *sun = [AstrialObject spriteNodeWithImageNamed:@"round_fog"];
-        sun.color = self.randomColor;
-        sun.colorBlendFactor = 0.5;
+         sun.isCollidable = NO;
+         sun.seed  = seed;
+         sun.color = self.randomColor;
+        
+         sun.colorBlendFactor = 0.5;
         [sun setPosition:self.randomAstrialPosition];
         NSLog(@"sun is %@",NSStringFromCGPoint(sun.position));
         
@@ -132,8 +145,8 @@
         }
         
         [sun setSize:CGSizeMake(sunSize,sunSize)];
-        
-        [[AstrialObjectManager sharedManager] addNonCollidable:sun];
+        [quad.astrials addObject:sun];
+      //  [[AstrialObjectManager sharedManager] addNonCollidable:sun];
     }
     
     //BUILD ASTROIDS
@@ -141,8 +154,10 @@
     
     for (int i = 0; i<q; i++) {
         AstrialObject  *astroid = [AstrialObject spriteNodeWithImageNamed:@"astroid"];
-        astroid.color = self.randomColor;
-        astroid.colorBlendFactor = 0.5;
+         astroid.isCollidable = YES;
+         astroid.seed  = seed;
+         astroid.color = self.randomColor;
+         astroid.colorBlendFactor = 0.5;
         [astroid setPosition:self.randomAstrialPosition];
         NSLog(@"sun is %@",NSStringFromCGPoint(astroid.position));
         
@@ -159,7 +174,8 @@
         
         [astroid setSize:CGSizeMake(sunSize,sunSize)];
         
-        [[AstrialObjectManager sharedManager] addCollidable:astroid];
+        [quad.astrials addObject:astroid];
+       // [[AstrialObjectManager sharedManager] addCollidable:astroid];
     }
 
     
@@ -168,6 +184,8 @@
     
     for (int i = 0; i<q; i++) {
         SpaceStation  *spaceStation = [SpaceStation spriteNodeWithImageNamed:@"space_station"];
+        spaceStation.isCollidable = YES;
+        spaceStation.seed  = seed;
         spaceStation.color = self.randomColor;
         spaceStation.colorBlendFactor = 0.5;
         [spaceStation setPosition:self.randomAstrialPosition];
@@ -183,14 +201,18 @@
         else{
             [spaceStation setMmShape:mmCustomImage];
         }
+        
         [spaceStation setMmImageName:@"stationIcon"];
         
         [spaceStation setSize:CGSizeMake(sunSize,sunSize)];
+            [quad.astrials addObject:spaceStation];
+       // [[AstrialObjectManager sharedManager] addCollidable:spaceStation];
         
-        [[AstrialObjectManager sharedManager] addCollidable:spaceStation];
     }
     
-    [self startTrackingAstrials];
+//    [self startTrackingAstrials];
+    
+    return quad;
 }
 
 

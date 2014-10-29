@@ -10,12 +10,9 @@
 
 @implementation Quandrant
 
--(id)initWithQuad:(CGPoint)coord{
-    
+-(instancetype)init{
     if ([super init]) {
-        //max ==  4294967295
-        //min == -2147483648
-        //_seed = ;
+        _astrials = [[NSMutableArray alloc]init];
     }
     return self;
 }

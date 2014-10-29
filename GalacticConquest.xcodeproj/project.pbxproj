@@ -58,6 +58,7 @@
 		52A1BCA018D113EA00A3B49C /* EnemyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1BC9F18D113EA00A3B49C /* EnemyShip.m */; };
 		52A1BCA318D114CB00A3B49C /* CollisionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1BCA218D114CB00A3B49C /* CollisionEvent.m */; };
 		52C82FA418CFC12800764713 /* Spaceship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C82FA318CFC12800764713 /* Spaceship@2x.png */; };
+		52DE93DE19FF5EA10017730B /* Seedling.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DE93DD19FF5EA10017730B /* Seedling.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,8 @@
 		52A1BCA118D114CB00A3B49C /* CollisionEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionEvent.h; sourceTree = "<group>"; };
 		52A1BCA218D114CB00A3B49C /* CollisionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionEvent.m; sourceTree = "<group>"; };
 		52C82FA318CFC12800764713 /* Spaceship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spaceship@2x.png"; sourceTree = "<group>"; };
+		52DE93DC19FF5EA10017730B /* Seedling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seedling.h; sourceTree = "<group>"; };
+		52DE93DD19FF5EA10017730B /* Seedling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seedling.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +369,8 @@
 				529E9A6C1920586400782226 /* QuadSeeder.m */,
 				529E9A661920575100782226 /* Quandrant.h */,
 				529E9A671920575100782226 /* Quandrant.m */,
+				52DE93DC19FF5EA10017730B /* Seedling.h */,
+				52DE93DD19FF5EA10017730B /* Seedling.m */,
 			);
 			path = MAP;
 			sourceTree = "<group>";
@@ -526,6 +531,7 @@
 				5219F62D18D7C68700F26EF7 /* SpaceStation.m in Sources */,
 				522AB8D3190CE66B0006F8E3 /* GCEquipViewController.m in Sources */,
 				5236E02618C1DA8800AFE2AF /* GCAppDelegate.m in Sources */,
+				52DE93DE19FF5EA10017730B /* Seedling.m in Sources */,
 				529E9A6A1920575100782226 /* Quandrant.m in Sources */,
 				522AB8D6190E11160006F8E3 /* UIViewController+InventoryTable.m in Sources */,
 				529E9A691920575100782226 /* MapNode.m in Sources */,

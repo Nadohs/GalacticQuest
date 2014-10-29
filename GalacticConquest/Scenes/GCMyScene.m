@@ -20,6 +20,9 @@
 #import "CollisionManager.h"
 
 
+#import "QuadSeeder.h"
+#import "Quandrant.h"
+
 
 @implementation GCMyScene
 
@@ -170,7 +173,17 @@
         [self setupHUD];
 
         [self buildMiniMap];
-        [self buildSpaceStuff];
+        Seedling*seed = [[QuadSeeder sharedManager] seedFromQuad:CGPointMake(0, 0)];
+       Quandrant *quad = [self buildSpaceStuff:seed];
+        for(AstrialObject*ast in quad.astrials){
+            if (ast.isCollidable) {
+                 [[AstrialObjectManager sharedManager] addCollidable:ast];
+            }else{
+                 [[AstrialObjectManager sharedManager] addNonCollidable:ast];
+            }
+        }
+        [self startTrackingAstrials];
+        
         [[CollisionManager sharedManager] setShip:_ship];
         _bulletBox = [[FiringModule alloc]initWithShip:_ship];
         [[AstrialObjectManager sharedManager] recalculateLocalCollidablesFrom:self.shipPosition];

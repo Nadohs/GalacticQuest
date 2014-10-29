@@ -5,12 +5,14 @@
 //  Created by Rich on 5/11/14.
 //  Copyright (c) 2014 NadohsInc. All rights reserved.
 //
-
+@class Seedling;
 @interface Quandrant : NSObject
 
-@property (nonatomic) unsigned long seed;
+@property (nonatomic,strong) Seedling *seed;
 @property (nonatomic) CGPoint coordinates ;
-@property (nonatomic) NSMutableArray *astrials;
+@property (nonatomic,strong) NSMutableArray *astrials;
+
+
 
 
 @end

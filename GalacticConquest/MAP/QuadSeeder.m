@@ -7,8 +7,10 @@
 //
 
 #import "QuadSeeder.h"
+#import "Seedling.h"
 
 @implementation QuadSeeder
+
 
 
 #pragma mark - singleton methods
@@ -23,17 +25,49 @@
 }
 
 
--(int)seedFromQuad:(CGPoint)coord{
+-(Seedling*)seedFromQuad:(CGPoint)coord{
+    //Calculate seed;
     
-    return 0;
+    Seedling*seed = [[Seedling alloc]init];
+    [seed setCoord:coord];
     
+    double x =fabs(coord.x);
+    double y =fabs(coord.y);
+    
+    double high  = MAX(x, y);
+    double low   = MIN(x, y);
+    double total = high * high;
+    
+    if (y>x) {
+        [seed setSeedMain:(1 + total - low)];
+        return seed;
+    }
+
+    double sub = total - high;
+    double pos = sub - (high - low) + 1;
+    
+    [seed setSeedMain:pos];
+    return seed;
 }
+
+
 
 
 -(void)singletonInit
 {
     _processedQuads = [[NSMutableDictionary alloc]init];
 }
+
+
+-(void)getQuadAt:(CGPoint)coord{
+    NSString*key = NSStringFromCGPoint(coord);
+
+}
+
+
+
+
+
 
 
 +(QuadSeeder *) sharedManager

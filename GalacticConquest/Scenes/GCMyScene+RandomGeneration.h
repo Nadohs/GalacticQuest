@@ -7,9 +7,12 @@
 //
 
 #import "GCMyScene.h"
+@class Seedling;
+@class Quandrant;
 
 @interface GCMyScene (RandomGeneration)
 -(UIColor*)randomColor;
 -(CGPoint)randomAstrialPosition;
--(void)buildSpaceStuff;
+//-(void)buildSpaceStuff;
+-(Quandrant*)buildSpaceStuff:(Seedling*)seed;
 @end
