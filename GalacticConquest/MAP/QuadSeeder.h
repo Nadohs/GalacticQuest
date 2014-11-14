@@ -7,16 +7,35 @@
 //
 
 @class Seedling;
+@class GalaticGenerator;
+@class Quandrant;
+@class SKNode;
 
 @interface QuadSeeder : NSObject
 
-@property(nonatomic)NSMutableDictionary *processedQuads;
+
+@property (nonatomic, strong) GalaticGenerator *galaticGen;
+@property (nonatomic, strong) NSMutableDictionary *processedQuads;
+@property (nonatomic, strong) NSMutableArray *activeAstrials;
+@property (nonatomic, strong) NSMutableArray *activeQuadrants;
 
 
--(Seedling*)seedFromQuad:(CGPoint)coord;
+@property (nonatomic, weak) SKNode *miniMap;
+@property (nonatomic, weak) SKNode *galaticMap;
+
+-(NSArray*)getCollidables;
+
+
+
+-(void)generateAstrialsFromPos : (CGPoint)pos;
+
+-(Seedling  *) seedFromQuad    : (CGPoint)coord;
     
+-(Quandrant *) getQuadAt       : (CGPoint)coord;
 
-+(QuadSeeder *) sharedManager;
++(QuadSeeder*) sharedManager   ;
+
+
 
 
 @end

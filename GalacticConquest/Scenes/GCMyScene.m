@@ -8,7 +8,7 @@
 
 #import "GCMyScene.h"
 #import "GCMyScene+MiniMap.h"
-#import "GCMyScene+RandomGeneration.h"
+//#import "GCMyScene+RandomGeneration.h"
 
 #import "AstrialObjectManager.h"
 #import "AstrialObject.h"
@@ -23,6 +23,12 @@
 #import "QuadSeeder.h"
 #import "Quandrant.h"
 
+#import "GalaticGenerator.h"
+
+
+@interface GCMyScene ()
+@property (nonatomic, strong)GalaticGenerator *galacticGen;
+@end
 
 @implementation GCMyScene
 
@@ -70,27 +76,27 @@
     
     // Create the DPads
     self.dPad = [[DPad alloc] initWithRect:CGRectMake(0, 0, 64.0f, 64.0f)];
-    self.dPad.position = CGPointMake(64.0f / 4, 4.0f / 4);
+    self.dPad.position   = CGPointMake(55.0f, 55.0f);
     self.dPad.numberOfDirections = 24;
     self.dPad.deadRadius = 8.0f;
     
     [self.hud addChild:self.dPad];
-    
-//    [self addChild:self.hud];
+
 }
 
+
 //fire button
-- (void)setupStopPedal
-{
+- (void)setupStopPedal{
     NSLog(@"screen_width: %f",screen_width);
     _stopPedal = [SKSpriteNode spriteNodeWithImageNamed:@"stop_pedal"];
     _stopPedal.anchorPoint = CGPointMake(0, 0);
-    _stopPedal.position = CGPointMake(screen_width-(_stopPedal.size.width/2)-20,self.dPad.position.y );
+    _stopPedal.position = CGPointMake(screen_width-(_stopPedal.size.width/2)-20,self.dPad.position.y -35 );
    [_stopPedal setScale:0.6];
     _stopPedal.name = @"stopPedal";//how the node is identified later
     _stopPedal.zPosition = 1.0;
-    [self.hud addChild:_stopPedal];
+    [self. hud addChild:_stopPedal];
 }
+
 
 
 -(void)setupFireButton{
@@ -173,16 +179,27 @@
         [self setupHUD];
 
         [self buildMiniMap];
-        Seedling*seed = [[QuadSeeder sharedManager] seedFromQuad:CGPointMake(0, 0)];
-       Quandrant *quad = [self buildSpaceStuff:seed];
-        for(AstrialObject*ast in quad.astrials){
-            if (ast.isCollidable) {
-                 [[AstrialObjectManager sharedManager] addCollidable:ast];
-            }else{
-                 [[AstrialObjectManager sharedManager] addNonCollidable:ast];
-            }
-        }
-        [self startTrackingAstrials];
+        
+        [[NSNotificationCenter defaultCenter] addObserver : self
+                                                 selector : @selector(startTrackingAstrials)
+                                                     name : @"TrackMapItems"
+                                                   object : nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver : self
+                                                 selector : @selector(postQuadrantText:)
+                                                     name : @"postQuadrantText"
+                                                   object : nil];
+        
+       // Seedling *seed = [[QuadSeeder sharedManager] seedFromQuad:CGPointMake(0, 0)];
+        
+        [[AstrialObjectManager sharedManager] setBackground:(SKNode*)self.parallaxNodeBackgrounds];
+        
+        _galacticGen              = [GalaticGenerator new];
+        _galacticGen.mapCenter    = self.mapCenter;
+        _galacticGen.quatrantSize = self.quatrantSize;
+        
+
+        [[QuadSeeder sharedManager]generateAstrialsFromPos:self.shipPosition];
         
         [[CollisionManager sharedManager] setShip:_ship];
         _bulletBox = [[FiringModule alloc]initWithShip:_ship];
@@ -254,7 +271,9 @@
 #pragma mark - update method
 
 -(void)checkShipDrift:(float)drift{
+    
     CGPoint curPos = self.shipPosition;
+    
     if (drift > fabs(curPos.x - self.shipStartPos.x)) {
         return;
     }
@@ -262,11 +281,13 @@
         return;
     }
     self.shipStartPos = curPos;
+    [[QuadSeeder sharedManager]generateAstrialsFromPos:self.shipPosition];
     [[AstrialObjectManager sharedManager] recalculateLocalCollidablesFrom:self.shipPosition];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
 
+    NSLog(@"\nship POS : %@",NSStringFromCGPoint(self.shipPosition));
     [_stationBut setHidden:![[AstrialObjectManager sharedManager]canDock]];
     
     [self.bulletBox update:currentTime];
@@ -278,6 +299,7 @@
         self.frameCount = 0;
     }
     if (self.frameCount ==1) {
+        [[QuadSeeder sharedManager]generateAstrialsFromPos:self.shipPosition];
         [[AstrialObjectManager sharedManager] recalculateLocalCollidablesFrom:self.shipPosition];
     }
     
@@ -288,22 +310,22 @@
     
     newAngle -=90;
     
-    NSLog(@"angle %f",newAngle);
-    NSLog(@"rotation angle dif == %f",(self.currentAngle - newAngle));
+    //NSLog(@"angle %f",newAngle);
+    //NSLog(@"rotation angle dif == %f",(self.currentAngle - newAngle));
     
     float rotateTime = 0.2;
 
     if  ((self.currentAngle !=newAngle)&&
         !(newVelocity.x==0&&newVelocity.y==0)){
 
-        NSLog(@"has action? %i",[self hasActions]);
+        //NSLog(@"has action? %i",[self hasActions]);
         
-        NSLog(@"degree to rotate %f",self.dPad.degrees);
+        //NSLog(@"degree to rotate %f",self.dPad.degrees);
 
-        NSLog(@"adjAng to rotate %f",newAngle);
+        //NSLog(@"adjAng to rotate %f",newAngle);
         
         newAngle = M_PI*newAngle/180;
-        NSLog(@"angle %f",newAngle);
+        //NSLog(@"angle %f",newAngle);
         
         
         if (fabs(newAngle-self.currentAngle) > 1) {

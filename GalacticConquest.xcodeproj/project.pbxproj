@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5219F62918D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */; };
 		5219F62D18D7C68700F26EF7 /* SpaceStation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5219F62C18D7C68700F26EF7 /* SpaceStation.m */; };
 		522AB8D3190CE66B0006F8E3 /* GCEquipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 522AB8D2190CE66B0006F8E3 /* GCEquipViewController.m */; };
 		522AB8D6190E11160006F8E3 /* UIViewController+InventoryTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 522AB8D5190E11160006F8E3 /* UIViewController+InventoryTable.m */; };
@@ -59,6 +58,7 @@
 		52A1BCA318D114CB00A3B49C /* CollisionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1BCA218D114CB00A3B49C /* CollisionEvent.m */; };
 		52C82FA418CFC12800764713 /* Spaceship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C82FA318CFC12800764713 /* Spaceship@2x.png */; };
 		52DE93DE19FF5EA10017730B /* Seedling.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DE93DD19FF5EA10017730B /* Seedling.m */; };
+		52E475491A00B0810034F9C5 /* GalaticGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E475481A00B0810034F9C5 /* GalaticGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,8 +72,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5219F62718D7AD2800F26EF7 /* GCMyScene+RandomGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCMyScene+RandomGeneration.h"; sourceTree = "<group>"; };
-		5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCMyScene+RandomGeneration.m"; sourceTree = "<group>"; };
 		5219F62B18D7C68700F26EF7 /* SpaceStation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceStation.h; sourceTree = "<group>"; };
 		5219F62C18D7C68700F26EF7 /* SpaceStation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceStation.m; sourceTree = "<group>"; };
 		522AB8D1190CE66B0006F8E3 /* GCEquipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCEquipViewController.h; path = ../Scenes/GCEquipViewController.h; sourceTree = "<group>"; };
@@ -154,6 +152,8 @@
 		52C82FA318CFC12800764713 /* Spaceship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spaceship@2x.png"; sourceTree = "<group>"; };
 		52DE93DC19FF5EA10017730B /* Seedling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seedling.h; sourceTree = "<group>"; };
 		52DE93DD19FF5EA10017730B /* Seedling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seedling.m; sourceTree = "<group>"; };
+		52E475471A00B0810034F9C5 /* GalaticGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaticGenerator.h; sourceTree = "<group>"; };
+		52E475481A00B0810034F9C5 /* GalaticGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalaticGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,12 +335,12 @@
 		52973B0718D24BC500E5D7CE /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				52E475471A00B0810034F9C5 /* GalaticGenerator.h */,
+				52E475481A00B0810034F9C5 /* GalaticGenerator.m */,
 				52973B0818D24BC500E5D7CE /* GCMyScene.h */,
 				52973B0918D24BC500E5D7CE /* GCMyScene.m */,
 				529E9A621920575100782226 /* GCMyScene+MiniMap.h */,
 				529E9A631920575100782226 /* GCMyScene+MiniMap.m */,
-				5219F62718D7AD2800F26EF7 /* GCMyScene+RandomGeneration.h */,
-				5219F62818D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -523,8 +523,8 @@
 				52973B1118D25B9100E5D7CE /* FiringModule.m in Sources */,
 				52A1BCA318D114CB00A3B49C /* CollisionEvent.m in Sources */,
 				5263D8E018D3C4A300591974 /* InventoryManager.m in Sources */,
-				5219F62918D7AD2900F26EF7 /* GCMyScene+RandomGeneration.m in Sources */,
 				5296595918E0821B009A77A9 /* CollisionManager.m in Sources */,
+				52E475491A00B0810034F9C5 /* GalaticGenerator.m in Sources */,
 				52A1BCA018D113EA00A3B49C /* EnemyShip.m in Sources */,
 				52973B0A18D24BC500E5D7CE /* GCMyScene.m in Sources */,
 				529E9A681920575100782226 /* GCMyScene+MiniMap.m in Sources */,

@@ -9,10 +9,7 @@
 @interface Quandrant : NSObject
 
 @property (nonatomic,strong) Seedling *seed;
-@property (nonatomic) CGPoint coordinates ;
+@property (nonatomic,assign) CGPoint coordinates;
 @property (nonatomic,strong) NSMutableArray *astrials;
-
-
-
 
 @end

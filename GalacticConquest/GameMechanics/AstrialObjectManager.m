@@ -11,15 +11,23 @@
 #import "AstrialObject.h"
 #import "HitParticle.h"
 #import "SpaceStation.h"
+#import "QuadSeeder.h"
 
 
 @implementation AstrialObjectManager
 
 #pragma mark -
 
+-(NSMutableArray *)astrialObjects{
+    return [[[QuadSeeder sharedManager] getCollidables] mutableCopy];
+}
+
 -(void)recalculateLocalCollidablesFrom:(CGPoint)local{
     BOOL station = NO;
     float collideRange = 3000;
+    
+    _collidableAstrials = [[QuadSeeder sharedManager] getCollidables];
+    
     NSMutableArray *tempLocalCollidables = [[NSMutableArray alloc]init];
     CGRect localFrame = CGRectMake(local.x-collideRange/2,
                                    local.y-collideRange/2,
@@ -44,40 +52,55 @@
 #pragma mark - add/remove Astrials
 
 -(void)addCollidable:(AstrialObject*)astrialObj{
-    [_background         addChild:  astrialObj];
-    [_collidableAstrials addObject: astrialObj];
-    [_astrialObjects     addObject: astrialObj];
+    [_background          addChild : astrialObj];
+//    [_collidableAstrials addObject : astrialObj];
+    [_astrialObjects     addObject : astrialObj];
 }
 
 
+
 -(void)addNonCollidable:(AstrialObject*)astrialObj {
-    [_background addChild:astrialObj];
-    if (![astrialObj isKindOfClass:HitParticle.class]){
-        [_astrialObjects addObject:astrialObj];
+        [_background      addChild : astrialObj];
+    if (![astrialObj isKindOfClass : HitParticle.class]){
+        [_astrialObjects addObject : astrialObj];
     }else{
         NSLog(@"added hitParticle to astrials GOOD");
     }
 }
 
+
+
 -(void)killAstrial:(AstrialObject*)astrialObj{
     [astrialObj removeFromParent];
-    [_collidableAstrials removeObject:astrialObj];
-    [_astrialObjects removeObject:astrialObj];
-    
+//    [_collidableAstrials removeObject : astrialObj];
+    [_astrialObjects     removeObject : astrialObj];
 }
+
+
+
 
 #pragma mark - getters/setters
 
+
+
+
 -(NSArray*)collidableAstrials{
-    return [NSArray arrayWithArray:_collidableAstrials];
+    
+
+    return [NSArray arrayWithArray : _collidableAstrials];
 }
 
 -(NSArray*)localCollidables{
-    return [NSArray arrayWithArray:_localCollidables];
+    
+    
+    return [NSArray arrayWithArray : _localCollidables];
 }
 
 
+
 #pragma mark - Inititialize Stuff
+
+
 
 -(void)singletonInit
 {
@@ -85,6 +108,7 @@
     _collidableAstrials = [[NSMutableArray alloc]init];
     _localCollidables   = [[NSMutableArray alloc]init];
 }
+
 
 
 + (AstrialObjectManager *) sharedManager
@@ -97,6 +121,7 @@
     });
     return sharedInstance;
 }
+
 
 
 + (id) allocWithZone:(NSZone *)zone {

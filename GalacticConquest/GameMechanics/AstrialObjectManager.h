@@ -14,7 +14,7 @@
 @property (weak, nonatomic) SKNode *background;
 @property (strong, nonatomic) NSMutableArray *astrialObjects;
 @property (strong, nonatomic) NSMutableArray *localCollidables;
-@property (strong, nonatomic) NSMutableArray *collidableAstrials;
+@property (strong, nonatomic) NSArray *collidableAstrials;
 @property (assign, nonatomic) BOOL canDock;
 
 -(void)addCollidable:(AstrialObject*)astrialObj;

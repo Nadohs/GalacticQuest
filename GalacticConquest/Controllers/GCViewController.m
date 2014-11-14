@@ -33,7 +33,7 @@
 }
 
 
--(void)openStoreView{//inventorySegue
+-(void)openStoreView{
     [self performSegueWithIdentifier:@"storeSegue" sender:self];
 }
 
@@ -44,8 +44,9 @@
 -(void)manualUnload{
     [self removeObserver:self forKeyPath:@"reloadInventory"];
 }
-- (BOOL)prefersStatusBarHidden
-{
+
+
+- (BOOL)prefersStatusBarHidden{
     return YES;
 }
 
@@ -99,14 +100,11 @@
     [self.navigationController setNavigationBarHidden:YES];
     
     [self setEdgesForExtendedLayout:UIRectEdgeNone];
-    
-    
 }
 
 
 
-- (BOOL)shouldAutorotate
-{
+- (BOOL)shouldAutorotate{
     return NO;
 }
 
@@ -115,6 +113,8 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [self.scene setPaused:YES];
 }
+
+
 
 -(void)viewDidAppear:(BOOL)animated{
     [self.scene setPaused:NO];

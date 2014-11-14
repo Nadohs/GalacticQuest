@@ -12,4 +12,5 @@
 -(void)buildMiniMap;
 -(void)miniMapUpdate;
 -(void)startTrackingAstrials;
+-(void)postQuadrantText:(NSNotification*)notification;
 @end

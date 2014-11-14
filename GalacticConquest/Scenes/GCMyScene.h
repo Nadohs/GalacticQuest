@@ -24,8 +24,10 @@
 
 //MiniMap Properties
 @property (strong, nonatomic) SKSpriteNode *miniMap;
+@property (strong, nonatomic) SKLabelNode  *quadLabel;
 @property (assign, nonatomic) CGPoint mapCenter;
 @property (assign, nonatomic) float quatrantSize;
+
 
 //directions
 @property (strong, nonatomic) NSMutableArray *UL;
@@ -61,6 +63,8 @@
 @property (strong, nonatomic) SKEmitterNode *burstNode;
 
 @property (assign, nonatomic) int frameCount;
+
+
 
 -(NSArray*)astrialObjects;
 -(CGPoint)shipPosition;
