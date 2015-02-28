@@ -57,6 +57,7 @@
 		52A1BCA018D113EA00A3B49C /* EnemyShip.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1BC9F18D113EA00A3B49C /* EnemyShip.m */; };
 		52A1BCA318D114CB00A3B49C /* CollisionEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A1BCA218D114CB00A3B49C /* CollisionEvent.m */; };
 		52C82FA418CFC12800764713 /* Spaceship@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C82FA318CFC12800764713 /* Spaceship@2x.png */; };
+		52CD428C1A15E50E002452BF /* GCTextureGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CD428B1A15E50E002452BF /* GCTextureGenerator.m */; };
 		52DE93DE19FF5EA10017730B /* Seedling.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DE93DD19FF5EA10017730B /* Seedling.m */; };
 		52E475491A00B0810034F9C5 /* GalaticGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E475481A00B0810034F9C5 /* GalaticGenerator.m */; };
 /* End PBXBuildFile section */
@@ -150,6 +151,8 @@
 		52A1BCA118D114CB00A3B49C /* CollisionEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionEvent.h; sourceTree = "<group>"; };
 		52A1BCA218D114CB00A3B49C /* CollisionEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionEvent.m; sourceTree = "<group>"; };
 		52C82FA318CFC12800764713 /* Spaceship@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Spaceship@2x.png"; sourceTree = "<group>"; };
+		52CD428A1A15E50E002452BF /* GCTextureGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCTextureGenerator.h; sourceTree = "<group>"; };
+		52CD428B1A15E50E002452BF /* GCTextureGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCTextureGenerator.m; sourceTree = "<group>"; };
 		52DE93DC19FF5EA10017730B /* Seedling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Seedling.h; sourceTree = "<group>"; };
 		52DE93DD19FF5EA10017730B /* Seedling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Seedling.m; sourceTree = "<group>"; };
 		52E475471A00B0810034F9C5 /* GalaticGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalaticGenerator.h; sourceTree = "<group>"; };
@@ -234,6 +237,7 @@
 		5236E01B18C1DA8800AFE2AF /* GalacticConquest */ = {
 			isa = PBXGroup;
 			children = (
+				52CD42891A15E4E0002452BF /* Generation */,
 				529E9A611920575100782226 /* MAP */,
 				528B1BD918C9C6B600AEF8DD /* HUD */,
 				52973B0B18D24BD400E5D7CE /* Controllers */,
@@ -405,6 +409,15 @@
 			path = astrials;
 			sourceTree = "<group>";
 		};
+		52CD42891A15E4E0002452BF /* Generation */ = {
+			isa = PBXGroup;
+			children = (
+				52CD428A1A15E50E002452BF /* GCTextureGenerator.h */,
+				52CD428B1A15E50E002452BF /* GCTextureGenerator.m */,
+			);
+			path = Generation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -529,6 +542,7 @@
 				52973B0A18D24BC500E5D7CE /* GCMyScene.m in Sources */,
 				529E9A681920575100782226 /* GCMyScene+MiniMap.m in Sources */,
 				5219F62D18D7C68700F26EF7 /* SpaceStation.m in Sources */,
+				52CD428C1A15E50E002452BF /* GCTextureGenerator.m in Sources */,
 				522AB8D3190CE66B0006F8E3 /* GCEquipViewController.m in Sources */,
 				5236E02618C1DA8800AFE2AF /* GCAppDelegate.m in Sources */,
 				52DE93DE19FF5EA10017730B /* Seedling.m in Sources */,

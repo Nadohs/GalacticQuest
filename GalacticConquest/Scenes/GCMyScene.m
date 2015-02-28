@@ -24,6 +24,7 @@
 #import "Quandrant.h"
 
 #import "GalaticGenerator.h"
+#import "GCTextureGenerator.h"
 
 
 @interface GCMyScene ()
@@ -149,11 +150,61 @@
 }
 
 
+CGImageRef CGGenerateNoiseImage(CGSize size, CGFloat factor){
+//CF_RETURNS_RETAINED {
+    NSUInteger bits = fabs(size.width) * fabs(size.height);
+    char *rgba = (char *)malloc(bits);
+    srand(124);
+    
+    rgba[0] = (rand() % 256) * factor;;
+    
+    for(int i = 1; i < bits; ++i){
+        int pixel = (rand() % 256) * factor;
+        if ((int)rgba[i-1] < 128 && pixel > 128) {
+            pixel = (int)rgba[i-1] - 128/8;
+        }else{
+
+        }
+        rgba[i] = pixel;
+    }
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
+    CGContextRef bitmapContext = CGBitmapContextCreate(rgba, fabs(size.width), fabs(size.height),
+                                                       8, fabs(size.width), colorSpace, kCGImageAlphaNone);
+    CGImageRef image = CGBitmapContextCreateImage(bitmapContext);
+    
+    CFRelease(bitmapContext);
+    CGColorSpaceRelease(colorSpace);
+    free(rgba);
+    
+    return image;
+}
+
+
+
+-(void)circularNode:(SKSpriteNode*)tile{
+//    SKSpriteNode *tile = [SKSpriteNode spriteNodeWithColor:[UIColor   colorWithRed:0.0/255.0
+//                                                                             green:128.0/255.0
+//                                                                              blue:255.0/255.0
+//                                                                             alpha:1.0] size:CGSizeMake(30, 30)];
+    SKCropNode* cropNode = [SKCropNode node];
+    SKShapeNode* mask = [SKShapeNode node];
+    [mask setPath:CGPathCreateWithRoundedRect(CGRectMake(15, -15, 30, 30), 4, 4, nil)];
+    [mask setFillColor:[SKColor whiteColor]];
+    [cropNode setMaskNode:mask];
+    [cropNode addChild:tile];
+}
+
 
 -(void)setupShipToLocation:(CGPoint)location{
+    
     NSLog(@"Center is %@",NSStringFromCGPoint(location));
      _ship = [AstrialObject spriteNodeWithImageNamed:@"Spaceship"];
-    [self.ship setSize:CGSizeMake(50, 50)];
+//    CGImageRef imageref = [GCTextureGenerator generateNoiseImageSized:CGSizeMake(500/2,500/2) factor:1 type:0];
+//    SKTexture *texture = [SKTexture textureWithCGImage:imageref];//CGsGenerateNoiseImage(CGSizeMake(500/2,500/2),1)];
+//    _ship = [AstrialObject spriteNodeWithTexture:texture];
+
+    [self.ship setSize:CGSizeMake(500, 500)];
     
      self.ship.position = location;
     [self addChild:self.ship];
