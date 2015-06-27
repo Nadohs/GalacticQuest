@@ -10,6 +10,7 @@
 #import "InventoryManager.h"
 #import "AstrialObjectManager.h"
 
+
 @implementation AstrialObject
 
 
@@ -24,14 +25,18 @@
     [self getMinned];
 }
 
+
+
 -(void)getMinned{
     [[InventoryManager sharedManager] mineRandomOre];
 }
 
 
+
+
 -(void)takeHit:(float)hitPoints location:(CGPoint)hitLocation{
     
-     NSString *burstPath =  [[NSBundle mainBundle] pathForResource:@"explosion" ofType:@"sks"];
+    NSString *burstPath =  [[NSBundle mainBundle] pathForResource:@"explosion" ofType:@"sks"];
     
      self.burstNode = [NSKeyedUnarchiver unarchiveObjectWithFile:burstPath];
     [self.burstNode setNumParticlesToEmit:250];

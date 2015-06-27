@@ -10,18 +10,46 @@
 #import "MapNode.h"
 #import "AstrialObjectManager.h"
 #import "AstrialObject.h"
+#import "QuadSeeder.h"
+#import "GalaticGenerator.h"
 
 
 @implementation GCMyScene (MiniMap)
 -(void)buildMiniMap{
      self.miniMap = [SKSpriteNode spriteNodeWithImageNamed:@"minimap"];
-     self.miniMap.position = CGPointMake(self.miniMap.size.width/2,(self.size.width - self.miniMap.size.height/4));
+     self.anchorPoint = CGPointMake(0, 0);
+     self.miniMap.position = CGPointMake(self.miniMap.size.width/2+10,(screen_height - (self.miniMap.size.height/2)-10));
     [self.miniMap setScale:1];
      self.miniMap.name = @"miniMap";
      self.miniMap.zPosition = 1.0;
     [self addChild:self.miniMap];
+    
+    self.quadLabel = [SKLabelNode labelNodeWithFontNamed:@"Arial"];;
+    self.quadLabel.text = @"Drag this label";
+    self.quadLabel.fontSize = 20;
+    self.quadLabel.zPosition = self.miniMap.zPosition +3;
+    self.quadLabel.fontColor = [UIColor whiteColor];
+   //[self.quadLabel setBlendMode:SKBlendModeAdd];
+    self.quadLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+    
+    CGPoint mapBottonPos = CGPointMake(10,(screen_height - (self.miniMap.size.height/2)) - self.miniMap.size.height+ 30);
+    
+//    mapBottonPos.y += self.miniMap.size.height;
+     self.quadLabel.position = mapBottonPos;
+    [self   addChild:self.quadLabel];
+    [self.quadLabel setText:@"QUADRANT:(0,0)"];
+    
     [self startTrackingShip];
 }
+
+
+-(void)postQuadrantText:(NSNotification*)notification{
+
+    
+    CGPoint coord = CGPointFromString( [notification object] );
+    [self.quadLabel setText:[NSString stringWithFormat:@"QUADRANT (%i,%i)",(int)coord.x,(int)coord.y]];
+}
+
 
 
 -(void)pulseShipIcon{
@@ -29,7 +57,7 @@
     SKAction *action2 = [SKAction resizeToWidth:8 height:8 duration:0.1];
     
     [[self.miniMap childNodeWithName:@"mmItem0" ] runAction:action1 completion:^{
-        [[self.miniMap childNodeWithName:@"mmItem0" ] runAction:action2];
+    [[self.miniMap childNodeWithName:@"mmItem0" ] runAction:action2];
     }];
     
     [[self.miniMap childNodeWithName:@"mmItem0" ] setZPosition:2.0];
@@ -49,6 +77,9 @@
     [self.miniMap addChild:newNode];
      self.mapCenter = [self convertPoint:[self childNodeWithName:@"playerShip"].position
                                   toNode:(SKNode*)self.parallaxNodeBackgrounds];
+    
+    [[[QuadSeeder sharedManager]galaticGen] setMapCenter:self.mapCenter];
+    
     
     [NSTimer scheduledTimerWithTimeInterval:0.5
                                      target:self
@@ -104,7 +135,7 @@
     
     int itemCount = 1;
     float mapBreakLeft = self.mapCenter.x - self.quatrantSize/2;
-    float mapBreakUp = self.mapCenter.y + self.quatrantSize/2;
+    float mapBreakUp   = self.mapCenter.y + self.quatrantSize/2;
     
     for (SKSpriteNode*dot in [self.miniMap children]){
         if (dot != (SKSpriteNode*)[self.miniMap childNodeWithName:@"mmItem0"]) {
@@ -114,13 +145,19 @@
     
     
     for (AstrialObject*astrialObj in self.astrialObjects) {
+        
+        if(astrialObj.mapNode){
+            continue;
+        }
+        
         MapNode *newNode =[self astrialIconFromAstrial:astrialObj];
-        [newNode setAstrial:astrialObj];
+        
+        [astrialObj setMapNode : newNode];
+        [newNode    setAstrial : astrialObj];
         
         [newNode setName:[NSString stringWithFormat:@"mmItem%i",itemCount]];
-        [self.miniMap addChild:newNode];
 
-        
+        [self.miniMap addChild:newNode];
         
         CGPoint newPos = [self convertPoint:astrialObj.position
                                      toNode:(SKNode*)self.parallaxNodeBackgrounds];
@@ -132,6 +169,7 @@
                                          newY*self.miniMap.size.height+self.miniMap.size.height/2)];
         itemCount++;
     }
+    
     NSLog(@"astrial counts %i",itemCount);
 }
 
@@ -141,20 +179,21 @@
 -(void)miniMapUpdate{
     
     float mapBreakLeft = self.mapCenter.x - self.quatrantSize/2;
-
-    float mapBreakUp = self.mapCenter.y + self.quatrantSize/2;
+    float mapBreakUp   = self.mapCenter.y + self.quatrantSize/2;
     
     SKSpriteNode *shipDot = (SKSpriteNode*)[self.miniMap childNodeWithName:@"mmItem0"];
     
     CGPoint newPos = [self convertPoint:[self childNodeWithName:@"playerShip"].position
                                   toNode:(SKNode*)self.parallaxNodeBackgrounds];
-    float newX = (newPos.x - mapBreakLeft)/self.quatrantSize;
-    float newY = (newPos.y - mapBreakUp)/self.quatrantSize;
     
-    CGPoint oldPoint =shipDot.position;
-    CGPoint newPoint =CGPointMake(newX * self.miniMap.size.width  - self.miniMap.size.width/2,
-                                  newY * self.miniMap.size.height + self.miniMap.size.height/2);
-
+    float newX = (newPos.x - mapBreakLeft)/self.quatrantSize;
+    float newY = (newPos.y - mapBreakUp) /self.quatrantSize;
+    
+    CGPoint oldPoint = shipDot.position;
+    
+    CGPoint newPoint = CGPointMake(newX * self.miniMap.size.width  - self.miniMap.size.width /2,
+                                   newY * self.miniMap.size.height + self.miniMap.size.height/2);
+    
     newPoint.x = oldPoint.x - newPoint.x;
     newPoint.y = oldPoint.y - newPoint.y;
 
@@ -163,7 +202,7 @@
         if ([node.name isEqualToString:@"mmItem0"]) {
             continue;
         }
-        if (node.astrial.size.width < 30){
+        if ( node.astrial.size.width < 30){
             [node.astrial removeFromParent];
             [[AstrialObjectManager sharedManager] killAstrial:node.astrial];
             [node removeFromParent];
@@ -171,8 +210,6 @@
         }
         
         SKNode *astrialObj = node.astrial;
-        
-        
         
         CGPoint newPos = [self convertPoint:astrialObj.position
                                      toNode:(SKNode*)self.parallaxNodeBackgrounds];
@@ -201,6 +238,8 @@
         }
         
     }
+    
+    [self.quadLabel setZPosition:20];
 }
 
 

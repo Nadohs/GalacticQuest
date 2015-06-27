@@ -10,29 +10,29 @@
 	<string>GalacticConquest</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>FA27A9DE-EFBD-40BE-B4EA-39CB75EE53EA</key>
+		<key>522D4195785F7FD4A1164663F58ACBAD0E08F64D</key>
 		<string>https://github.com/Nadohs/GalacticQuest.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>GalacticConquest.xcodeproj/project.xcworkspace</string>
+	<string>GalacticConquest.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>FA27A9DE-EFBD-40BE-B4EA-39CB75EE53EA</key>
+		<key>522D4195785F7FD4A1164663F58ACBAD0E08F64D</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Nadohs/GalacticQuest.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FA27A9DE-EFBD-40BE-B4EA-39CB75EE53EA</string>
+	<string>522D4195785F7FD4A1164663F58ACBAD0E08F64D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FA27A9DE-EFBD-40BE-B4EA-39CB75EE53EA</string>
+			<string>522D4195785F7FD4A1164663F58ACBAD0E08F64D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>GalacticConquest</string>
 		</dict>
